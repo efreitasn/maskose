@@ -11,21 +11,11 @@ export interface MaskoseCharNum extends MaskoseCharBase {
 /**
  * A character in the range 0 to 9 expected to be in the value to be masked
  */
-export default function mkCharNum({
-  start,
-  end
-}: {
-  start?: number;
-  end?: number;
-} = {}): MaskoseCharNum {
-  const regExp = new RegExp(
-    `[${start || 0}-${end || 9}]`
-  );
-
+export default function mkCharNum(): MaskoseCharNum {
   return {
     type: MASKOSE_CHAR_NUM_TYPE,
     repetitions: 1,
     valueLengthConditions: [],
-    regExp: regExp
+    regExp: /[0-9]/
   };
 }

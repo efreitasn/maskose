@@ -9,20 +9,14 @@ export interface MaskoseCharLetter extends MaskoseCharBase {
 };
 
 /**
- * A character in the range A to Z (case insensitive) expected to be in the value to be masked
+ * A character in the specified range expected to be in the value to be masked
  */
-export default function mkCharLetter({
-  start,
-  end
-}: {
-  start?: string;
-  end?: string;
+export default function mkCharLetter(options: {
+  caseSensitive?: boolean;
 } = {}): MaskoseCharLetter {
-  // TODO
-  // verificar se {start,end}.length === 1
   const regExp = new RegExp(
-    `[${start || 'A'}-${end || 'Z'}]`,
-    'i'
+    '[A-Z]',
+    options.caseSensitive ? '' : 'i'
   );
   
   return {
