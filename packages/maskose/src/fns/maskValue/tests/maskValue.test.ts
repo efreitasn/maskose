@@ -1,15 +1,14 @@
 import mkCreate from '../../create';
+import mkMaskBoostEndless from '../../../boosts/mask/endless';
+import mkMaskBoostRightToLeft from '../../../boosts/mask/rightToLeft';
 import mkCharNum from '../../../mask/chars/num';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 import mkCharBoostValueLengthEqualTo from '../../../boosts/char/valueLengthEqualTo';
 import mkMaskValue from '..';
-import { mkMaskBoostEndless, mkMaskBoostRightToLeft } from '../../..';
 import mkBoostMask from '../../boostMask';
 import mkCharGroup from '../../../mask/chars/group';
 import mkCharLetter from '../../../mask/chars/letter';
-import mkCharBoostValueLengthGreaterThan from '../../../boosts/char/valueLengthGreaterThan';
-import mkCharSpecific from '../../../mask/chars/specific';
 
 test('should mask the provided value (BR cellphone number mask)', () => {
   const mask = mkCreate([
