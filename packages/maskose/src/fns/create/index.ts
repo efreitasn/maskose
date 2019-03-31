@@ -1,13 +1,14 @@
-import { MaskoseChar } from '../../char';
-import charsToMaskContentItems from './charsToMaskContentItems';
-import { MaskoseMask } from '../..';
+import { MaskoseMask } from '../../mask';
+import { MaskoseChar } from '../../mask/chars';
 
-export default function mkCreate(maskoseChars: MaskoseChar[]): MaskoseMask {
-  const content = charsToMaskContentItems(maskoseChars);
-
+/**
+ * Create a left-to-right non-endless mask with the provided characters
+ * @param chars The mask's characters
+ */
+export default function mkCreate(chars: MaskoseChar[]): MaskoseMask {
   return {
-    content,
+    chars,
     endless: false,
-    rightToLeft: false
+    direction: 'left-to-right'
   };
 }

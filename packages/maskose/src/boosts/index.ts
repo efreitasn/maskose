@@ -1,0 +1,1 @@
+export type MaskoseBoost<T> = (val: T) => T;

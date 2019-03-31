@@ -8,9 +8,9 @@ mkMask(...maskoseChars: MaskoseChar[]) => MaskoseMask
 ```
 Create a mask. It resembles the pipe function in functional programming. The provided [characters](#mask-characters) are added from left to right to the mask.
 
-### mkFormat
+### mkMaskValue
 ```javascript
-mkFormat(
+mkMaskValue(
   options: {
     mask: MaskoseMask,
     rightToLeft?: boolean
@@ -69,7 +69,7 @@ A character that will only resolve to a primitive if its `fn` returns `true`. Ot
 ## Recipes
 
 ### Currency mask
-A currency mask is the perfect use case for the rightToLeft option in the mkFormat function.
+A currency mask is the perfect use case for the rightToLeft option in the mkMaskValue function.
 ```javascript
 const mask = mkMask(
   mkCharRepeat(2, mkCharNum())),
@@ -78,7 +78,7 @@ const mask = mkMask(
   mkCharToBePut(','),
   mkCharRepeat(2, mkCharNum()))
 );
-const formatWithMask = mkFormat(
+const formatWithMask = mkMaskValue(
   {
     mask,
     rightToLeft: true
@@ -107,7 +107,7 @@ const mask = mkMask(
   mkCharToBePut('-'),
   mkCharRepeat(4, mkCharNum()))
 );
-const formatWithMask = mkFormat(
+const formatWithMask = mkMaskValue(
   {
     mask
   }

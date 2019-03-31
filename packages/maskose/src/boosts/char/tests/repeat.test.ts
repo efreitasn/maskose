@@ -1,10 +1,9 @@
 import test from 'ava';
 import mkCharBoostRepeat from '../repeat';
-import { mkCharLetter } from '../../../char';
+import mkCharNum from '../../../mask/chars/num';
 
 test('should match the object returned by mkCharBoostRepeat()', t => {
-  const mkCharBoostRepeatWithNum = mkCharBoostRepeat(4);
-  const result = mkCharBoostRepeatWithNum(mkCharLetter());
+  const result = mkCharBoostRepeat(5)(mkCharNum());
 
   t.snapshot(result);
 });

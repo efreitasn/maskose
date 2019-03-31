@@ -1,14 +1,24 @@
 import test from 'ava';
+import { mkMaskBoostRightToLeftWithoutValidations } from '../rightToLeft';
 import mkCreate from '../../../fns/create';
-import { mkCharNum, mkCharLetter } from '../../../char';
-import mkMaskBoostRightToLeft from '../rightToLeft';
+import isMaskRightToLeft from '../../../utils/isMaskRightToLeft';
+import mkCharNum from '../../../mask/chars/num';
+import mkCharGroup from '../../../mask/chars/group';
+import mkCharLetter from '../../../mask/chars/letter';
+import mkCharSpecific from '../../../mask/chars/specific';
+import mkCharToBePut from '../../../mask/chars/toBePut';
 
-test('should make a mask rightToLeft', t => {
+test('should make the provided mask a right-to-left mask', t => {
   const mask = mkCreate([
     mkCharNum(),
+    mkCharGroup([
+      mkCharLetter(),
+      mkCharSpecific('B')
+    ]),
+    mkCharToBePut('/'),
     mkCharLetter()
   ]);
-  const result = mkMaskBoostRightToLeft()(mask);
+  const maskBoosted = mkMaskBoostRightToLeftWithoutValidations()(mask);
 
-  t.is(result.rightToLeft, true);
+  t.true(isMaskRightToLeft(maskBoosted));
 });

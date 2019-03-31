@@ -1,35 +1,18 @@
 import test from 'ava';
 import mkCreate from '../../../fns/create';
-import { mkCharNum, mkCharLetter, mkCharToBePut } from '../../../char';
-import mkCreateBoostEndleess from '../endless';
-import mkMaskBoostRightToLeft from '../rightToLeft';
+import mkMaskBoostEndless from '../endless';
+import isMaskEndless from '../../../utils/isMaskEndless';
+import mkCharNum from '../../../mask/chars/num';
+import mkCharToBePut from '../../../mask/chars/toBePut';
+import mkCharLetter from '../../../mask/chars/letter';
 
-test('should make a mask endless', t => {
+test('should make the provided mask an endless mask', t => {
   const mask = mkCreate([
     mkCharNum(),
+    mkCharToBePut('-'),
     mkCharLetter()
   ]);
-  const result = mkCreateBoostEndleess()(mask);
+  const maskBoosted = mkMaskBoostEndless()(mask);
 
-  t.is(result.endless, true);
-});
-
-test('should throw an error if the last character of the provided mask is a toBePut', t => {
-  const mask = mkCreate([
-    mkCharNum(),
-    mkCharToBePut('A')
-  ]);
-
-  t.throws(() => mkCreateBoostEndleess()(mask));
-});
-
-test('should throw an error if the last character of the provided mask is a toBePut (2)', t => {
-  const mask = mkMaskBoostRightToLeft()(
-    mkCreate([
-      mkCharToBePut('A'),
-      mkCharNum()
-    ])
-  );
-
-  t.throws(() => mkCreateBoostEndleess()(mask));
+  t.true(isMaskEndless(maskBoosted));
 });

@@ -1,25 +1,17 @@
-import { MaskoseChar, MaskoseCharPredicateFn } from './char';
-
-export interface MaskoseMaskContentItem {
-  readonly char: MaskoseChar;
-  readonly regExpStr: string;
-  readonly predicateFn?: MaskoseCharPredicateFn;
-};
-
-export interface MaskoseMask {
-  readonly endless: boolean;
-  readonly rightToLeft: boolean;
-  readonly content: MaskoseMaskContentItem[];
-};
-
-export type MaskoseBoost<T> = (val: T) => T;
-
-export { default as mkFormat } from './fns/format';
+// Fns
+export { default as mkMaskValue } from './fns/maskValue';
 export { default as mkCreate } from './fns/create';
-export { default as mkMatch } from './fns/match';
-export {
-  mkCharLetter as mkCharLetter,
-  mkCharNum as mkCharNum,
-  mkCharSpecific as mkCharSpecific,
-  mkCharToBePut as mkCharToBePut
-} from './char';
+export { default as mkBoostChar } from './fns/boostChar';
+export { default as mkBoostMask } from './fns/boostMask';
+// Boosts
+export { default as mkCharBoostRepeat } from './boosts/char/repeat';
+export { default as mkMaskBoostEndless } from './boosts/mask/endless';
+export { default as mkMaskBoostRightToLeft } from './boosts/mask/rightToLeft';
+export { default as mkCharBoostValueLengthEqualTo } from './boosts/char/valueLengthEqualTo';
+export { default as mkCharBoostValueLengthGreaterThan } from './boosts/char/valueLengthGreaterThan';
+export { default as mkCharBoostValueLengthLessThan } from './boosts/char/valueLengthLessThan';
+// Mask characters
+export { default as mkCharLetter } from './mask/chars/letter';
+export { default as mkCharNum } from './mask/chars/num';
+export { default as mkCharSpecific } from './mask/chars/specific';
+export { default as mkCharToBePut } from './mask/chars/toBePut';
