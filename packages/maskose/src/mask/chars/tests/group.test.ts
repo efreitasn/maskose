@@ -12,3 +12,7 @@ test('should match the object returned by mkCharGroup()', t => {
 
   t.snapshot(result);
 });
+
+test('should throw an error if the provided array is empty', t => {
+  t.throws(() => mkCharGroup([]));
+});

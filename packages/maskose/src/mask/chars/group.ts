@@ -12,8 +12,9 @@ export interface MaskoseCharGroup extends MaskoseCharBase {
  * A group of characters
  */
 export default function mkCharGroup(chars: MaskoseChar[]): MaskoseCharGroup {
-  // TODO
-  // throw an error if chars is empty
+  if (chars.length === 0) {
+    throw new Error('The provided chars array must not be empty.');
+  }
 
   return {
     type: MASKOSE_CHAR_GROUP_TYPE,
