@@ -1,0 +1,33 @@
+{
+  "name": "maskose",
+  "version": "0.0.0",
+  "description": "A composable way to make masks.",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/efreitasn/maskose.git",
+    "directory": "packages/maskose"
+  },
+  "scripts": {
+    "build": "../../node_modules/typescript/bin/tsc",
+    "test": "ava"
+  },
+  "author": {
+    "email": "me@efreitasn.dev",
+    "name": "Emanuel Freitas",
+    "url": "https://efreitasn.dev"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "ts-node": "^8.1.0"
+  }
+}
