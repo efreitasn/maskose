@@ -18,6 +18,7 @@
     "url": "https://efreitasn.dev"
   },
   "ava": {
+    "compileEnhancements": false,
     "extensions": [
       "ts"
     ],
