@@ -18,6 +18,11 @@ export type MkCharGroupObj = {
   predicateFn?: MaskCharPredicateFn;
 };
 
+/**
+ * A group of characters
+ * @param charObjs The characters that will be in the group
+ * @param predicateFn Function that will decide if the character will be present in the mask
+ */
 export default function mkCharGroup(charObjs: CharObj[], predicateFn?: MaskCharPredicateFn): MkCharGroupObj {
   return {
     type: MASK_CHAR_GROUP_TYPE,

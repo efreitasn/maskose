@@ -9,6 +9,10 @@ export type MkCharNumObj = {
   predicateFn?: MaskCharPredicateFn;
 };
 
+/**
+ * A numeric character [0-9] expected to be in the value to be masked.
+ * @param predicateFn Function that will decide if the character will be present in the mask
+ */
 export default function mkCharNum(predicateFn?: MaskCharPredicateFn): MkCharNumObj {
   return {
     type: MASK_CHAR_NUM_TYPE,
