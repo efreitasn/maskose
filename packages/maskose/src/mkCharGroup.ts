@@ -1,13 +1,13 @@
 import { MaskCharPredicateFn, MkCharNumObj } from './mkCharNum';
 import { MkCharLetterObj } from './mkCharLetter';
 import { MkCharToBePutObj } from './mkCharToBePut';
-import { MkCharLiteralObj } from './mkCharLiteral';
+import { MkCharSpecificObj } from './mkCharSpecific';
 
 const MASK_CHAR_GROUP_TYPE = 'MASK_CHAR_GROUP_TYPE';
 
 export type CharObj =
   | MkCharLetterObj
-  | MkCharLiteralObj
+  | MkCharSpecificObj
   | MkCharNumObj
   | MkCharToBePutObj
 ;
