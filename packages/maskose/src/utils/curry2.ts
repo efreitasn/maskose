@@ -1,5 +1,5 @@
 /**
- * Curry a binary function.
+ * Curry a binary function
  * @param fn Function to be curried
  */
 export default function curry2<A1, A2, R>(fn: Function) {

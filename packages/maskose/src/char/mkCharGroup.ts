@@ -1,20 +1,10 @@
-import { MaskCharPredicateFn, MkCharNumObj } from './mkCharNum';
-import { MkCharLetterObj } from './mkCharLetter';
-import { MkCharToBePutObj } from './mkCharToBePut';
-import { MkCharSpecificObj } from './mkCharSpecific';
+import { MaskCharPredicateFn, MaskCharObj } from '.';
 
 const MASK_CHAR_GROUP_TYPE = 'MASK_CHAR_GROUP_TYPE';
 
-export type CharObj =
-  | MkCharLetterObj
-  | MkCharSpecificObj
-  | MkCharNumObj
-  | MkCharToBePutObj
-;
-
-export type MkCharGroupObj = {
+export type MaskCharGroupObj = {
   type: typeof MASK_CHAR_GROUP_TYPE;
-  charObjs: CharObj[];
+  charObjs: MaskCharObj[];
   predicateFn?: MaskCharPredicateFn;
 };
 
@@ -23,7 +13,10 @@ export type MkCharGroupObj = {
  * @param charObjs The characters that will be in the group
  * @param predicateFn Function that will decide if the character will be present in the mask
  */
-export default function mkCharGroup(charObjs: CharObj[], predicateFn?: MaskCharPredicateFn): MkCharGroupObj {
+export default function mkCharGroup(
+  charObjs: MaskCharObj[],
+  predicateFn?: MaskCharPredicateFn
+): MaskCharGroupObj {
   return {
     type: MASK_CHAR_GROUP_TYPE,
     charObjs,

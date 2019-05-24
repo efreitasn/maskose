@@ -2,7 +2,7 @@ import identity from './identity';
 
 /**
  * Compose the provided functions by executing them from the leftmost
- * to the rightmost.
+ * to the rightmost
  * @param fns The functions that will be used to compose the returned fn
  * @return An unary function composed by fns
  */
