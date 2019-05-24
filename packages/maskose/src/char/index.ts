@@ -3,6 +3,7 @@ import { MaskCharLetterObj } from './mkCharLetter';
 import { MaskCharToBePutObj } from './mkCharToBePut';
 import { MaskCharSpecificObj } from './mkCharSpecific';
 import { MaskCharGroupObj } from './mkCharGroup';
+import { MaskCharRepeatObj } from './mkCharRepeat';
 
 export { default as mkCharGroup } from './mkCharGroup';
 export { default as mkCharLetter } from './mkCharLetter';
@@ -16,6 +17,7 @@ export type MaskCharObj =
   | MaskCharNumObj
   | MaskCharToBePutObj
   | MaskCharGroupObj
+  | MaskCharRepeatObj
 ;
 
 export type MaskCharPredicateFn = (arg: {
