@@ -1,18 +1,24 @@
-import mkCharNum, { MaskCharPredicateFn } from './mkCharNum';
-import mkCharLetter from './mkCharLetter';
-import mkCharToBePut from './mkCharToBePut';
-import mkCharLiteral from './mkCharLiteral';
+import { MaskCharPredicateFn, MkCharNumObj } from './mkCharNum';
+import { MkCharLetterObj } from './mkCharLetter';
+import { MkCharToBePutObj } from './mkCharToBePut';
+import { MkCharLiteralObj } from './mkCharLiteral';
 
 const MASK_CHAR_GROUP_TYPE = 'MASK_CHAR_GROUP_TYPE';
 
-type CharObjs =
-  | ReturnType<typeof mkCharLetter>
-  | ReturnType<typeof mkCharLiteral>
-  | ReturnType<typeof mkCharNum>
-  | ReturnType<typeof mkCharToBePut>
+export type CharObj =
+  | MkCharLetterObj
+  | MkCharLiteralObj
+  | MkCharNumObj
+  | MkCharToBePutObj
 ;
 
-export default function mkCharGroup(charObjs: CharObjs[], predicateFn?: MaskCharPredicateFn) {
+export type MkCharGroupObj = {
+  type: typeof MASK_CHAR_GROUP_TYPE;
+  charObjs: CharObj[];
+  predicateFn?: MaskCharPredicateFn;
+};
+
+export default function mkCharGroup(charObjs: CharObj[], predicateFn?: MaskCharPredicateFn): MkCharGroupObj {
   return {
     type: MASK_CHAR_GROUP_TYPE,
     charObjs,
