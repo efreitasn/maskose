@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "../../node_modules/typescript/bin/tsc",
-    "test": "ava"
+    "test": "ava",
+    "debug-test": "node --inspect node_modules/ava/profile.js"
   },
   "author": {
     "email": "me@efreitasn.dev",
