@@ -1,6 +1,6 @@
 import { MaskCharPredicateFn } from '.';
 
-const MASK_CHAR_TO_BE_PUT_TYPE = 'MASK_CHAR_TO_BE_PUT_TYPE';
+export const MASK_CHAR_TO_BE_PUT_TYPE = 'MASK_CHAR_TO_BE_PUT_TYPE';
 
 export type MaskCharToBePutObj = {
   type: typeof MASK_CHAR_TO_BE_PUT_TYPE;

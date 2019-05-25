@@ -1,6 +1,6 @@
 import { MaskCharPredicateFn, MaskCharObj } from '.';
 
-const MASK_CHAR_REPEAT_TYPE = 'MASK_CHAR_REPEAT_TYPE';
+export const MASK_CHAR_REPEAT_TYPE = 'MASK_CHAR_REPEAT_TYPE';
 
 export type MaskCharRepeatObj = {
   type: typeof MASK_CHAR_REPEAT_TYPE;

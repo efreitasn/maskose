@@ -1,6 +1,6 @@
 import { MaskCharPredicateFn, MaskCharObj } from '.';
 
-const MASK_CHAR_GROUP_TYPE = 'MASK_CHAR_GROUP_TYPE';
+export const MASK_CHAR_GROUP_TYPE = 'MASK_CHAR_GROUP_TYPE';
 
 export type MaskCharGroupObj = {
   type: typeof MASK_CHAR_GROUP_TYPE;
