@@ -20,6 +20,15 @@ export type MaskChar =
   | MaskCharRepeat
 ;
 
+export type PrimitiveMaskChar =
+  | MaskCharLetter
+  | MaskCharSpecific
+  | MaskCharNum
+  | MaskCharToBePut
+;
+
+export type NonPrimitiveMaskChar = Exclude<MaskChar, keyof PrimitiveMaskChar>;
+
 export type MaskCharPredicateFn = (arg: {
   value: string;
 }) => boolean;
