@@ -2,7 +2,7 @@ import { PrimitiveMaskoseChar } from '..';
 
 export const MASKOSE_CHAR_PREDICATE_FN_TYPE = 'MASKOSE_CHAR_PREDICATE_FN_TYPE';
 
-type MaskoseCharPredicateFnFn = (arg: {
+export type MaskoseCharPredicateFnFn = (arg: {
   value: string;
 }) => boolean;
 
