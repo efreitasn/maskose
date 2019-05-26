@@ -12,6 +12,10 @@ export type MaskoseCharToBePut = {
  * @param char Character to be put in the mask
  */
 export default function mkCharToBePut(char: string): MaskoseCharToBePut {
+  if (char.length === 0 || char.length > 1) {
+    throw new Error('The provided character must have a size equal to 1');
+  }
+
   return {
     type: MASKOSE_CHAR_TO_BE_PUT_TYPE,
     char
