@@ -19,14 +19,12 @@ export default {
   plugins: [
     resolve({
       extensions: [
-        '.ts',
-        '.js'
+        '.ts'
       ]
     }),
     commonjs(),
     babel({
       exclude: 'node_modules/**',
-      runtimeHelpers: true,
       extensions: [
         '.ts'
       ]

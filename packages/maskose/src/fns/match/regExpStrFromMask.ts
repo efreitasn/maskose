@@ -1,15 +1,15 @@
 import { MaskoseMask } from '../..';
 
 export default function regExpStrFromMask(mask: MaskoseMask, value: string): string {
-  const contentIterator = mask.makeContentIterator({
-    value
-  });
+  let maskRegExpStr = '';
 
-  let regExpStr = '';
+  for (const { regExpStr, predicateFn } of mask.content) {
+    if (predicateFn && !predicateFn({ value })) {
+      continue;
+    }
 
-  for (const contentItem of contentIterator) {
-    regExpStr = `${regExpStr}${contentItem.regExpStr}`;
+    maskRegExpStr = `${maskRegExpStr}${regExpStr}`;
   }
 
-  return regExpStr;
+  return maskRegExpStr;
 }

@@ -16,15 +16,16 @@ export default function mkFormat(
     }
   
     const { mask, rightToLeft } = options;
-    const contentIterator = mask.makeContentIterator({
-      value,
-      reversed: rightToLeft
-    });
+    const contentArr = rightToLeft ? [...mask.content].reverse() : mask.content;
   
     let maskedValue = '';
     let counter = 0;
   
-    for (const { primitive, regExpStr } of contentIterator) {
+    for (const { primitive, regExpStr, predicateFn } of contentArr) {
+      if (predicateFn && !predicateFn({ value })) {
+        continue;
+      }
+
       if (primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {
         maskedValue = concatMaskedValue(
           maskedValue,

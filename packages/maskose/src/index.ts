@@ -7,16 +7,8 @@ export interface MaskoseMaskContentItem {
   readonly predicateFn?: MaskoseCharPredicateFnFn;
 };
 
-export interface MaskoseMaskIterateContentOptions {
-  value: string;
-  reversed?: boolean;
-};
-
-export type MaskoseMaskContentIterator = IterableIterator<MaskoseMaskContentItem>;
-
 export interface MaskoseMask {
   readonly content: MaskoseMaskContentItem[];
-  readonly makeContentIterator: (options: MaskoseMaskIterateContentOptions) => MaskoseMaskContentIterator;
 };
 
 export { default as mkFormat } from './fns/format';
