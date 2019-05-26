@@ -1,6 +1,6 @@
 export const MASKOSE_CHAR_SPECIFIC_TYPE = 'MASKOSE_CHAR_SPECIFIC_TYPE';
 
-export type MaskoseCharSpecific = {
+export interface MaskoseCharSpecific {
   type: typeof MASKOSE_CHAR_SPECIFIC_TYPE;
   char: string;
 };

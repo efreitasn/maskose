@@ -1,6 +1,6 @@
 export const MASKOSE_CHAR_TO_BE_PUT_TYPE = 'MASKOSE_CHAR_TO_BE_PUT_TYPE';
 
-export type MaskoseCharToBePut = {
+export interface MaskoseCharToBePut {
   type: typeof MASKOSE_CHAR_TO_BE_PUT_TYPE;
   char: string;
 };

@@ -1,6 +1,6 @@
 export const MASKOSE_CHAR_LETTER_TYPE = 'MASKOSE_CHAR_LETTER_TYPE';
 
-export type MaskoseCharLetter = {
+export interface MaskoseCharLetter {
   type: typeof MASKOSE_CHAR_LETTER_TYPE;
 };
 

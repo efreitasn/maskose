@@ -1,6 +1,6 @@
 export const MASKOSE_CHAR_NUM_TYPE = 'MASKOSE_CHAR_NUM_TYPE';
 
-export type MaskoseCharNum = {
+export interface MaskoseCharNum {
   type: typeof MASKOSE_CHAR_NUM_TYPE;
 };
 

@@ -20,6 +20,13 @@
   },
   "ava": {
     "compileEnhancements": false,
+    "files": [
+      "src/**/*.test.ts",
+      "!dist/**/*"
+    ],
+    "sources": [
+      "src/**/*.ts"
+    ],
     "extensions": [
       "ts"
     ],
