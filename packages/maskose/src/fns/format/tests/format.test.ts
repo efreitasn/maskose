@@ -3,7 +3,9 @@ import {
   mkCharRepeat,
   mkCharNum,
   mkCharToBePut,
-  mkCharPredicateFn
+  mkCharPredicateFn,
+  mkCharSpecific,
+  mkCharLetter
 } from '../../../chars';
 import mkMask from '../../mask';
 import mkFormat from '..';
@@ -35,6 +37,33 @@ test('should format the value using the provided mask (2)', t => {
 
   t.is(mkFormatWithMask('9912345678'), '(99) 1234-5678');
   t.is(mkFormatWithMask('99123456789'), '(99) 12345-6789');
+});
+
+test('should format the value using the provided mask (3)', t => {
+  const mask = mkMask(
+    mkCharRepeat(4, mkCharNum()),
+    mkCharSpecific('-'),
+    mkCharLetter(),
+    mkCharToBePut('/'),
+    mkCharNum()
+  );
+  const mkFormatWithMask = mkFormat({ mask });
+
+  t.is(mkFormatWithMask('1234-A2'), '1234-A/2');
+  t.is(mkFormatWithMask('1234BA2'), '1234');
+});
+
+test('should return an empty string when the provided value is an empty string', t => {
+  const mask = mkMask(
+    mkCharRepeat(4, mkCharNum()),
+    mkCharSpecific('-'),
+    mkCharLetter(),
+    mkCharToBePut('/'),
+    mkCharNum()
+  );
+  const mkFormatWithMask = mkFormat({ mask });
+
+  t.is(mkFormatWithMask(''), '');
 });
 
 test('should format the value using the provided mask when using rightToLeft', t => {
