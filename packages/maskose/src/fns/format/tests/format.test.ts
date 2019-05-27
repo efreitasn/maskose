@@ -107,7 +107,7 @@ test('should format the value using the provided mask when using endless', t => 
   t.is(mkFormatWithMask('12345671234567'), '12.345,671234567');
 });
 
-test.only('should format the value using the provided mask when using endless and rightToLeft', t => {
+test('should format the value using the provided mask when using endless and rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
     mkCreate,
     mkCreateBoostEndleess,
