@@ -1,6 +1,6 @@
 import test from 'ava';
 import mkMask from '../../mask';
-import { mkCharNum, mkCharToBePut } from '../../../chars';
+import { mkCharNum, mkCharToBePut } from '../../../char';
 import clearMaskedValue from '../clearMaskedValue';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 

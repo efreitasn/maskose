@@ -4,7 +4,7 @@ import {
   mkCharNum,
   mkCharLetter,
   mkCharToBePut
-} from '../../../chars';
+} from '../../../char';
 import isLastMaskContentItem from '../isLastMaskContentItem';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 

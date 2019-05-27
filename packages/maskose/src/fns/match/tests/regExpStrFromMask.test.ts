@@ -6,7 +6,7 @@ import {
   mkCharSpecific,
   mkCharLetter,
   mkCharToBePut
-} from '../../../chars';
+} from '../../../char';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 import mkCharBoostPredicateFn from '../../../boosts/char/predicateFn';
 

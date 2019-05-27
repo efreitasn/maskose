@@ -1,6 +1,6 @@
 import { MaskoseMask } from '../..';
 import concatMaskedValue from './concatMaskedValue';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../char/toBePut';
 import getValueChar from './getValueChar';
 import clearMaskedValue from './clearMaskedValue';
 import isLastMaskContentItem from './isLastMaskContentItem';

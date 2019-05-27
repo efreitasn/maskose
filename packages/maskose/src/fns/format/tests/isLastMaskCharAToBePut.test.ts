@@ -1,6 +1,6 @@
 import test from 'ava';
 import mkMask from '../../mask';
-import { mkCharNum, mkCharToBePut } from '../../../chars';
+import { mkCharNum, mkCharToBePut } from '../../../char';
 import isLastMaskCharAToBePut from '../isLastMaskCharAToBePut';
 
 test('should return true when the last mask character is a charToBePut and rightToLeft equals false', t => {

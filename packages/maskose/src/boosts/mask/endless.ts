@@ -1,6 +1,6 @@
 import { MaskoseMask } from '../..';
 import getMaskTail from '../../utils/getMaskTail';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../char/toBePut';
 
 /**
  * Turns the last character of a mask into a character with infinite

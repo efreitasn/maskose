@@ -1,5 +1,5 @@
 import { MaskoseMask } from '../..';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../char/toBePut';
 
 export default function isLastMaskedValueCharAToBePut(
   maskedValue: string,

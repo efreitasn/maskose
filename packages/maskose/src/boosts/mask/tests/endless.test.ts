@@ -1,6 +1,6 @@
 import test from 'ava';
 import mkMask from '../../../fns/mask';
-import { mkCharNum, mkCharLetter, mkCharToBePut } from '../../../chars';
+import { mkCharNum, mkCharLetter, mkCharToBePut } from '../../../char';
 import mkMaskBoostEndleess from '../endless';
 import mkMaskBoostRightToLeft from '../rightToLeft';
 

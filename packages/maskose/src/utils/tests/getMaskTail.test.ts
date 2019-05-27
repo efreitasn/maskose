@@ -1,6 +1,6 @@
 import test from 'ava';
 import pipe from '../pipe';
-import { MaskoseChar, mkCharNum, mkCharLetter, mkCharSpecific } from '../../chars';
+import { MaskoseChar, mkCharNum, mkCharLetter, mkCharSpecific } from '../../char';
 import { MaskoseMask } from '../..';
 import mkMask from '../../fns/mask';
 import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';

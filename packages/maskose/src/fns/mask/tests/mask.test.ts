@@ -5,7 +5,7 @@ import {
   mkCharLetter,
   mkCharToBePut,
   mkCharSpecific
-} from '../../../chars';
+} from '../../../char';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
 test('should match the object returned by mkMask()', t => {

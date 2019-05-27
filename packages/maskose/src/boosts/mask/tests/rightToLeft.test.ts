@@ -1,6 +1,6 @@
 import test from 'ava';
 import mkMask from '../../../fns/mask';
-import { mkCharNum, mkCharLetter } from '../../../chars';
+import { mkCharNum, mkCharLetter } from '../../../char';
 import mkMaskBoostRightToLeft from '../rightToLeft';
 
 test('should make a mask rightToLeft', t => {

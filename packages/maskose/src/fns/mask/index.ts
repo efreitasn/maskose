@@ -1,4 +1,4 @@
-import { MaskoseChar } from '../../chars';
+import { MaskoseChar } from '../../char';
 import charsToMaskContentItems from './charsToMaskContentItems';
 import { MaskoseMask } from '../..';
 

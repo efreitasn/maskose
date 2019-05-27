@@ -1,4 +1,4 @@
-import { MaskoseChar, MaskoseCharPredicateFn } from './chars';
+import { MaskoseChar, MaskoseCharPredicateFn } from './char';
 
 export interface MaskoseMaskContentItem {
   readonly char: MaskoseChar;
@@ -20,4 +20,4 @@ export {
   mkCharNum as mkCharNum,
   mkCharSpecific as mkCharSpecific,
   mkCharToBePut as mkCharToBePut
-} from './chars';
+} from './char';

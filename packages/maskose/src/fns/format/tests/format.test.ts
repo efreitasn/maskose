@@ -5,7 +5,7 @@ import {
   mkCharSpecific,
   mkCharLetter,
   MaskoseChar
-} from '../../../chars';
+} from '../../../char';
 import mkMask from '../../mask';
 import mkFormat from '..';
 import mkMaskBoostRightToLeft from '../../../boosts/mask/rightToLeft';

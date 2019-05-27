@@ -1,4 +1,4 @@
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../char/toBePut';
 import { MaskoseMask } from '../..';
 
 export default function isLastMaskCharAToBePut(

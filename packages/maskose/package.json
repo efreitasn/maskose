@@ -16,7 +16,8 @@
     "postbuild": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
     "test": "ava",
     "type-check": "../../node_modules/typescript/bin/tsc",
-    "debug-test": "node --inspect node_modules/ava/profile.js"
+    "debug-test": "node --inspect node_modules/ava/profile.js",
+    "all-good": "yarn type-check && yarn test"
   },
   "author": {
     "email": "me@efreitasn.dev",

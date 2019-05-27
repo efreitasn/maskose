@@ -1,6 +1,6 @@
 import test from 'ava';
 import mkCharBoostPredicateFn from '../predicateFn';
-import { mkCharNum } from '../../../chars';
+import { mkCharNum } from '../../../char';
 
 test('should match the object returned by mkCharBoostPredicateFn()', t => {
   const mkCharBoostPredicateFnWithFn = mkCharBoostPredicateFn(

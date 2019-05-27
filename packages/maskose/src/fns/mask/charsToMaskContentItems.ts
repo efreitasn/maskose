@@ -1,4 +1,4 @@
-import { MaskoseChar } from '../../chars';
+import { MaskoseChar } from '../../char';
 import { MaskoseMaskContentItem } from '../..';
 import charToRegExpStr from '../../utils/charToRegExpStr';
 
