@@ -1,6 +1,8 @@
+import { MaskoseCharBase } from '.';
+
 export const MASKOSE_CHAR_NUM_TYPE = 'MASKOSE_CHAR_NUM_TYPE';
 
-export interface MaskoseCharNum {
+export interface MaskoseCharNum extends MaskoseCharBase {
   type: typeof MASKOSE_CHAR_NUM_TYPE;
 };
 
@@ -9,6 +11,7 @@ export interface MaskoseCharNum {
  */
 export default function mkCharNum(): MaskoseCharNum {
   return {
-    type: MASKOSE_CHAR_NUM_TYPE
+    type: MASKOSE_CHAR_NUM_TYPE,
+    repetitions: 1
   };
 }

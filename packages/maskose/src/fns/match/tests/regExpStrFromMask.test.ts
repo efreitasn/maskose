@@ -2,17 +2,17 @@ import test from 'ava';
 import regExpStrFromMask from '../regExpStrFromMask';
 import mkMask from '../../mask';
 import {
-  mkCharRepeat,
   mkCharNum,
   mkCharSpecific,
   mkCharLetter,
-  mkCharToBePut,
-  mkCharPredicateFn
+  mkCharToBePut
 } from '../../../chars';
+import mkCharBoostRepeat from '../../../boosts/char/repeat';
+import mkCharBoostPredicateFn from '../../../boosts/char/predicateFn';
 
 test('should return the correct regExpStr from the provided mask', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
+    mkCharBoostRepeat(4)(mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
     mkCharToBePut('Z')
@@ -28,11 +28,10 @@ test('should return the correct regExpStr from the provided mask', t => {
 
 test('should return the correct regExpStr from the provided mask (2)', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
-    mkCharPredicateFn(
-      ({ value }) => value.length === 4,
-      mkCharSpecific('-')
-    ),
+    mkCharBoostRepeat(4)(mkCharNum()),
+    mkCharBoostPredicateFn(
+      ({ value }) => value.length === 4
+    )(mkCharSpecific('-')),
     mkCharLetter(),
     mkCharToBePut('Z')
   ]);

@@ -1,4 +1,4 @@
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/primitives/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
 import { MaskoseMask } from '../..';
 
 export default function isLastMaskCharAToBePut(
@@ -6,6 +6,6 @@ export default function isLastMaskCharAToBePut(
   rightToLeft?: boolean
 ) {
   return rightToLeft ?
-    mask.content[0].primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE :
-    mask.content[mask.content.length - 1].primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE;
+    mask.content[0].char.type === MASKOSE_CHAR_TO_BE_PUT_TYPE :
+    mask.content[mask.content.length - 1].char.type === MASKOSE_CHAR_TO_BE_PUT_TYPE;
 }

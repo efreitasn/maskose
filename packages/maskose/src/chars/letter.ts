@@ -1,6 +1,8 @@
+import { MaskoseCharBase } from '.';
+
 export const MASKOSE_CHAR_LETTER_TYPE = 'MASKOSE_CHAR_LETTER_TYPE';
 
-export interface MaskoseCharLetter {
+export interface MaskoseCharLetter extends MaskoseCharBase {
   type: typeof MASKOSE_CHAR_LETTER_TYPE;
 };
 
@@ -9,6 +11,7 @@ export interface MaskoseCharLetter {
  */
 export default function mkCharLetter(): MaskoseCharLetter {
   return {
-    type: MASKOSE_CHAR_LETTER_TYPE
+    type: MASKOSE_CHAR_LETTER_TYPE,
+    repetitions: 1
   };
 }

@@ -1,6 +1,8 @@
+import { MaskoseCharBase } from '.';
+
 export const MASKOSE_CHAR_TO_BE_PUT_TYPE = 'MASKOSE_CHAR_TO_BE_PUT_TYPE';
 
-export interface MaskoseCharToBePut {
+export interface MaskoseCharToBePut extends MaskoseCharBase {
   type: typeof MASKOSE_CHAR_TO_BE_PUT_TYPE;
   char: string;
 };
@@ -18,6 +20,7 @@ export default function mkCharToBePut(char: string): MaskoseCharToBePut {
 
   return {
     type: MASKOSE_CHAR_TO_BE_PUT_TYPE,
-    char
+    char,
+    repetitions: 1
   };
 }

@@ -1,6 +1,8 @@
+import { MaskoseCharBase } from '.';
+
 export const MASKOSE_CHAR_SPECIFIC_TYPE = 'MASKOSE_CHAR_SPECIFIC_TYPE';
 
-export interface MaskoseCharSpecific {
+export interface MaskoseCharSpecific extends MaskoseCharBase {
   type: typeof MASKOSE_CHAR_SPECIFIC_TYPE;
   char: string;
 };
@@ -15,6 +17,7 @@ export default function mkCharSpecific(char: string): MaskoseCharSpecific {
 
   return {
     type: MASKOSE_CHAR_SPECIFIC_TYPE,
-    char
+    char,
+    repetitions: 1
   };
 }

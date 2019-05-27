@@ -1,6 +1,6 @@
 import { MaskoseMask } from '../..';
 import concatMaskedValue from './concatMaskedValue';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/primitives/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
 import getValueChar from './getValueChar';
 import clearMaskedValue from './clearMaskedValue';
 import isLastMaskContentItem from './isLastMaskContentItem';
@@ -18,7 +18,7 @@ export default function mkFormat(mask: MaskoseMask): (value: string) => string {
   
     for (const contentItem of contentArr) {
       const {
-        primitive,
+        char,
         regExpStr,
         predicateFn
       } = contentItem;
@@ -27,10 +27,10 @@ export default function mkFormat(mask: MaskoseMask): (value: string) => string {
         continue;
       }
 
-      if (primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {
+      if (char.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {
         maskedValue = concatMaskedValue(
           maskedValue,
-          primitive.char,
+          char.char,
           mask.rightToLeft
         );
         continue;

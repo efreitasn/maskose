@@ -1,6 +1,6 @@
 import { MaskoseMask } from '../..';
 import getMaskTail from '../../utils/getMaskTail';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/primitives/toBePut';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/toBePut';
 
 /**
  * Turns the last character of a mask into a character with infinite
@@ -9,7 +9,7 @@ import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/primitives/toBePut';
 export default function mkMaskBoostEndleess(mask: MaskoseMask): MaskoseMask {
   const maskTail = getMaskTail(mask);
 
-  if (maskTail.primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {
+  if (maskTail.char.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {
     throw new Error('You cannot make a mask endless when its last character is a mkCharToBePut.');
   }
 

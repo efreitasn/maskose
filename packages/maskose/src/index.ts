@@ -1,10 +1,9 @@
-import { PrimitiveMaskoseChar } from './chars';
-import { MaskoseCharPredicateFnFn } from './chars/nonPrimitives/predicateFn';
+import { MaskoseChar, MaskoseCharPredicateFn } from './chars';
 
 export interface MaskoseMaskContentItem {
-  readonly primitive: PrimitiveMaskoseChar;
+  readonly char: MaskoseChar;
   readonly regExpStr: string;
-  readonly predicateFn?: MaskoseCharPredicateFnFn;
+  readonly predicateFn?: MaskoseCharPredicateFn;
 };
 
 export interface MaskoseMask {
@@ -20,7 +19,5 @@ export {
   mkCharLetter as mkCharLetter,
   mkCharNum as mkCharNum,
   mkCharSpecific as mkCharSpecific,
-  mkCharToBePut as mkCharToBePut,
-  mkCharRepeat as mkCharRepeat,
-  mkCharPredicateFn as mkCharPredicateFn
+  mkCharToBePut as mkCharToBePut
 } from './chars';

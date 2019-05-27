@@ -1,16 +1,16 @@
 import test from 'ava';
 import mkMask from '../../mask';
 import {
-  mkCharRepeat,
   mkCharNum,
   mkCharLetter,
   mkCharToBePut
 } from '../../../chars';
 import isLastMaskContentItem from '../isLastMaskContentItem';
+import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
 test('should return true when the provided contentItem is the last one of the provided mask when rightToLeft equals false', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
+    mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharToBePut('A')
   ]);
@@ -24,7 +24,7 @@ test('should return true when the provided contentItem is the last one of the pr
 
 test('should return true when the provided contentItem is the last one of the provided mask when rightToLeft equals true', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
+    mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharToBePut('A')
   ]);
@@ -39,7 +39,7 @@ test('should return true when the provided contentItem is the last one of the pr
 
 test('should return false when the provided contentItem is not the last one of the provided mask when rightTOLeft equals false', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
+    mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharToBePut('A')
   ]);
@@ -53,7 +53,7 @@ test('should return false when the provided contentItem is not the last one of t
 
 test('should return false when the provided contentItem is not the last one of the provided mask when rightTOLeft equals true', t => {
   const mask = mkMask([
-    mkCharRepeat(4, mkCharNum()),
+    mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharToBePut('A')
   ]);
