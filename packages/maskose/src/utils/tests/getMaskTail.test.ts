@@ -1,23 +1,21 @@
 import test from 'ava';
-import pipe from '../pipe';
-import { MaskoseChar, mkCharNum, mkCharLetter, mkCharSpecific } from '../../char';
-import { MaskoseMask } from '../..';
+import { mkCharNum, mkCharLetter, mkCharSpecific } from '../../char';
 import mkCreate from '../../fns/create';
-import mkCreateBoostRightToLeft from '../../boosts/mask/rightToLeft';
 import getMaskTail from '../getMaskTail';
 import mkCharBoostRepeat from '../../boosts/char/repeat';
+import mkBoostMask from '../../fns/boostMask';
+import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';
 
 test('should return the correct mask tail', t => {
-  const createMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkCreate,
-    mkCreateBoostRightToLeft
-  );
-  const mask = createMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharSpecific('(')
   ]);
-  const result = getMaskTail(mask);
+  const maskBoosted = mkBoostMask(mask)([
+    mkMaskBoostRightToLeft()
+  ]);
+  const result = getMaskTail(maskBoosted);
 
   t.is(result, mask.content[0]);
 });

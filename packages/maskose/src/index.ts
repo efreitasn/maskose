@@ -12,6 +12,8 @@ export interface MaskoseMask {
   readonly content: MaskoseMaskContentItem[];
 };
 
+export type MaskoseBoost<T> = (val: T) => T;
+
 export { default as mkFormat } from './fns/format';
 export { default as mkCreate } from './fns/create';
 export { default as mkMatch } from './fns/match';
