@@ -83,3 +83,36 @@ test('should format the value using the provided mask when using rightToLeft', t
   t.is(mkFormatWithMask('1234567'), '12.345,67');
   t.is(mkFormatWithMask('12345'), '123,45');
 });
+
+test('should format the value using the provided mask when using endless', t => {
+  const mask = mkMask(
+    mkCharRepeat(2, mkCharNum()),
+    mkCharToBePut('.'),
+    mkCharRepeat(3, mkCharNum()),
+    mkCharToBePut(','),
+    mkCharRepeat(2, mkCharNum())
+  );
+  const mkFormatWithMask = mkFormat({
+    mask,
+    endless: true
+  });
+
+  t.is(mkFormatWithMask('12345671234567'), '12.345,671234567');
+});
+
+test('should format the value using the provided mask when using endless and rightToLeft', t => {
+  const mask = mkMask(
+    mkCharRepeat(2, mkCharNum()),
+    mkCharToBePut('.'),
+    mkCharRepeat(3, mkCharNum()),
+    mkCharToBePut(','),
+    mkCharRepeat(2, mkCharNum())
+  );
+  const mkFormatWithMask = mkFormat({
+    mask,
+    endless: true,
+    rightToLeft: true
+  });
+
+  t.is(mkFormatWithMask('12345671234567'), '123456712.345,67');
+});
