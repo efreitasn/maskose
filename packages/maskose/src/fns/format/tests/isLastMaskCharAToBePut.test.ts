@@ -1,10 +1,10 @@
 import test from 'ava';
-import mkMask from '../../mask';
+import mkCreate from '../../create';
 import { mkCharNum, mkCharToBePut } from '../../../char';
 import isLastMaskCharAToBePut from '../isLastMaskCharAToBePut';
 
 test('should return true when the last mask character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharNum(),
     mkCharToBePut('-')
   ]);
@@ -18,7 +18,7 @@ test('should return true when the last mask character is a charToBePut and right
 });
 
 test('should return true when the first mask character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharToBePut('-'),
     mkCharNum()
   ]);
@@ -32,7 +32,7 @@ test('should return true when the first mask character is a charToBePut and righ
 });
 
 test('should return false when the last mask character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharNum(),
     mkCharToBePut('-')
   ]);
@@ -46,7 +46,7 @@ test('should return false when the last mask character is a charToBePut and righ
 });
 
 test('should return false when the first mask character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharToBePut('-'),
     mkCharNum()
   ]);

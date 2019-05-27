@@ -1,14 +1,14 @@
 import test from 'ava';
-import mkMask from '../../../fns/mask';
+import mkCreate from '../../../fns/create';
 import { mkCharNum, mkCharLetter } from '../../../char';
-import mkMaskBoostRightToLeft from '../rightToLeft';
+import mkCreateBoostRightToLeft from '../rightToLeft';
 
 test('should make a mask rightToLeft', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharNum(),
     mkCharLetter()
   ]);
-  const result = mkMaskBoostRightToLeft(mask);
+  const result = mkCreateBoostRightToLeft(mask);
 
   t.is(result.rightToLeft, true);
 });

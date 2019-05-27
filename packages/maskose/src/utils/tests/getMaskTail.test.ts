@@ -2,15 +2,15 @@ import test from 'ava';
 import pipe from '../pipe';
 import { MaskoseChar, mkCharNum, mkCharLetter, mkCharSpecific } from '../../char';
 import { MaskoseMask } from '../..';
-import mkMask from '../../fns/mask';
-import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';
+import mkCreate from '../../fns/create';
+import mkCreateBoostRightToLeft from '../../boosts/mask/rightToLeft';
 import getMaskTail from '../getMaskTail';
 import mkCharBoostRepeat from '../../boosts/char/repeat';
 
 test('should return the correct mask tail', t => {
   const createMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkMask,
-    mkMaskBoostRightToLeft
+    mkCreate,
+    mkCreateBoostRightToLeft
   );
   const mask = createMask([
     mkCharBoostRepeat(4)(mkCharNum()),
@@ -23,7 +23,7 @@ test('should return the correct mask tail', t => {
 });
 
 test('should return the correct mask tail (2)', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
     mkCharSpecific('(')

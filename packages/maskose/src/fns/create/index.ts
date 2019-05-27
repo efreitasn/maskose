@@ -2,7 +2,7 @@ import { MaskoseChar } from '../../char';
 import charsToMaskContentItems from './charsToMaskContentItems';
 import { MaskoseMask } from '../..';
 
-export default function mkMask(maskoseChars: MaskoseChar[]): MaskoseMask {
+export default function mkCreate(maskoseChars: MaskoseChar[]): MaskoseMask {
   const content = charsToMaskContentItems(maskoseChars);
 
   return {

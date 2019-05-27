@@ -6,17 +6,17 @@ import {
   mkCharLetter,
   MaskoseChar
 } from '../../../char';
-import mkMask from '../../mask';
+import mkCreate from '../../create';
 import mkFormat from '..';
-import mkMaskBoostRightToLeft from '../../../boosts/mask/rightToLeft';
+import mkCreateBoostRightToLeft from '../../../boosts/mask/rightToLeft';
 import { MaskoseMask } from '../../..';
 import pipe from '../../../utils/pipe';
-import mkMaskBoostEndleess from '../../../boosts/mask/endless';
+import mkCreateBoostEndleess from '../../../boosts/mask/endless';
 import mkCharBoostPredicateFn from '../../../boosts/char/predicateFn';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
 test('should format the value using the provided mask', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(5)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharBoostRepeat(3)(mkCharNum())
@@ -28,7 +28,7 @@ test('should format the value using the provided mask', t => {
 });
 
 test('should format the value using the provided mask (2)', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharToBePut('('),
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(')'),
@@ -45,7 +45,7 @@ test('should format the value using the provided mask (2)', t => {
 });
 
 test('should format the value using the provided mask (3)', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
@@ -59,7 +59,7 @@ test('should format the value using the provided mask (3)', t => {
 });
 
 test('should return an empty string when the provided value is an empty string', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
@@ -73,8 +73,8 @@ test('should return an empty string when the provided value is an empty string',
 
 test('should format the value using the provided mask when using rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkMask,
-    mkMaskBoostRightToLeft
+    mkCreate,
+    mkCreateBoostRightToLeft
   );
   const mask = makeMask([
     mkCharBoostRepeat(2)(mkCharNum()),
@@ -92,8 +92,8 @@ test('should format the value using the provided mask when using rightToLeft', t
 
 test('should format the value using the provided mask when using endless', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkMask,
-    mkMaskBoostEndleess
+    mkCreate,
+    mkCreateBoostEndleess
   );
   const mask = makeMask([
     mkCharBoostRepeat(2)(mkCharNum()),
@@ -109,9 +109,9 @@ test('should format the value using the provided mask when using endless', t => 
 
 test.only('should format the value using the provided mask when using endless and rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkMask,
-    mkMaskBoostEndleess,
-    mkMaskBoostRightToLeft
+    mkCreate,
+    mkCreateBoostEndleess,
+    mkCreateBoostRightToLeft
   );
   const mask = makeMask([
     mkCharBoostRepeat(2)(mkCharNum()),

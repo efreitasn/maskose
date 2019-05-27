@@ -6,7 +6,7 @@ import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../char/toBePut';
  * Turns the last character of a mask into a character with infinite
  * repetitions.
  */
-export default function mkMaskBoostEndleess(mask: MaskoseMask): MaskoseMask {
+export default function mkCreateBoostEndleess(mask: MaskoseMask): MaskoseMask {
   const maskTail = getMaskTail(mask);
 
   if (maskTail.char.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {

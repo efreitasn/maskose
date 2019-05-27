@@ -1,6 +1,6 @@
 import test from 'ava';
 import regExpStrFromMask from '../regExpStrFromMask';
-import mkMask from '../../mask';
+import mkCreate from '../../create';
 import {
   mkCharNum,
   mkCharSpecific,
@@ -11,7 +11,7 @@ import mkCharBoostRepeat from '../../../boosts/char/repeat';
 import mkCharBoostPredicateFn from '../../../boosts/char/predicateFn';
 
 test('should return the correct regExpStr from the provided mask', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
@@ -27,7 +27,7 @@ test('should return the correct regExpStr from the provided mask', t => {
 });
 
 test('should return the correct regExpStr from the provided mask (2)', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharBoostPredicateFn(
       ({ value }) => value.length === 4

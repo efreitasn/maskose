@@ -1,11 +1,11 @@
 import test from 'ava';
-import mkMask from '../../mask';
+import mkCreate from '../../create';
 import { mkCharNum, mkCharToBePut } from '../../../char';
 import clearMaskedValue from '../clearMaskedValue';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
 test('should clear the provided maskedValue when rightToLeft equals false', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(','),
     mkCharBoostRepeat(2)(mkCharNum()),
@@ -24,7 +24,7 @@ test('should clear the provided maskedValue when rightToLeft equals false', t =>
 });
 
 test('should clear the provided maskedValue when rightToLeft equals true', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(','),
     mkCharBoostRepeat(2)(mkCharNum()),
@@ -43,7 +43,7 @@ test('should clear the provided maskedValue when rightToLeft equals true', t => 
 });
 
 test('should return the provided maskedValue if there\'s nothing to be cleared', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(','),
     mkCharBoostRepeat(2)(mkCharNum()),

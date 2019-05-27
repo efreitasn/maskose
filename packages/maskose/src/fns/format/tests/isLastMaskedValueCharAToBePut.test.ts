@@ -1,11 +1,11 @@
 import test from 'ava';
-import mkMask from '../../mask';
+import mkCreate from '../../create';
 import { mkCharNum, mkCharToBePut } from '../../../char';
 import isLastMaskedValueCharAToBePut from '../isLastMaskedValueCharAToBePut';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
 test('should return true when the last maskedValue character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharNum()
@@ -22,7 +22,7 @@ test('should return true when the last maskedValue character is a charToBePut an
 });
 
 test('should return true when the first maskedValue character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharNum()
@@ -39,7 +39,7 @@ test('should return true when the first maskedValue character is a charToBePut a
 });
 
 test('should return false when the first maskedValue character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharNum()
@@ -57,7 +57,7 @@ test('should return false when the first maskedValue character is a charToBePut 
 
 
 test('should return false when the last maskedValue character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask([
+  const mask = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharNum()

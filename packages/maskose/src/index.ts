@@ -13,7 +13,7 @@ export interface MaskoseMask {
 };
 
 export { default as mkFormat } from './fns/format';
-export { default as mkMask } from './fns/mask';
+export { default as mkCreate } from './fns/create';
 export { default as mkMatch } from './fns/match';
 export {
   mkCharLetter as mkCharLetter,
