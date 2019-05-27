@@ -9,8 +9,8 @@ import getMaskTail from '../getMaskTail';
 
 test('should return the correct mask tail', t => {
   const createMask = pipe<MaskoseChar[], MaskoseMask>(
-    mkBoostRightToLeft,
-    arrayToArgs(mkMask)
+    arrayToArgs(mkMask),
+    mkBoostRightToLeft
   );
   const mask = createMask([
     mkCharRepeat(4, mkCharNum()),
