@@ -6,6 +6,8 @@ export default function mkMask(...maskoseChars: MaskoseChar[]): MaskoseMask {
   const content = charsToMaskContentItems(maskoseChars);
 
   return {
-    content
+    content,
+    endless: false,
+    rightToLeft: false
   };
 }

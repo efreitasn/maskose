@@ -8,6 +8,8 @@ export interface MaskoseMaskContentItem {
 };
 
 export interface MaskoseMask {
+  readonly endless: boolean;
+  readonly rightToLeft: boolean;
   readonly content: MaskoseMaskContentItem[];
 };
 
