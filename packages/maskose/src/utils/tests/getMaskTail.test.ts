@@ -3,13 +3,13 @@ import pipe from '../pipe';
 import { MaskoseChar, mkCharRepeat, mkCharNum, mkCharLetter, mkCharSpecific } from '../../chars';
 import { MaskoseMask } from '../..';
 import mkMask from '../../fns/mask';
-import mkBoostRightToLeft from '../../boosts/rightToLeft';
+import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';
 import getMaskTail from '../getMaskTail';
 
 test('should return the correct mask tail', t => {
   const createMask = pipe<MaskoseChar[], MaskoseMask>(
     mkMask,
-    mkBoostRightToLeft
+    mkMaskBoostRightToLeft
   );
   const mask = createMask([
     mkCharRepeat(4, mkCharNum()),

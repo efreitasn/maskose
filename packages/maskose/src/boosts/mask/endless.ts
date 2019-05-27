@@ -1,12 +1,12 @@
-import { MaskoseMask } from '..';
-import getMaskTail from '../utils/getMaskTail';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../chars/primitives/toBePut';
+import { MaskoseMask } from '../..';
+import getMaskTail from '../../utils/getMaskTail';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../chars/primitives/toBePut';
 
 /**
  * Turns the last character of a mask into a character with infinite
  * repetitions.
  */
-export default function mkBoostEndleess(mask: MaskoseMask): MaskoseMask {
+export default function mkMaskBoostEndleess(mask: MaskoseMask): MaskoseMask {
   const maskTail = getMaskTail(mask);
 
   if (maskTail.primitive.type === MASKOSE_CHAR_TO_BE_PUT_TYPE) {

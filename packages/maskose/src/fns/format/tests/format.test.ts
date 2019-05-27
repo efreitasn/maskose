@@ -10,10 +10,10 @@ import {
 } from '../../../chars';
 import mkMask from '../../mask';
 import mkFormat from '..';
-import mkBoostRightToLeft from '../../../boosts/rightToLeft';
+import mkMaskBoostRightToLeft from '../../../boosts/mask/rightToLeft';
 import { MaskoseMask } from '../../..';
 import pipe from '../../../utils/pipe';
-import mkBoostEndleess from '../../../boosts/endless';
+import mkMaskBoostEndleess from '../../../boosts/mask/endless';
 
 test('should format the value using the provided mask', t => {
   const mask = mkMask([
@@ -74,7 +74,7 @@ test('should return an empty string when the provided value is an empty string',
 test('should format the value using the provided mask when using rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
     mkMask,
-    mkBoostRightToLeft
+    mkMaskBoostRightToLeft
   );
   const mask = makeMask([
     mkCharRepeat(2, mkCharNum()),
@@ -93,7 +93,7 @@ test('should format the value using the provided mask when using rightToLeft', t
 test('should format the value using the provided mask when using endless', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
     mkMask,
-    mkBoostEndleess
+    mkMaskBoostEndleess
   );
   const mask = makeMask([
     mkCharRepeat(2, mkCharNum()),
@@ -110,8 +110,8 @@ test('should format the value using the provided mask when using endless', t => 
 test.only('should format the value using the provided mask when using endless and rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
     mkMask,
-    mkBoostEndleess,
-    mkBoostRightToLeft
+    mkMaskBoostEndleess,
+    mkMaskBoostRightToLeft
   );
   const mask = makeMask([
     mkCharRepeat(2, mkCharNum()),
