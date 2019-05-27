@@ -11,17 +11,16 @@ import {
 import mkMask from '../../mask';
 import mkFormat from '..';
 import mkBoostRightToLeft from '../../../boosts/rightToLeft';
-import arrayToArgs from '../../../utils/arrayToArgs';
 import { MaskoseMask } from '../../..';
 import pipe from '../../../utils/pipe';
 import mkBoostEndleess from '../../../boosts/endless';
 
 test('should format the value using the provided mask', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharRepeat(5, mkCharNum()),
     mkCharToBePut('-'),
     mkCharRepeat(3, mkCharNum())
-  );
+  ]);
   const mkFormatWithMask = mkFormat(mask);
   const result = mkFormatWithMask('12345678');
 
@@ -29,7 +28,7 @@ test('should format the value using the provided mask', t => {
 });
 
 test('should format the value using the provided mask (2)', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharToBePut('('),
     mkCharRepeat(2, mkCharNum()),
     mkCharToBePut(')'),
@@ -38,7 +37,7 @@ test('should format the value using the provided mask (2)', t => {
     mkCharRepeat(4, mkCharNum()),
     mkCharToBePut('-'),
     mkCharRepeat(4, mkCharNum())
-  );
+  ]);
   const mkFormatWithMask = mkFormat(mask);
 
   t.is(mkFormatWithMask('9912345678'), '(99) 1234-5678');
@@ -46,13 +45,13 @@ test('should format the value using the provided mask (2)', t => {
 });
 
 test('should format the value using the provided mask (3)', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharRepeat(4, mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
     mkCharToBePut('/'),
     mkCharNum()
-  );
+  ]);
   const mkFormatWithMask = mkFormat(mask);
 
   t.is(mkFormatWithMask('1234-A2'), '1234-A/2');
@@ -60,13 +59,13 @@ test('should format the value using the provided mask (3)', t => {
 });
 
 test('should return an empty string when the provided value is an empty string', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharRepeat(4, mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
     mkCharToBePut('/'),
     mkCharNum()
-  );
+  ]);
   const mkFormatWithMask = mkFormat(mask);
 
   t.is(mkFormatWithMask(''), '');
@@ -74,7 +73,7 @@ test('should return an empty string when the provided value is an empty string',
 
 test('should format the value using the provided mask when using rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    arrayToArgs(mkMask),
+    mkMask,
     mkBoostRightToLeft
   );
   const mask = makeMask([
@@ -93,7 +92,7 @@ test('should format the value using the provided mask when using rightToLeft', t
 
 test('should format the value using the provided mask when using endless', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    arrayToArgs(mkMask),
+    mkMask,
     mkBoostEndleess
   );
   const mask = makeMask([
@@ -110,7 +109,7 @@ test('should format the value using the provided mask when using endless', t => 
 
 test.only('should format the value using the provided mask when using endless and rightToLeft', t => {
   const makeMask = pipe<MaskoseChar[], MaskoseMask>(
-    arrayToArgs(mkMask),
+    mkMask,
     mkBoostEndleess,
     mkBoostRightToLeft
   );

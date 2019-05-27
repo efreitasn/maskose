@@ -9,14 +9,14 @@ import {
 } from '../../../chars';
 
 test('should match the object returned by mkMask()', t => {
-  const result = mkMask(
+  const result = mkMask([
     mkCharRepeat(4, mkCharNum()),
     mkCharLetter(),
     mkCharRepeat(1, mkCharNum()),
     mkCharToBePut('K'),
     mkCharNum(),
     mkCharSpecific('B')
-  );
+  ]);
 
   t.snapshot(result);
 });

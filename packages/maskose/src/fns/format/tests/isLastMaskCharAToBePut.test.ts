@@ -4,10 +4,10 @@ import { mkCharNum, mkCharToBePut } from '../../../chars';
 import isLastMaskCharAToBePut from '../isLastMaskCharAToBePut';
 
 test('should return true when the last mask character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharNum(),
     mkCharToBePut('-')
-  );
+  ]);
   const rightToLeft = false;
   const result = isLastMaskCharAToBePut(
     mask,
@@ -18,10 +18,10 @@ test('should return true when the last mask character is a charToBePut and right
 });
 
 test('should return true when the first mask character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharToBePut('-'),
     mkCharNum()
-  );
+  ]);
   const rightToLeft = true;
   const result = isLastMaskCharAToBePut(
     mask,
@@ -32,10 +32,10 @@ test('should return true when the first mask character is a charToBePut and righ
 });
 
 test('should return false when the last mask character is a charToBePut and rightToLeft equals true', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharNum(),
     mkCharToBePut('-')
-  );
+  ]);
   const rightToLeft = true;
   const result = isLastMaskCharAToBePut(
     mask,
@@ -46,10 +46,10 @@ test('should return false when the last mask character is a charToBePut and righ
 });
 
 test('should return false when the first mask character is a charToBePut and rightToLeft equals false', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharToBePut('-'),
     mkCharNum()
-  );
+  ]);
   const rightToLeft = false;
   const result = isLastMaskCharAToBePut(
     mask,

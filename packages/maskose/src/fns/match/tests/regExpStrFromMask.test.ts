@@ -11,12 +11,12 @@ import {
 } from '../../../chars';
 
 test('should return the correct regExpStr from the provided mask', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharRepeat(4, mkCharNum()),
     mkCharSpecific('-'),
     mkCharLetter(),
     mkCharToBePut('Z')
-  );
+  ]);
   const value = 'any';
   const result = regExpStrFromMask(
     mask,
@@ -27,7 +27,7 @@ test('should return the correct regExpStr from the provided mask', t => {
 });
 
 test('should return the correct regExpStr from the provided mask (2)', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharRepeat(4, mkCharNum()),
     mkCharPredicateFn(
       ({ value }) => value.length === 4,
@@ -35,7 +35,7 @@ test('should return the correct regExpStr from the provided mask (2)', t => {
     ),
     mkCharLetter(),
     mkCharToBePut('Z')
-  );
+  ]);
   const value = 'any';
   const result = regExpStrFromMask(
     mask,

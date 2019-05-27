@@ -11,13 +11,13 @@ import {
 import mkMatch from '..';
 
 test('should return true when the provided value matches the provided mask', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharNum(),
     mkCharLetter(),
     mkCharRepeat(3, mkCharSpecific('A')),
     mkCharNum(),
     mkCharToBePut('Z')
-  );
+  ]);
   const mkMatchWithOptions = mkMatch({
     mask
   });
@@ -26,7 +26,7 @@ test('should return true when the provided value matches the provided mask', t =
 });
 
 test('should return true when the provided value matches the provided mask (2)', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharNum(),
     mkCharPredicateFn(
       ({ value }) => value.length === 7,
@@ -35,7 +35,7 @@ test('should return true when the provided value matches the provided mask (2)',
     mkCharRepeat(3, mkCharSpecific('5')),
     mkCharNum(),
     mkCharToBePut('Z')
-  );
+  ]);
   const mkMatchWithOptions = mkMatch({
     mask
   });
@@ -45,7 +45,7 @@ test('should return true when the provided value matches the provided mask (2)',
 });
 
 test('should return false when the provided value does not match the provided mask', t => {
-  const mask = mkMask(
+  const mask = mkMask([
     mkCharNum(),
     mkCharPredicateFn(
       ({ value }) => value.length === 7,
@@ -54,7 +54,7 @@ test('should return false when the provided value does not match the provided ma
     mkCharRepeat(3, mkCharSpecific('5')),
     mkCharNum(),
     mkCharToBePut('Z')
-  );
+  ]);
   const mkMatchWithOptions = mkMatch({
     mask
   });
