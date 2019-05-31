@@ -1,9 +1,8 @@
-import test from 'ava';
 import mkCharBoostValueLengthEqualTo from '../valueLengthEqualTo';
 import mkCharNum from '../../../mask/chars/num';
 
-test('should match the object returned by mkCharBoostValueLengthEqualTo()', t => {
+test('should match the object returned by mkCharBoostValueLengthEqualTo()', () => {
   const result = mkCharBoostValueLengthEqualTo(5)(mkCharNum());
 
-  t.snapshot(result);
+  expect(result).toMatchSnapshot();
 });

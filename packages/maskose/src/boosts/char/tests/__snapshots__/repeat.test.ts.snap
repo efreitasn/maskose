@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the object returned by mkCharBoostRepeat() 1`] = `
+Object {
+  "regExp": /\\[0-9\\]/,
+  "repetitions": 5,
+  "type": "MASKOSE_CHAR_NUM_TYPE",
+  "valueLengthConditions": Array [],
+}
+`;

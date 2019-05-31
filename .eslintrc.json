@@ -2,22 +2,14 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "ava"
+    "jest"
   ],
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:ava/recommended"
+    "plugin:jest/recommended"
   ],
   "rules": {
     "no-console": "warn",
-    "ava/no-ignored-test-files": [
-      "error",
-      {
-        "files": [
-          "**/*.test.{ts,js}"
-        ]
-      }
-    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/prefer-interface": "off",
     "@typescript-eslint/no-explicit-any": "off",

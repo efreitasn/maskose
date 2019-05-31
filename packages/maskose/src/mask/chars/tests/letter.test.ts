@@ -1,8 +1,7 @@
-import test from 'ava';
 import mkCharLetter from '../letter';
 
-test('should match the object returned by mkCharLetter()', t => {
+test('should match the object returned by mkCharLetter()', () => {
   const result = mkCharLetter();
 
-  t.snapshot(result);
+  expect(result).toMatchSnapshot();
 });

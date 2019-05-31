@@ -1,4 +1,3 @@
-import test from 'ava';
 import mkCreate from '..';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 import mkBoostChar from '../../boostChar';
@@ -9,7 +8,7 @@ import mkCharGroup from '../../../mask/chars/group';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import mkCharSpecific from '../../../mask/chars/specific';
 
-test('should match the object returned by mkCreate()', t => {
+test('should match the object returned by mkCreate()', () => {
   const result = mkCreate([
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharLetter(),
@@ -31,5 +30,5 @@ test('should match the object returned by mkCreate()', t => {
     ])
   ]);
 
-  t.snapshot(result);
+  expect(result).toMatchSnapshot();
 });

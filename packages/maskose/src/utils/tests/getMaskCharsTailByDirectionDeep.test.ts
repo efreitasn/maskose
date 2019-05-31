@@ -1,4 +1,3 @@
-import test from 'ava';
 import {
   MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT
 } from '../../mask';
@@ -8,7 +7,7 @@ import mkCharGroup from '../../mask/chars/group';
 import mkCharSpecific from '../../mask/chars/specific';
 import getMaskCharsTailByDirectionDeep from '../getMaskCharsTailByDirectionDeep';
 
-test('should return the correct tail', t => {
+test('should return the correct tail', () => {
   const charNum = mkCharNum();
   const maskChars = [
     mkCharNum(),
@@ -28,5 +27,5 @@ test('should return the correct tail', t => {
     maskChars
   );
 
-  t.is(result, charNum);
+  expect(result).toBe(charNum);
 });

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the object returned by mkCharLetter() 1`] = `
+Object {
+  "regExp": /\\[A-Z\\]/i,
+  "repetitions": 1,
+  "type": "MASKOSE_CHAR_LETTER_TYPE",
+  "valueLengthConditions": Array [],
+}
+`;

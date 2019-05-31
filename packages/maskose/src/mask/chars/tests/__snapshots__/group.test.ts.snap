@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the object returned by mkCharGroup() 1`] = `
+Object {
+  "chars": Array [
+    Object {
+      "regExp": /\\[0-9\\]/,
+      "repetitions": 3,
+      "type": "MASKOSE_CHAR_NUM_TYPE",
+      "valueLengthConditions": Array [],
+    },
+    Object {
+      "regExp": /\\[A-Z\\]/i,
+      "repetitions": 1,
+      "type": "MASKOSE_CHAR_LETTER_TYPE",
+      "valueLengthConditions": Array [],
+    },
+  ],
+  "repetitions": 1,
+  "type": "MASKOSE_CHAR_GROUP_TYPE",
+  "valueLengthConditions": Array [],
+}
+`;

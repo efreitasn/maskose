@@ -1,11 +1,10 @@
-import test from 'ava';
 import {
   MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT,
   MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT
 } from '../../../mask';
 import concatMaskedValueByDirection from '../concatMaskedValueByDirection';
 
-test(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, t => {
+test(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
   const maskedValue = 'abc-';
   const value = '2';
   const direction = MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT;
@@ -15,10 +14,10 @@ test(`should concat the provided values correctly when direction is equal to ${M
     direction
   );
 
-  t.is(result, 'abc-2');
+  expect(result).toBe('abc-2');
 });
 
-test(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, t => {
+test(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
   const maskedValue = 'abc-';
   const value = '2';
   const direction = MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT;
@@ -28,5 +27,5 @@ test(`should concat the provided values correctly when direction is equal to ${M
     direction
   );
 
-  t.is(result, '2abc-');
+  expect(result).toBe('2abc-');
 });

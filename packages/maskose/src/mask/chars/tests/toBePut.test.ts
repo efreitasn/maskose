@@ -1,14 +1,13 @@
-import test from 'ava';
 import mkCharToBePut from '../toBePut';
 
-test('should match the object returned by mkCharToBePut()', t => {
+test('should match the object returned by mkCharToBePut()', () => {
   const result = mkCharToBePut('B');
 
-  t.snapshot(result);
+  expect(result).toMatchSnapshot();
 });
 
-test('should throw an error when an string with length > 1 is provided', t => {
+test('should throw an error when an string with length > 1 is provided', () => {
   const str = '20';
 
-  t.throws(() => mkCharToBePut(str));
+  expect(() => mkCharToBePut(str)).toThrow();
 });

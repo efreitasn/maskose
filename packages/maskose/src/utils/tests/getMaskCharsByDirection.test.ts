@@ -1,4 +1,3 @@
-import test from 'ava';
 import mkCreate from '../../fns/create';
 import mkCharNum from '../../mask/chars/num';
 import mkCharBoostRepeat from '../../boosts/char/repeat';
@@ -11,7 +10,7 @@ import {
 } from '../../mask';
 import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';
 
-test(`should return the provided mask's characters when its direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, t => {
+test(`should return the provided mask's characters when its direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharBoostRepeat(4)(mkCharLetter()),
@@ -21,10 +20,10 @@ test(`should return the provided mask's characters when its direction is ${MASKO
   ]);
   const result = getMaskCharsByDirection(mask);
 
-  t.deepEqual(result, mask.chars);
+  expect(result).toEqual(mask.chars);
 });
 
-test(`should return the provided mask's characters in a reversed order when its direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, t => {
+test(`should return the provided mask's characters in a reversed order when its direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharBoostRepeat(4)(mkCharLetter()),
@@ -35,5 +34,5 @@ test(`should return the provided mask's characters in a reversed order when its 
   const maskBoosted = mkMaskBoostRightToLeft()(mask);
   const result = getMaskCharsByDirection(maskBoosted);
 
-  t.deepEqual(result, [...mask.chars].reverse());
+  expect(result).toEqual([...mask.chars].reverse());
 });

@@ -1,4 +1,3 @@
-import test from 'ava';
 import mkCreate from '../../../fns/create';
 import mkMaskBoostEndless from '../endless';
 import isMaskEndless from '../../../utils/isMaskEndless';
@@ -6,7 +5,7 @@ import mkCharNum from '../../../mask/chars/num';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import mkCharLetter from '../../../mask/chars/letter';
 
-test('should make the provided mask an endless mask', t => {
+test('should make the provided mask an endless mask', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharToBePut('-'),
@@ -14,5 +13,5 @@ test('should make the provided mask an endless mask', t => {
   ]);
   const maskBoosted = mkMaskBoostEndless()(mask);
 
-  t.true(isMaskEndless(maskBoosted));
+  expect(isMaskEndless(maskBoosted)).toBe(true);
 });

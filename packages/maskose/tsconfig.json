@@ -8,6 +8,11 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "downlevelIteration": true
+    "lib": [
+      "es2015"
+    ],
+    "types": [
+      "jest"
+    ]
   }
 }
