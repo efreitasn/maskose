@@ -1,4 +1,5 @@
 import { MaskoseCharBase } from '.';
+import escapeRegExpChar from '../../utils/escapeRegExpChar';
 
 export const MASKOSE_CHAR_SPECIFIC_TYPE = 'MASKOSE_CHAR_SPECIFIC_TYPE';
 export const MASKOSE_CHAR_SPECIFIC_STR_ID = 'SPECIFIC';
@@ -6,6 +7,7 @@ export const MASKOSE_CHAR_SPECIFIC_STR_ID = 'SPECIFIC';
 export interface MaskoseCharSpecific extends MaskoseCharBase {
   type: typeof MASKOSE_CHAR_SPECIFIC_TYPE;
   char: string;
+  regExp: RegExp;
 };
 
 /**
@@ -16,10 +18,15 @@ export default function mkCharSpecific(char: string): MaskoseCharSpecific {
     throw new Error('The provided character must have a size equal to 1');
   }
 
+  const regExp = new RegExp(
+    escapeRegExpChar(char)
+  );
+
   return {
     type: MASKOSE_CHAR_SPECIFIC_TYPE,
     char,
     repetitions: 1,
-    valueLengthConditions: []
+    valueLengthConditions: [],
+    regExp
   };
 }

@@ -14,7 +14,6 @@ import doesMaskCharHaveMoreIterations from './doesMaskCharHaveMoreIterations';
 import getMaskCharNextIteration from './getMaskCharNextIteration';
 import concatMaskedValueByDirection from './concatMaskedValueByDirection';
 import isMaskCharValidByValueLength from '../../utils/isMaskCharValidByValueLength';
-import escapeRegExpChar from '../../utils/escapeRegExpChar';
 import getMaskCharRepetitions from '../../utils/getMaskCharRepetitions';
 import isMaskDirectionRightToLeft from '../../utils/isMaskDirectionRightToLeft';
 
@@ -232,7 +231,7 @@ export default function maskValueByTraversingMask(
   }
 
   if (maskChar.type === MASKOSE_CHAR_SPECIFIC_TYPE) {
-    const match = new RegExp(escapeRegExpChar(maskChar.char)).test(valueToBeMaskedChar);
+    const match = new RegExp(maskChar.regExp).test(valueToBeMaskedChar);
 
     return maskValueByTraversingMask({
       ...state,
