@@ -16,7 +16,6 @@ import concatMaskedValueByDirection from './concatMaskedValueByDirection';
 import isMaskCharValidByValueLength from '../../utils/isMaskCharValidByValueLength';
 import escapeRegExpChar from '../../utils/escapeRegExpChar';
 import getMaskCharRepetitions from '../../utils/getMaskCharRepetitions';
-// import { MASKOSE_CHAR_ONE_OF_TYPE } from '../../mask/chars/oneOf';
 import isMaskDirectionRightToLeft from '../../utils/isMaskDirectionRightToLeft';
 
 interface MaskValueByTraversingMaskState {
@@ -207,53 +206,6 @@ export default function maskValueByTraversingMask(
         maskCharDidntMatchNum
     });
   }
-
-  // if (maskChar.type === MASKOSE_CHAR_ONE_OF_TYPE) {
-  //   const oneOfMaskCharsByDirectionTraverseResult = maskValueByTraversingMask({
-  //     ...state,
-  //     endless: false,
-  //     isInEndlessMode: false,
-  //     stopOnFirstMaskCharMatch: true,
-  //     stopOnFirstValueToBeMaskedCharDidntMatch: false,
-  //     valueToBeMaskedCharMatchNum: 0,
-  //     maskCharDidntMatchNum: 0,
-  //     maskCharMatchNum: 0,
-  //     maskCharCurrentIteration: 0,
-  //     maskCharsByDirectionIndex: 0,
-  //     maskCharsByDirection: rightToLeft ?
-  //       [...maskChar.chars].reverse() :
-  //       maskChar.chars
-  //   });
-
-  //   const maskCharMatched = oneOfMaskCharsByDirectionTraverseResult.maskCharMatchNum === 1;
-  //   const numOfValueToBeMaskedCharsThatMatched = maskCharMatched ?
-  //     (valueToBeMaskedCharMatchNum + (oneOfMaskCharsByDirectionTraverseResult.maskedValue.length - maskedValue.length)) :
-  //     valueToBeMaskedCharMatchNum;
-
-  //   return maskValueByTraversingMask({
-  //     ...state,
-  //     maskedValue: oneOfMaskCharsByDirectionTraverseResult.maskedValue,
-  //     maskCharsByDirectionIndex: (isInEndlessMode || maskCharHasMoreIterations) ?
-  //       maskCharsByDirectionIndex :
-  //       maskCharsByDirectionIndex + 1,
-  //     maskCharCurrentIteration: getMaskCharNextIteration(maskCharRepetions, maskCharCurrentIteration),
-  //     valueToBeMaskedByMaskDirectionIndex: oneOfMaskCharsByDirectionTraverseResult.valueToBeMaskedByMaskDirectionIndex,
-  //     valueToBeMaskedCharMatchNum: numOfValueToBeMaskedCharsThatMatched,
-  //     valueToBeMaskedCharDidntMatchNum: maskCharMatched ?
-  //       valueToBeMaskedCharDidntMatchNum : 
-  //       valueToBeMaskedCharDidntMatchNum + 1,
-  //     maskCharMatchNum: (isInEndlessMode || maskCharHasMoreIterations) ?
-  //       maskCharMatchNum :
-  //       (
-  //         maskCharMatched ?
-  //           maskCharMatchNum + 1 :
-  //           maskCharMatchNum
-  //       ),
-  //     maskCharDidntMatchNum: maskCharMatched ?
-  //       maskCharDidntMatchNum: 
-  //       (maskCharDidntMatchNum + 1)
-  //   });
-  // }
 
   if (maskChar.type === MASKOSE_CHAR_LETTER_TYPE) {
     const match = maskChar.regExp.test(valueToBeMaskedChar);

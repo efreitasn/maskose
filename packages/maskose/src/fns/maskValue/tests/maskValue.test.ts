@@ -8,7 +8,6 @@ import mkMaskValue from '..';
 import { mkMaskBoostEndless, mkMaskBoostRightToLeft } from '../../..';
 import mkBoostMask from '../../boostMask';
 import mkCharGroup from '../../../mask/chars/group';
-// import mkCharOneOf from '../../../mask/chars/oneOf';
 import mkCharLetter from '../../../mask/chars/letter';
 import mkCharBoostValueLengthGreaterThan from '../../../boosts/char/valueLengthGreaterThan';
 import mkCharSpecific from '../../../mask/chars/specific';
@@ -53,39 +52,6 @@ test('should mask the provided value (US currency mask)', t => {
   t.is(mkMaskValueWithMask('12W4567891234567'), '45,678,912,345.67');
   t.is(mkMaskValueWithMask(''), '');
 });
-
-// test('should mask the provided value (HEX color mask)', t => {
-//   const mask = mkCreate([
-//     mkCharToBePut('#'),
-//     mkCharOneOf([
-//       mkCharBoostRepeat(3)(
-//         mkCharOneOf([
-//           mkCharNum(),
-//           mkCharLetter({
-//             start: 'A',
-//             end: 'F'
-//           })
-//         ])
-//       ),
-//       mkCharBoostRepeat(6)(
-//         mkCharOneOf([
-//           mkCharNum(),
-//           mkCharLetter({
-//             start: 'A',
-//             end: 'F'
-//           })
-//         ])
-//       )
-//     ])
-//   ]);
-//   const mkMaskValueWithMask = mkMaskValue(mask);
-
-//   t.is(mkMaskValueWithMask('123'), '#123');
-//   t.is(mkMaskValueWithMask('ABC123'), '#ABC123');
-//   t.is(mkMaskValueWithMask('1234'), '#1234');
-//   t.is(mkMaskValueWithMask('ZZZ'), '');
-//   t.is(mkMaskValueWithMask(''), '');
-// });
 
 test('should mask the provided value (number/letter between parenthesis mask)', t => {
   const mask = mkCreate([

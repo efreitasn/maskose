@@ -1,4 +1,4 @@
-# Snapshot report for `src/char/tests/toBePut.test.ts`
+# Snapshot report for `src/mask/chars/tests/toBePut.test.ts`
 
 The actual snapshot is saved in `toBePut.test.ts.snap`.
 
