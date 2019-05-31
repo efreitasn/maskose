@@ -8,12 +8,17 @@ export interface MaskoseCharLetter extends MaskoseCharBase {
   regExp: RegExp;
 };
 
-/**
- * A character in the specified range expected to be in the value to be masked
- */
-export default function mkCharLetter(options: {
+interface MkCharLetterOptions {
+  /**
+   * Whether the range will be case sensitive, defaults to false
+   */
   caseSensitive?: boolean;
-} = {}): MaskoseCharLetter {
+}
+
+/**
+ * A character in the range A-Z expected to be in the value to be masked
+ */
+export default function mkCharLetter(options: MkCharLetterOptions = {}): MaskoseCharLetter {
   const regExp = new RegExp(
     '[A-Z]',
     options.caseSensitive ? '' : 'i'
