@@ -8,18 +8,21 @@ export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN = 'gt';
 export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO = 'eq';
 export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN = 'lt';
 
-export type MaskoseCharValueConditionType =
+export type MaskoseCharValueLengthConditionType =
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN
 ;
 
+export type MaskoseCharValueLengthCondition = {
+  type: MaskoseCharValueLengthConditionType;
+  num: number;
+};
+
 export interface MaskoseCharBase {
   repetitions: number;
-  valueLengthConditions: ({
-    type: MaskoseCharValueConditionType;
-    num: number;
-  })[];
+  valueToBeMaskedLengthConditions: MaskoseCharValueLengthCondition[];
+  maskedValueLengthConditions: MaskoseCharValueLengthCondition[];
 };
 
 export type MaskoseChar =

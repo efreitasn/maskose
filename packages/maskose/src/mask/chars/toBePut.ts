@@ -23,6 +23,7 @@ export default function mkCharToBePut(char: string): MaskoseCharToBePut {
     type: MASKOSE_CHAR_TO_BE_PUT_TYPE,
     char,
     repetitions: 1,
-    valueLengthConditions: []
+    maskedValueLengthConditions: [],
+    valueToBeMaskedLengthConditions: []
   };
 }

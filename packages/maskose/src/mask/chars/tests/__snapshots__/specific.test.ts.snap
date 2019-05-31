@@ -3,9 +3,10 @@
 exports[`should match the object returned by mkCharSpecific() 1`] = `
 Object {
   "char": "E",
+  "maskedValueLengthConditions": Array [],
   "regExp": /E/,
   "repetitions": 1,
   "type": "MASKOSE_CHAR_SPECIFIC_TYPE",
-  "valueLengthConditions": Array [],
+  "valueToBeMaskedLengthConditions": Array [],
 }
 `;

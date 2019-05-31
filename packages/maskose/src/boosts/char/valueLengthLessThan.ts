@@ -4,15 +4,25 @@ import { MaskoseChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN } from '../.
 /**
  * Make a maskChar only present in a mask if the valueToBeMasked length is less than num.
  */
-export default function mkCharBoostValueLengthLessThan(num: number): MaskoseBoost<MaskoseChar> {
+export default function mkCharBoostValueLengthLessThan(values: {
+  masked: number;
+  toBeMasked: number;
+}): MaskoseBoost<MaskoseChar> {
   return function mkCharBoostValueLengthLessThanWithNum(char: MaskoseChar): MaskoseChar {
     return {
       ...char,
-      valueLengthConditions: [
-        ...char.valueLengthConditions,
+      valueToBeMaskedLengthConditions: [
+        ...char.valueToBeMaskedLengthConditions,
         {
           type: MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN,
-          num
+          num: values.toBeMasked
+        }
+      ],
+      maskedValueLengthConditions: [
+        ...char.maskedValueLengthConditions,
+        {
+          type: MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN,
+          num: values.masked
         }
       ]
     };

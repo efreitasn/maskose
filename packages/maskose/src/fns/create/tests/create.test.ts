@@ -19,7 +19,10 @@ test('should match the object returned by mkCreate()', () => {
       ])
     ),
     mkBoostChar(mkCharToBePut(')'))([
-      mkCharBoostValueLengthEqualTo(2)
+      mkCharBoostValueLengthEqualTo({
+        masked: 2,
+        toBeMasked: 2
+      })
     ]),
     mkCharToBePut('K'),
     mkCharNum(),

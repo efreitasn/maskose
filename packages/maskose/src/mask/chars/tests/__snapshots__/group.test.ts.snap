@@ -4,20 +4,23 @@ exports[`should match the object returned by mkCharGroup() 1`] = `
 Object {
   "chars": Array [
     Object {
+      "maskedValueLengthConditions": Array [],
       "regExp": /\\[0-9\\]/,
       "repetitions": 3,
       "type": "MASKOSE_CHAR_NUM_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
+      "maskedValueLengthConditions": Array [],
       "regExp": /\\[A-Z\\]/i,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_LETTER_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
   ],
+  "maskedValueLengthConditions": Array [],
   "repetitions": 1,
   "type": "MASKOSE_CHAR_GROUP_TYPE",
-  "valueLengthConditions": Array [],
+  "valueToBeMaskedLengthConditions": Array [],
 }
 `;

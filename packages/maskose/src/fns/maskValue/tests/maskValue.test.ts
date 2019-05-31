@@ -16,7 +16,10 @@ test('should mask the provided value (BR cellphone number mask)', () => {
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(')'),
     mkCharToBePut(' '),
-    mkCharBoostValueLengthEqualTo(11)(mkCharNum()),
+    mkCharBoostValueLengthEqualTo({
+      masked: 11,
+      toBeMasked: 11
+    })(mkCharNum()),
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
     mkCharBoostRepeat(4)(mkCharNum())

@@ -26,7 +26,8 @@ export default function mkCharSpecific(char: string): MaskoseCharSpecific {
     type: MASKOSE_CHAR_SPECIFIC_TYPE,
     char,
     repetitions: 1,
-    valueLengthConditions: [],
+    maskedValueLengthConditions: [],
+    valueToBeMaskedLengthConditions: [],
     regExp
   };
 }

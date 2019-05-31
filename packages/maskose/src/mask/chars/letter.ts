@@ -27,7 +27,8 @@ export default function mkCharLetter(options: MkCharLetterOptions = {}): Maskose
   return {
     type: MASKOSE_CHAR_LETTER_TYPE,
     repetitions: 1,
-    valueLengthConditions: [],
+    maskedValueLengthConditions: [],
+    valueToBeMaskedLengthConditions: [],
     regExp
   };
 }

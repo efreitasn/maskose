@@ -3,8 +3,9 @@
 exports[`should match the object returned by mkCharToBePut() 1`] = `
 Object {
   "char": "B",
+  "maskedValueLengthConditions": Array [],
   "repetitions": 1,
   "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
-  "valueLengthConditions": Array [],
+  "valueToBeMaskedLengthConditions": Array [],
 }
 `;

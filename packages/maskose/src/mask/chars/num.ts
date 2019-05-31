@@ -15,7 +15,8 @@ export default function mkCharNum(): MaskoseCharNum {
   return {
     type: MASKOSE_CHAR_NUM_TYPE,
     repetitions: 1,
-    valueLengthConditions: [],
+    maskedValueLengthConditions: [],
+    valueToBeMaskedLengthConditions: [],
     regExp: /[0-9]/
   };
 }

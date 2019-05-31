@@ -4,41 +4,52 @@ exports[`should match the object returned by mkCreate() 1`] = `
 Object {
   "chars": Array [
     Object {
+      "maskedValueLengthConditions": Array [],
       "regExp": /\\[0-9\\]/,
       "repetitions": 4,
       "type": "MASKOSE_CHAR_NUM_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
+      "maskedValueLengthConditions": Array [],
       "regExp": /\\[A-Z\\]/i,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_LETTER_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
       "chars": Array [
         Object {
+          "maskedValueLengthConditions": Array [],
           "regExp": /\\[0-9\\]/,
           "repetitions": 1,
           "type": "MASKOSE_CHAR_NUM_TYPE",
-          "valueLengthConditions": Array [],
+          "valueToBeMaskedLengthConditions": Array [],
         },
         Object {
+          "maskedValueLengthConditions": Array [],
           "regExp": /\\[A-Z\\]/i,
           "repetitions": 1,
           "type": "MASKOSE_CHAR_LETTER_TYPE",
-          "valueLengthConditions": Array [],
+          "valueToBeMaskedLengthConditions": Array [],
         },
       ],
+      "maskedValueLengthConditions": Array [],
       "repetitions": 2,
       "type": "MASKOSE_CHAR_GROUP_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
       "char": ")",
+      "maskedValueLengthConditions": Array [
+        Object {
+          "num": 2,
+          "type": "eq",
+        },
+      ],
       "repetitions": 1,
       "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
-      "valueLengthConditions": Array [
+      "valueToBeMaskedLengthConditions": Array [
         Object {
           "num": 2,
           "type": "eq",
@@ -47,41 +58,47 @@ Object {
     },
     Object {
       "char": "K",
+      "maskedValueLengthConditions": Array [],
       "repetitions": 1,
       "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
+      "maskedValueLengthConditions": Array [],
       "regExp": /\\[0-9\\]/,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_NUM_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
       "char": "B",
+      "maskedValueLengthConditions": Array [],
       "regExp": /B/,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_SPECIFIC_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
       "chars": Array [
         Object {
+          "maskedValueLengthConditions": Array [],
           "regExp": /\\[0-9\\]/,
           "repetitions": 1,
           "type": "MASKOSE_CHAR_NUM_TYPE",
-          "valueLengthConditions": Array [],
+          "valueToBeMaskedLengthConditions": Array [],
         },
         Object {
+          "maskedValueLengthConditions": Array [],
           "regExp": /\\[A-Z\\]/i,
           "repetitions": 1,
           "type": "MASKOSE_CHAR_LETTER_TYPE",
-          "valueLengthConditions": Array [],
+          "valueToBeMaskedLengthConditions": Array [],
         },
       ],
+      "maskedValueLengthConditions": Array [],
       "repetitions": 1,
       "type": "MASKOSE_CHAR_GROUP_TYPE",
-      "valueLengthConditions": Array [],
+      "valueToBeMaskedLengthConditions": Array [],
     },
   ],
   "direction": "left-to-right",

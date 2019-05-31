@@ -2,9 +2,10 @@
 
 exports[`should match the object returned by mkCharLetter() 1`] = `
 Object {
+  "maskedValueLengthConditions": Array [],
   "regExp": /\\[A-Z\\]/i,
   "repetitions": 1,
   "type": "MASKOSE_CHAR_LETTER_TYPE",
-  "valueLengthConditions": Array [],
+  "valueToBeMaskedLengthConditions": Array [],
 }
 `;

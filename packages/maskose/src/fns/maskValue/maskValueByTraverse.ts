@@ -10,7 +10,7 @@ import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../../mask/chars/toBePut';
 import doesMaskCharHaveMoreIterations from './doesMaskCharHaveMoreIterations';
 import getMaskCharNextIteration from './getMaskCharNextIteration';
 import concatMaskedValueByDirection from './concatMaskedValueByDirection';
-import isMaskCharValidByValueLength from '../../utils/isMaskCharValidByValueLength';
+import areValueLengthConditionsTrue from '../../utils/areValueLengthConditionsTrue';
 import getMaskCharRepetitions from '../../utils/getMaskCharRepetitions';
 import isMaskDirectionRightToLeft from '../../utils/isMaskDirectionRightToLeft';
 
@@ -144,7 +144,10 @@ export default function maskValueByTraverse(
     });
   }
 
-  if (!isMaskCharValidByValueLength(valueToBeMaskedCharsByMaskDirection.length, maskChar)) {
+  if (!areValueLengthConditionsTrue(
+    valueToBeMaskedCharsByMaskDirection.length,
+    maskChar.valueToBeMaskedLengthConditions
+  )) {
     return maskValueByTraverse({
       ...state,
       maskCharsByDirectionIndex: maskCharsByDirectionIndex + 1

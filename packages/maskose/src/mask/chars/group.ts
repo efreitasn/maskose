@@ -20,6 +20,7 @@ export default function mkCharGroup(chars: MaskoseChar[]): MaskoseCharGroup {
     type: MASKOSE_CHAR_GROUP_TYPE,
     repetitions: 1,
     chars,
-    valueLengthConditions: []
+    maskedValueLengthConditions: [],
+    valueToBeMaskedLengthConditions: []
   };
 }
