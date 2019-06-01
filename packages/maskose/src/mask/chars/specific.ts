@@ -5,9 +5,9 @@ export const MASKOSE_CHAR_SPECIFIC_TYPE = 'MASKOSE_CHAR_SPECIFIC_TYPE';
 export const MASKOSE_CHAR_SPECIFIC_STR_ID = 'SPECIFIC';
 
 export interface MaskoseMaskCharSpecific extends MaskoseMaskCharBase {
-  type: typeof MASKOSE_CHAR_SPECIFIC_TYPE;
-  char: string;
-  regExp: RegExp;
+  readonly type: typeof MASKOSE_CHAR_SPECIFIC_TYPE;
+  readonly char: string;
+  readonly regExp: RegExp;
 };
 
 /**

@@ -4,8 +4,8 @@ export const MASKOSE_CHAR_NUM_TYPE = 'MASKOSE_CHAR_NUM_TYPE';
 export const MASKOSE_CHAR_NUM_STR_ID = 'NUM';
 
 export interface MaskoseMaskCharNum extends MaskoseMaskCharBase {
-  type: typeof MASKOSE_CHAR_NUM_TYPE;
-  regExp: RegExp;
+  readonly type: typeof MASKOSE_CHAR_NUM_TYPE;
+  readonly regExp: RegExp;
 };
 
 /**

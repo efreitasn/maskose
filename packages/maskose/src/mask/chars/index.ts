@@ -20,9 +20,9 @@ export type MaskoseMaskCharValueLengthCondition = {
 };
 
 export interface MaskoseMaskCharBase {
-  repetitions: number;
-  valueToBeMaskedLengthConditions: MaskoseMaskCharValueLengthCondition[];
-  maskedValueLengthConditions: MaskoseMaskCharValueLengthCondition[];
+  readonly repetitions: number;
+  readonly valueToBeMaskedLengthConditions: MaskoseMaskCharValueLengthCondition[];
+  readonly maskedValueLengthConditions: MaskoseMaskCharValueLengthCondition[];
 };
 
 export type MaskoseMaskChar =

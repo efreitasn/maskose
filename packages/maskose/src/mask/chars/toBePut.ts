@@ -5,9 +5,9 @@ export const MASKOSE_CHAR_TO_BE_PUT_TYPE = 'MASKOSE_CHAR_TO_BE_PUT_TYPE';
 export const MASKOSE_CHAR_TO_BE_PUT_STR_ID = 'TO_BE_PUT';
 
 export interface MaskoseMaskCharToBePut extends MaskoseMaskCharBase {
-  type: typeof MASKOSE_CHAR_TO_BE_PUT_TYPE;
-  char: string;
-  regExp: RegExp;
+  readonly type: typeof MASKOSE_CHAR_TO_BE_PUT_TYPE;
+  readonly char: string;
+  readonly   regExp: RegExp;
 };
 
 /**

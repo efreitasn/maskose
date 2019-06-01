@@ -4,8 +4,8 @@ export const MASKOSE_CHAR_LETTER_TYPE = 'MASKOSE_CHAR_LETTER_TYPE';
 export const MASKOSE_CHAR_LETTER_STR_ID = 'LETTER';
 
 export interface MaskoseMaskCharLetter extends MaskoseMaskCharBase {
-  type: typeof MASKOSE_CHAR_LETTER_TYPE;
-  regExp: RegExp;
+  readonly type: typeof MASKOSE_CHAR_LETTER_TYPE;
+  readonly regExp: RegExp;
 };
 
 interface MkCharLetterOptions {
