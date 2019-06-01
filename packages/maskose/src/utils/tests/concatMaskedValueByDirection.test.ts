@@ -2,13 +2,13 @@ import {
   MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT,
   MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT
 } from '../../mask';
-import concatMaskedValueByDirection from '../concatMaskedValueByDirection';
+import concatStrByMaskDirection from '../concatStrByMaskDirection';
 
 it(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
   const maskedValue = 'abc-';
   const value = '2';
   const direction = MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT;
-  const result = concatMaskedValueByDirection(
+  const result = concatStrByMaskDirection(
     maskedValue,
     value,
     direction
@@ -21,7 +21,7 @@ it(`should concat the provided values correctly when direction is equal to ${MAS
   const maskedValue = 'abc-';
   const value = '2';
   const direction = MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT;
-  const result = concatMaskedValueByDirection(
+  const result = concatStrByMaskDirection(
     maskedValue,
     value,
     direction

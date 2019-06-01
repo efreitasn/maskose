@@ -1,17 +1,17 @@
-import { MaskoseCharBase, MaskoseChar } from '.';
+import { MaskoseMaskCharBase, MaskoseMaskChar } from '.';
 
 export const MASKOSE_CHAR_GROUP_TYPE = 'MASKOSE_CHAR_GROUP_TYPE';
 export const MASKOSE_CHAR_GROUP_STR_ID = 'GROUP';
 
-export interface MaskoseCharGroup extends MaskoseCharBase {
+export interface MaskoseMaskCharGroup extends MaskoseMaskCharBase {
   type: typeof MASKOSE_CHAR_GROUP_TYPE;
-  chars: MaskoseChar[];
+  chars: MaskoseMaskChar[];
 };
 
 /**
  * A group of characters
  */
-export default function mkCharGroup(chars: MaskoseChar[]): MaskoseCharGroup {
+export default function mkCharGroup(chars: MaskoseMaskChar[]): MaskoseMaskCharGroup {
   if (chars.length === 0) {
     throw new Error('The provided chars array must not be empty.');
   }

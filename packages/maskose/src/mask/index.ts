@@ -1,4 +1,4 @@
-import { MaskoseChar } from './chars';
+import { MaskoseMaskChar } from './chars';
 
 export const MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT = 'right-to-left';
 export const MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT = 'left-to-right';
@@ -11,5 +11,5 @@ export type MaskoseMaskDirection =
 export interface MaskoseMask {
   readonly endless: boolean;
   readonly direction: MaskoseMaskDirection;
-  readonly chars: MaskoseChar[];
+  readonly chars: MaskoseMaskChar[];
 };

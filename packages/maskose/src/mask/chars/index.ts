@@ -1,34 +1,34 @@
-import { MaskoseCharLetter } from './letter';
-import { MaskoseCharSpecific } from './specific';
-import { MaskoseCharNum } from './num';
-import { MaskoseCharToBePut } from './toBePut';
-import { MaskoseCharGroup } from './group';
+import { MaskoseMaskCharLetter } from './letter';
+import { MaskoseMaskCharSpecific } from './specific';
+import { MaskoseMaskCharNum } from './num';
+import { MaskoseMaskCharToBePut } from './toBePut';
+import { MaskoseMaskCharGroup } from './group';
 
 export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN = 'gt';
 export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO = 'eq';
 export const MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN = 'lt';
 
-export type MaskoseCharValueLengthConditionType =
+export type MaskoseMaskCharValueLengthConditionType =
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO
   | typeof MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN
 ;
 
-export type MaskoseCharValueLengthCondition = {
-  type: MaskoseCharValueLengthConditionType;
+export type MaskoseMaskCharValueLengthCondition = {
+  type: MaskoseMaskCharValueLengthConditionType;
   num: number;
 };
 
-export interface MaskoseCharBase {
+export interface MaskoseMaskCharBase {
   repetitions: number;
-  valueToBeMaskedLengthConditions: MaskoseCharValueLengthCondition[];
-  maskedValueLengthConditions: MaskoseCharValueLengthCondition[];
+  valueToBeMaskedLengthConditions: MaskoseMaskCharValueLengthCondition[];
+  maskedValueLengthConditions: MaskoseMaskCharValueLengthCondition[];
 };
 
-export type MaskoseChar =
-  | MaskoseCharLetter
-  | MaskoseCharSpecific
-  | MaskoseCharNum
-  | MaskoseCharToBePut
-  | MaskoseCharGroup
+export type MaskoseMaskChar =
+  | MaskoseMaskCharLetter
+  | MaskoseMaskCharSpecific
+  | MaskoseMaskCharNum
+  | MaskoseMaskCharToBePut
+  | MaskoseMaskCharGroup
 ;

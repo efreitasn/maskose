@@ -1,5 +1,5 @@
 import { MaskoseMaskDirection } from '../mask';
-import { MaskoseChar } from '../mask/chars';
+import { MaskoseMaskChar } from '../mask/chars';
 import isMaskDirectionRightToLeft from './isMaskDirectionRightToLeft';
 
 /**
@@ -9,8 +9,8 @@ import isMaskDirectionRightToLeft from './isMaskDirectionRightToLeft';
  */
 export default function getMaskCharsTailByDirection(
   maskDirection: MaskoseMaskDirection,
-  maskChars: MaskoseChar[]
-): MaskoseChar {
+  maskChars: MaskoseMaskChar[]
+): MaskoseMaskChar {
   if (isMaskDirectionRightToLeft(maskDirection)) {
     return maskChars[0];
   }

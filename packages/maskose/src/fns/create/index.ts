@@ -1,11 +1,11 @@
 import { MaskoseMask } from '../../mask';
-import { MaskoseChar } from '../../mask/chars';
+import { MaskoseMaskChar } from '../../mask/chars';
 
 /**
  * Create a left-to-right non-endless mask with the provided characters
  * @param chars The mask's characters
  */
-export default function mkCreate(chars: MaskoseChar[]): MaskoseMask {
+export default function mkCreate(chars: MaskoseMaskChar[]): MaskoseMask {
   return {
     chars,
     endless: false,

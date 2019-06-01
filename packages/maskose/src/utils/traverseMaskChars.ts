@@ -1,12 +1,12 @@
-import { MaskoseChar } from '../mask/chars';
+import { MaskoseMaskChar } from '../mask/chars';
 import { MaskoseMaskDirection, MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT } from '../mask';
 import isMaskDirectionRightToLeft from './isMaskDirectionRightToLeft';
 import areValueLengthConditionsTrue from './areValueLengthConditionsTrue';
 import getMaskCharRepetitions from './getMaskCharRepetitions';
 import doesMaskCharHaveMoreIterations from './doesMaskCharHaveMoreIterations';
-import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../mask/chars/toBePut';
-import concatMaskedValueByDirection from './concatMaskedValueByDirection';
+import concatStrByMaskDirection from './concatStrByMaskDirection';
 import getMaskCharNextIteration from './getMaskCharNextIteration';
+import { MASKOSE_CHAR_TO_BE_PUT_TYPE } from '../mask/chars/toBePut';
 import { MASKOSE_CHAR_GROUP_TYPE } from '../mask/chars/group';
 import { MASKOSE_CHAR_LETTER_TYPE } from '../mask/chars/letter';
 import { MASKOSE_CHAR_SPECIFIC_TYPE } from '../mask/chars/specific';
@@ -28,7 +28,7 @@ interface TraverseMaskCharsState {
   readonly endless: boolean;
   readonly result: string;
   // Mask chars
-  readonly maskCharsByDirection: MaskoseChar[];
+  readonly maskCharsByDirection: MaskoseMaskChar[];
   readonly maskCharsByDirectionIndex: number;
   // Value to be masked chars
   readonly valueCharsByDirection: string[];
@@ -187,7 +187,7 @@ export default function traverseMaskChars(
       ...state,
       result: isUnmaskMode ?
         result :
-        concatMaskedValueByDirection(result, maskChar.char, direction),
+        concatStrByMaskDirection(result, maskChar.char, direction),
       maskCharsByDirectionIndex: maskCharHasMoreIterations ?
         maskCharsByDirectionIndex :
         maskCharsByDirectionIndex + 1,
@@ -260,7 +260,7 @@ export default function traverseMaskChars(
         maskCharsByDirectionIndex + 1,
       currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
       result: match ?
-        concatMaskedValueByDirection(result, valueChar, direction) :
+        concatStrByMaskDirection(result, valueChar, direction) :
         result,
       maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
@@ -284,7 +284,7 @@ export default function traverseMaskChars(
         maskCharsByDirectionIndex + 1,
       currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
       result: match ?
-        concatMaskedValueByDirection(result, valueChar, direction) :
+        concatStrByMaskDirection(result, valueChar, direction) :
         result,
       maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
@@ -308,7 +308,7 @@ export default function traverseMaskChars(
       maskCharsByDirectionIndex + 1,
     currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
     result: match ?
-      concatMaskedValueByDirection(result, valueChar, direction) :
+      concatStrByMaskDirection(result, valueChar, direction) :
       result,
     maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
       maskCharsMatchNum :

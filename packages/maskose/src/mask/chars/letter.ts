@@ -1,9 +1,9 @@
-import { MaskoseCharBase } from '.';
+import { MaskoseMaskCharBase } from '.';
 
 export const MASKOSE_CHAR_LETTER_TYPE = 'MASKOSE_CHAR_LETTER_TYPE';
 export const MASKOSE_CHAR_LETTER_STR_ID = 'LETTER';
 
-export interface MaskoseCharLetter extends MaskoseCharBase {
+export interface MaskoseMaskCharLetter extends MaskoseMaskCharBase {
   type: typeof MASKOSE_CHAR_LETTER_TYPE;
   regExp: RegExp;
 };
@@ -18,7 +18,7 @@ interface MkCharLetterOptions {
 /**
  * A character in the range A-Z expected to be in the value to be masked
  */
-export default function mkCharLetter(options: MkCharLetterOptions = {}): MaskoseCharLetter {
+export default function mkCharLetter(options: MkCharLetterOptions = {}): MaskoseMaskCharLetter {
   const regExp = new RegExp(
     '[A-Z]',
     options.caseSensitive ? '' : 'i'

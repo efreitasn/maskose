@@ -1,5 +1,5 @@
 import { MaskoseBoost } from '..';
-import { MaskoseChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO } from '../../mask/chars';
+import { MaskoseMaskChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO } from '../../mask/chars';
 
 /**
  * Make a maskChar only present in a mask if the valueToBeMasked length is equal to num.
@@ -7,8 +7,8 @@ import { MaskoseChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO } from '../..
 export default function mkCharBoostValueLengthEqualTo(values: {
   masked: number;
   toBeMasked: number;
-}): MaskoseBoost<MaskoseChar> {
-  return function mkCharBoostValueLengthEqualToWithNum(char: MaskoseChar): MaskoseChar {
+}): MaskoseBoost<MaskoseMaskChar> {
+  return function mkCharBoostValueLengthEqualToWithNum(char: MaskoseMaskChar): MaskoseMaskChar {
     return {
       ...char,
       valueToBeMaskedLengthConditions: [

@@ -1,7 +1,7 @@
 import { MaskoseMaskDirection } from '../mask';
 import getMaskCharsTailByDirection from './getMaskCharsTailByDirection';
-import { MASKOSE_CHAR_GROUP_TYPE, MaskoseCharGroup } from '../mask/chars/group';
-import { MaskoseChar } from '../mask/chars';
+import { MASKOSE_CHAR_GROUP_TYPE, MaskoseMaskCharGroup } from '../mask/chars/group';
+import { MaskoseMaskChar } from '../mask/chars';
 
 /**
  * Like getMaskCharsTailByDirection, but never returns a
@@ -9,8 +9,8 @@ import { MaskoseChar } from '../mask/chars';
  */
 export default function getMaskCharsTailByDirectionDeep(
   maskDirection: MaskoseMaskDirection,
-  maskChars: MaskoseChar[]
-): Exclude<MaskoseChar, MaskoseCharGroup> {
+  maskChars: MaskoseMaskChar[]
+): Exclude<MaskoseMaskChar, MaskoseMaskCharGroup> {
   const tail = getMaskCharsTailByDirection(
     maskDirection,
     maskChars

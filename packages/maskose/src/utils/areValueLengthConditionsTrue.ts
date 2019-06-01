@@ -2,12 +2,12 @@ import {
   MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN,
   MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN,
   MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO,
-  MaskoseCharValueLengthCondition
+  MaskoseMaskCharValueLengthCondition
 } from '../mask/chars';
 
 export default function areValueLengthConditionsTrue(
   valueLength: number,
-  maskCharValueLengthConditions: MaskoseCharValueLengthCondition[]
+  maskCharValueLengthConditions: MaskoseMaskCharValueLengthCondition[]
 ) {
   const valueLengthConditionsFiltered = maskCharValueLengthConditions.filter(condition => {
     switch (condition.type) {

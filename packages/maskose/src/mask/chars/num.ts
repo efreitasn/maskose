@@ -1,9 +1,9 @@
-import { MaskoseCharBase } from '.';
+import { MaskoseMaskCharBase } from '.';
 
 export const MASKOSE_CHAR_NUM_TYPE = 'MASKOSE_CHAR_NUM_TYPE';
 export const MASKOSE_CHAR_NUM_STR_ID = 'NUM';
 
-export interface MaskoseCharNum extends MaskoseCharBase {
+export interface MaskoseMaskCharNum extends MaskoseMaskCharBase {
   type: typeof MASKOSE_CHAR_NUM_TYPE;
   regExp: RegExp;
 };
@@ -11,7 +11,7 @@ export interface MaskoseCharNum extends MaskoseCharBase {
 /**
  * A character in the range 0 to 9 expected to be in the value to be masked
  */
-export default function mkCharNum(): MaskoseCharNum {
+export default function mkCharNum(): MaskoseMaskCharNum {
   return {
     type: MASKOSE_CHAR_NUM_TYPE,
     repetitions: 1,
