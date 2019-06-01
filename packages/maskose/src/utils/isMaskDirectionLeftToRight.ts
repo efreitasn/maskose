@@ -2,7 +2,8 @@ import {
   MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT,
   MaskoseMaskDirection
 } from '../mask';
+import isEqualTo from './isEqualTo';
 
-export default function isMaskDirectionLeftToRight(maskDirection: MaskoseMaskDirection) {
-  return maskDirection === MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT;
-}
+const isMaskDirectionLeftToRight = isEqualTo<MaskoseMaskDirection>(MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT);
+
+export default isMaskDirectionLeftToRight;
