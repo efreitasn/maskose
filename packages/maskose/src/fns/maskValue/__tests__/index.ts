@@ -18,7 +18,7 @@ it('should mask the provided value (BR cellphone number mask)', () => {
     mkCharToBePut(' '),
     mkCharBoostValueLengthEqualTo({
       masked: 11,
-      toBeMasked: 11
+      unmasked: 11
     })(mkCharNum()),
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),

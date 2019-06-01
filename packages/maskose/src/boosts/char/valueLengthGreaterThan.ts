@@ -6,7 +6,7 @@ import { MaskoseMaskChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN } fro
  */
 export default function mkCharBoostValueLengthGreaterThan(values: {
   masked: number;
-  toBeMasked: number;
+  unmasked: number;
 }): MaskoseBoost<MaskoseMaskChar> {
   return function mkCharBoostValueLengthGreaterThanWithNum(char: MaskoseMaskChar): MaskoseMaskChar {
     return {
@@ -15,7 +15,7 @@ export default function mkCharBoostValueLengthGreaterThan(values: {
         ...char.valueToBeMaskedLengthConditions,
         {
           type: MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN,
-          num: values.toBeMasked
+          num: values.unmasked
         }
       ],
       maskedValueLengthConditions: [

@@ -6,7 +6,7 @@ import { MaskoseMaskChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO } from '.
  */
 export default function mkCharBoostValueLengthEqualTo(values: {
   masked: number;
-  toBeMasked: number;
+  unmasked: number;
 }): MaskoseBoost<MaskoseMaskChar> {
   return function mkCharBoostValueLengthEqualToWithNum(char: MaskoseMaskChar): MaskoseMaskChar {
     return {
@@ -15,7 +15,7 @@ export default function mkCharBoostValueLengthEqualTo(values: {
         ...char.valueToBeMaskedLengthConditions,
         {
           type: MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO,
-          num: values.toBeMasked
+          num: values.unmasked
         }
       ],
       maskedValueLengthConditions: [
