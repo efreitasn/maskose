@@ -47,6 +47,7 @@ Object {
           "type": "eq",
         },
       ],
+      "regExp": /\\\\\\)/,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
       "valueToBeMaskedLengthConditions": Array [
@@ -59,6 +60,7 @@ Object {
     Object {
       "char": "K",
       "maskedValueLengthConditions": Array [],
+      "regExp": /K/,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
       "valueToBeMaskedLengthConditions": Array [],

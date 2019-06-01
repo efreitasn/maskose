@@ -15,16 +15,16 @@ export default function mkMaskValue(mask: MaskoseMask): (value: string) => strin
     const direction = getMaskDirection(mask);
     const endless = isMaskEndless(mask);
     const maskCharsByDirection = getMaskCharsByDirection(mask);
-    const valueToBeMaskedCharsByMaskDirection = getValueCharsByMaskDirection(direction, value);
+    const valueCharsByDirection = getValueCharsByMaskDirection(direction, value);
 
     const traverseResult = traverseMaskChars({
       ...traverseMaskCharsDefaultState,
       maskCharsByDirection,
-      valueToBeMaskedCharsByMaskDirection,
+      valueCharsByDirection,
       direction,
       endless
     });
 
-    return traverseResult.maskedValue;
+    return traverseResult.result;
   };
 }
