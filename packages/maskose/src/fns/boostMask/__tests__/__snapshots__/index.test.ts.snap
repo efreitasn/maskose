@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the object returned by mkBoostMask()() 1`] = `
+Object {
+  "chars": Array [
+    Object {
+      "maskedValueLengthConditions": Array [],
+      "regExp": /\\[0-9\\]/,
+      "repetitions": 1,
+      "type": "MASKOSE_CHAR_NUM_TYPE",
+      "valueToBeMaskedLengthConditions": Array [],
+    },
+    Object {
+      "char": "-",
+      "maskedValueLengthConditions": Array [],
+      "regExp": /-/,
+      "repetitions": 1,
+      "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
+      "valueToBeMaskedLengthConditions": Array [],
+    },
+    Object {
+      "maskedValueLengthConditions": Array [],
+      "regExp": /\\[A-Z\\]/i,
+      "repetitions": 1,
+      "type": "MASKOSE_CHAR_LETTER_TYPE",
+      "valueToBeMaskedLengthConditions": Array [],
+    },
+  ],
+  "direction": "right-to-left",
+  "endless": true,
+}
+`;

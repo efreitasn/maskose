@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the object returned by mkBoostChar()() 1`] = `
+Object {
+  "maskedValueLengthConditions": Array [
+    Object {
+      "num": 20,
+      "type": "eq",
+    },
+  ],
+  "regExp": /\\[0-9\\]/,
+  "repetitions": 4,
+  "type": "MASKOSE_CHAR_NUM_TYPE",
+  "valueToBeMaskedLengthConditions": Array [
+    Object {
+      "num": 10,
+      "type": "eq",
+    },
+  ],
+}
+`;
