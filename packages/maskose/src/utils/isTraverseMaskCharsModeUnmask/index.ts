@@ -1,5 +1,6 @@
+import isEqualTo from '../isEqualTo';
 import { TraverseMaskCharsMode, TRAVERSE_MASK_CHARS_UNMASK_MODE } from '../traverseMaskChars/state';
 
-export default function isTraverseMaskCharsModeUnmask(mode: TraverseMaskCharsMode) {
-  return mode === TRAVERSE_MASK_CHARS_UNMASK_MODE;
-}
+const isTraverseMaskCharsModeUnmask = isEqualTo<TraverseMaskCharsMode>(TRAVERSE_MASK_CHARS_UNMASK_MODE);
+
+export default isTraverseMaskCharsModeUnmask;
