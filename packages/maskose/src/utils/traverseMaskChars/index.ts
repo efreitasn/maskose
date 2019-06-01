@@ -15,7 +15,7 @@ import {
 import getArraySize from '../getArraySize';
 import getProp from '../getProp';
 import { MaskoseMaskChar } from '../../mask/chars';
-import getMaskCharsByMaskDirection from '../getMaskCharsByMaskDirection';
+import arrayByMaskDirection from '../arrayByMaskDirection';
 
 /**
  * Traverse the characters of a mask recursively.
@@ -124,9 +124,9 @@ export default function traverseMaskChars(
       endless: false,
       maskCharsByDirectionIndex: 0,
       currentMaskCharIteration: 0,
-      maskCharsByDirection: getMaskCharsByMaskDirection(
-        getProp<MaskoseMaskCharGroup, 'chars'>('chars')((maskChar as MaskoseMaskCharGroup)),
-        direction
+      maskCharsByDirection: arrayByMaskDirection<MaskoseMaskChar>(
+        direction,
+        getProp<MaskoseMaskCharGroup, 'chars'>('chars')((maskChar as MaskoseMaskCharGroup))
       )
     });
 
