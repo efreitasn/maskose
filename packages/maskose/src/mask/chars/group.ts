@@ -9,7 +9,7 @@ export interface MaskoseMaskCharGroup extends MaskoseMaskCharBase {
 };
 
 /**
- * A group of characters
+ * A group of characters.
  */
 export default function mkCharGroup(chars: MaskoseMaskChar[]): MaskoseMaskCharGroup {
   if (chars.length === 0) {

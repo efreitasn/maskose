@@ -10,13 +10,13 @@ export interface MaskoseMaskCharLetter extends MaskoseMaskCharBase {
 
 interface MkCharLetterOptions {
   /**
-   * Whether the range will be case sensitive, defaults to false
+   * Whether the range will be case sensitive, defaults to false.
    */
   caseSensitive?: boolean;
 }
 
 /**
- * A character in the range A-Z expected to be in the value to be masked
+ * A character in the range A-Z expected to be in the masked or unmasked value.
  */
 export default function mkCharLetter(options: MkCharLetterOptions = {}): MaskoseMaskCharLetter {
   const regExp = new RegExp(

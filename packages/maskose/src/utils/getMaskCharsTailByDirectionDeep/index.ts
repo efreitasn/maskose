@@ -4,8 +4,7 @@ import { MaskoseMaskCharGroup, MASKOSE_CHAR_GROUP_TYPE } from '../../mask/chars/
 import getMaskCharsTailByDirection from '../getMaskCharsTailByDirection';
 
 /**
- * Like getMaskCharsTailByDirection, but never returns a
- * group character
+ * Like getMaskCharsTailByDirection, but never returns a group character.
  */
 export default function getMaskCharsTailByDirectionDeep(
   maskDirection: MaskoseMaskDirection,

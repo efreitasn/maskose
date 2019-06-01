@@ -2,7 +2,12 @@ import { MaskoseBoost } from '..';
 import { MaskoseMaskChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO } from '../../mask/chars';
 
 /**
- * Make a maskChar only present in a mask if the valueToBeMasked length is equal to num.
+ * Make a maskChar only present in a mask if the masked value's length
+ * and/or the unmasked value's length is/are equal to the provided
+ * number(s).
+ * 
+ * Whether the two conditions or only one of them will be checked changes
+ * from fn to fn. Despite this, both of them must be provided.
  */
 export default function mkCharBoostValueLengthEqualTo(values: {
   masked: number;

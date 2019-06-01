@@ -2,7 +2,7 @@ import { MaskoseMaskDirection } from '../../mask';
 import isMaskDirectionRightToLeft from '../isMaskDirectionRightToLeft';
 
 /**
- * Return the provided array by the provided mask direction.
+ * Returns `arr` based on `maskDirection`.
  */
 export default function arrayByMaskDirection<T>(
   maskDirection: MaskoseMaskDirection,

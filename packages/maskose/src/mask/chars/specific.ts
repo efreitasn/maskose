@@ -11,7 +11,7 @@ export interface MaskoseMaskCharSpecific extends MaskoseMaskCharBase {
 };
 
 /**
- * A specific character expected to be in the value to be masked
+ * A specific character expected to be in the masked or unmasked value.
  */
 export default function mkCharSpecific(char: string): MaskoseMaskCharSpecific {
   if (char.length === 0 || char.length > 1) {

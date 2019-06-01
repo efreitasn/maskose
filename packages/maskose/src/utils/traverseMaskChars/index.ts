@@ -29,12 +29,21 @@ import arrayByMaskDirection from '../arrayByMaskDirection';
  * 
  * The only difference between maskChar{match,didntMatch}Num and valueChar{match,didntMatch}Num
  * is that the former will be incremented only in the following scenarios:
- * * It's a group character and all of its repetitions and all of it characters are matched
- * * If none of the above, only if all repetitions of the current maskChar are matched  
  * 
- * And the later will increment if the current valueChar matches the current maskChar when the
- * current maskChar is not a toBePut. If the current maskChar is a toBePut, the value will remain
- * the same.
+ * * In mask mode:
+ * * * It's a group character and all of its repetitions and all of its characters are matched.
+ * * * It's not a group character nor a toBePut character and all of its repetitions are matched.
+ * 
+ * * In unmask mode:
+ * * * It's a group character and all of its repetitions and all of its characters are matched.
+ * * * It's not a group character and all of its repetitions are matched.
+ * 
+ * And the later will be incremented when:
+ * 
+ * * In mask mode:
+ * * * The current valueChar matches the current maskChar and the current maskChar is not a toBePut.
+ * * In unmask mode:
+ * * * The current valueChar matches the current maskChar.
  */
 export default function traverseMaskChars(
   state = defaultState

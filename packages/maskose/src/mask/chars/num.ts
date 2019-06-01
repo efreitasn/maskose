@@ -9,7 +9,7 @@ export interface MaskoseMaskCharNum extends MaskoseMaskCharBase {
 };
 
 /**
- * A character in the range 0 to 9 expected to be in the value to be masked
+ * A character in the range 0 to 9 expected to be in the masked or unmasked value.
  */
 export default function mkCharNum(): MaskoseMaskCharNum {
   return {

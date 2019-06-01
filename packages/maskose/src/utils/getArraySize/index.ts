@@ -1,7 +1,7 @@
 import prop from '../prop';
 
 /**
- * Get the length of the provided array
+ * Returns the size of the provided array.
  */
 const getArraySize = prop<any[], 'length'>('length');
 

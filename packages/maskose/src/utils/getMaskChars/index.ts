@@ -2,7 +2,7 @@ import prop from '../prop';
 import { MaskoseMask } from '../../mask';
 
 /**
- * Get the provided mask's chars
+ * Returns the provided mask's chars.
  */
 const getMaskChars = prop<MaskoseMask, 'chars'>('chars');
 

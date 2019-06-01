@@ -9,7 +9,7 @@ import { defaultState as traverseMaskCharsDefaultState, TRAVERSE_MASK_CHARS_UNMA
 import { MaskoseMaskChar } from '../../mask/chars';
 
 /**
- * Unmask a value
+ * Unmask a value.
  */
 export default function mkUnmaskValue(mask: MaskoseMask): (value: string) => string {
   return function mkUnmaskValueWithMask(value: string): string {

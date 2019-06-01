@@ -4,6 +4,9 @@ import { MaskoseMask } from '../../mask';
 import getMaskCharsTailByDirectionDeep from '../getMaskCharsTailByDirectionDeep';
 import getMaskDirection from '../getMaskDirection';
 
+/**
+ * Returns whether the provided mask is valid.
+ */
 export default function isMaskValid(mask: MaskoseMask): {
   valid: true;
 } | {

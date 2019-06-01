@@ -5,6 +5,10 @@ import {
   MaskoseMaskCharValueLengthCondition
 } from '../../mask/chars';
 
+/**
+ * Whether all items of `valueLengthConditions`, when checked against
+ * `valueLength`, are true.
+ */
 export default function areValueLengthConditionsTrue(
   valueLength: number,
   maskCharValueLengthConditions: MaskoseMaskCharValueLengthCondition[]

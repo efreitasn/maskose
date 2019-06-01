@@ -2,7 +2,12 @@ import { MaskoseBoost } from '..';
 import { MaskoseMaskChar, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_LESS_THAN } from '../../mask/chars';
 
 /**
- * Make a maskChar only present in a mask if the valueToBeMasked length is less than num.
+ * Make a maskChar only present in a mask if the masked value's length
+ * and/or the unmasked value's length is/are less than the provided
+ * number(s).
+ *
+ * Whether the two conditions or only one of them will be checked changes
+ * from fn to fn. Despite this, both of them must be provided.
  */
 export default function mkCharBoostValueLengthLessThan(values: {
   masked: number;

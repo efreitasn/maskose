@@ -9,7 +9,7 @@ import getMaskDirection from '../../utils/getMaskDirection';
 import { MaskoseMaskChar } from '../../mask/chars';
 
 /**
- * Mask a value
+ * Mask a value.
  */
 export default function mkMaskValue(mask: MaskoseMask): (value: string) => string {
   return function mkMaskValueWithMask(value: string) {
