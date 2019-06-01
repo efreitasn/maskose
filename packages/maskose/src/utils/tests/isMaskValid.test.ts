@@ -9,7 +9,7 @@ import mkCharGroup from '../../mask/chars/group';
 import mkBoostMask from '../../fns/boostMask';
 import { mkMaskBoostRightToLeftWithoutValidations } from '../../boosts/mask/rightToLeft';
 
-test('should return a truthy value if the provided mask is valid', () => {
+it('should return a truthy value if the provided mask is valid', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharLetter(),
@@ -20,7 +20,7 @@ test('should return a truthy value if the provided mask is valid', () => {
   expect(result.valid).toBe(true);
 });
 
-test('should return a falsy value if the provided mask is endless and has a tail equal to a toBePut character', () => {
+it('should return a falsy value if the provided mask is endless and has a tail equal to a toBePut character', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharLetter(),
@@ -34,7 +34,7 @@ test('should return a falsy value if the provided mask is endless and has a tail
   expect(result.error).toBeDefined();
 });
 
-test(`should return a falsy value if the provided mask has a tail equal to a toBePut character (${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT})`, () => {
+it(`should return a falsy value if the provided mask has a tail equal to a toBePut character (${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT})`, () => {
   const mask = mkCreate([
     mkCharToBePut('-'),
     mkCharNum(),
@@ -51,7 +51,7 @@ test(`should return a falsy value if the provided mask has a tail equal to a toB
   expect(result.error).toBeDefined();
 });
 
-test('should return a falsy value if the provided mask is endless and has a tail equal to a group character that has a tail equal to a toBePutCharacter', () => {
+it('should return a falsy value if the provided mask is endless and has a tail equal to a group character that has a tail equal to a toBePutCharacter', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharLetter(),
@@ -69,7 +69,7 @@ test('should return a falsy value if the provided mask is endless and has a tail
   expect(result.error).toBeDefined();
 });
 
-test(`should return a falsy value if the provided mask is endless and has a tail equal to a group character that has a tail equal to a toBePutCharacter (${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT})`, () => {
+it(`should return a falsy value if the provided mask is endless and has a tail equal to a group character that has a tail equal to a toBePutCharacter (${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT})`, () => {
   const mask = mkCreate([
     mkCharGroup([
       mkCharToBePut('B'),

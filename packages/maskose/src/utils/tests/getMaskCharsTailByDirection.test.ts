@@ -6,7 +6,7 @@ import mkCharNum from '../../mask/chars/num';
 import mkCharLetter from '../../mask/chars/letter';
 import getMaskCharsTailByDirection from '../getMaskCharsTailByDirection';
 
-test(`should return the correct tail when the provided mask\'s direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
+it(`should return the correct tail when the provided mask\'s direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
   const maskChars = [
     mkCharNum(),
     mkCharLetter()
@@ -19,7 +19,7 @@ test(`should return the correct tail when the provided mask\'s direction is ${MA
   expect(result).toBe(maskChars[maskChars.length - 1]);
 });
 
-test(`should return the correct tail when the provided mask\'s direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
+it(`should return the correct tail when the provided mask\'s direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
   const maskChars = [
     mkCharNum(),
     mkCharLetter()

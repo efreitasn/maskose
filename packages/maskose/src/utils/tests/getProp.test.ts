@@ -1,6 +1,6 @@
 import getProp from '../getProp';
 
-test('should return the value of the provided prop in the provided object', () => {
+it('should return the value of the provided prop in the provided object', () => {
   const prop = 'abc';
   const value = 120;
   const obj = {

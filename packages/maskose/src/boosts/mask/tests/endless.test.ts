@@ -5,7 +5,7 @@ import mkCharNum from '../../../mask/chars/num';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import mkCharLetter from '../../../mask/chars/letter';
 
-test('should make the provided mask an endless mask', () => {
+it('should make the provided mask an endless mask', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharToBePut('-'),

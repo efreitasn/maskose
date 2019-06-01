@@ -7,7 +7,7 @@ import mkCharLetter from '../../../mask/chars/letter';
 import mkCharSpecific from '../../../mask/chars/specific';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 
-test('should make the provided mask a right-to-left mask', () => {
+it('should make the provided mask a right-to-left mask', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharGroup([

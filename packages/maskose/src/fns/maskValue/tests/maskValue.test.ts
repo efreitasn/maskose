@@ -10,7 +10,7 @@ import mkBoostMask from '../../boostMask';
 import mkCharGroup from '../../../mask/chars/group';
 import mkCharLetter from '../../../mask/chars/letter';
 
-test('should mask the provided value (BR cellphone number mask)', () => {
+it('should mask the provided value (BR cellphone number mask)', () => {
   const mask = mkCreate([
     mkCharToBePut('('),
     mkCharBoostRepeat(2)(mkCharNum()),
@@ -31,7 +31,7 @@ test('should mask the provided value (BR cellphone number mask)', () => {
   expect(mkMaskValueWithMask('99123456789')).toBe('(99) 12345-6789');
 });
 
-test('should mask the provided value (US currency mask)', () => {
+it('should mask the provided value (US currency mask)', () => {
   const mask = mkCreate([
     mkCharGroup([
       mkCharBoostRepeat(3)(mkCharNum()),
@@ -54,7 +54,7 @@ test('should mask the provided value (US currency mask)', () => {
   expect(mkMaskValueWithMask('')).toBe('');
 });
 
-test('should mask the provided value (number/letter between parenthesis mask)', () => {
+it('should mask the provided value (number/letter between parenthesis mask)', () => {
   const mask = mkCreate([
     mkCharToBePut('('),
     mkCharBoostRepeat(2)(

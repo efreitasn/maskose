@@ -1,6 +1,6 @@
 import pipe from '../pipe';
 
-test('should execute the provided functions right-to-left (top-to-bottom)', () => {
+it('should execute the provided functions right-to-left (top-to-bottom)', () => {
   const composed = pipe<number, number>(
     (num: number) => num * 2,
     (num: number) => num / 2,
@@ -11,7 +11,7 @@ test('should execute the provided functions right-to-left (top-to-bottom)', () =
   expect(result).toBe(2);
 });
 
-test('should call the leftmost function with the value provided to the composed function', () => {
+it('should call the leftmost function with the value provided to the composed function', () => {
   const arg = 2;
 
   const composed = pipe<number, number>(

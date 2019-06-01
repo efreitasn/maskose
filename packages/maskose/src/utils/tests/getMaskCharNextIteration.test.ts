@@ -1,6 +1,6 @@
 import getMaskCharNextIteration from '../getMaskCharNextIteration';
 
-test('should return the currentIteration + 1 if there are more iterations', () => {
+it('should return the currentIteration + 1 if there are more iterations', () => {
   const maskCharRepetitions = 5;
   const currentIterationZeroBased = 3;
   const result = getMaskCharNextIteration(
@@ -11,7 +11,7 @@ test('should return the currentIteration + 1 if there are more iterations', () =
   expect(result).toBe(currentIterationZeroBased + 1);
 });
 
-test('should return 0 if there are no more iterations', () => {
+it('should return 0 if there are no more iterations', () => {
   const maskCharRepetitions = 5;
   const currentIterationZeroBased = 4;
   const result = getMaskCharNextIteration(

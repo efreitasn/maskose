@@ -7,7 +7,7 @@ import mkCharGroup from '../../mask/chars/group';
 import mkCharSpecific from '../../mask/chars/specific';
 import getMaskCharsTailByDirectionDeep from '../getMaskCharsTailByDirectionDeep';
 
-test('should return the correct tail', () => {
+it('should return the correct tail', () => {
   const charNum = mkCharNum();
   const maskChars = [
     mkCharNum(),

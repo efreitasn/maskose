@@ -3,7 +3,7 @@ import mkCharNum from '../../mask/chars/num';
 import mkCharLetter from '../../mask/chars/letter';
 import getMaskDirection from '../getMaskDirection';
 
-test('should return the provided mask\'s direction', () => {
+it('should return the provided mask\'s direction', () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharLetter()

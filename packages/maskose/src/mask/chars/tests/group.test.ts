@@ -3,7 +3,7 @@ import mkCharNum from '../num';
 import mkCharLetter from '../letter';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
 
-test('should match the object returned by mkCharGroup()', () => {
+it('should match the object returned by mkCharGroup()', () => {
   const result = mkCharGroup([
     mkCharBoostRepeat(3)(mkCharNum()),
     mkCharLetter()
@@ -12,6 +12,6 @@ test('should match the object returned by mkCharGroup()', () => {
   expect(result).toMatchSnapshot();
 });
 
-test('should throw an error if the provided array is empty', () => {
+it('should throw an error if the provided array is empty', () => {
   expect(() => mkCharGroup([])).toThrow();
 });

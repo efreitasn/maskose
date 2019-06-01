@@ -1,7 +1,7 @@
 import areValueLengthConditionsTrue from '../areValueLengthConditionsTrue';
 import { MASKOSE_CHAR_VALUE_LENGTH_CONDITION_EQUAL_TO, MASKOSE_CHAR_VALUE_LENGTH_CONDITION_GREATER_THAN } from '../../mask/chars';
 
-test('should return true when the provided provided array conditions is empty', () => {
+it('should return true when the provided provided array conditions is empty', () => {
   const result = areValueLengthConditionsTrue(
     5,
     []
@@ -10,7 +10,7 @@ test('should return true when the provided provided array conditions is empty', 
   expect(result).toBe(true);
 });
 
-test('should return true when the provided conditions are true', () => {
+it('should return true when the provided conditions are true', () => {
   const result = areValueLengthConditionsTrue(
     5,
     [
@@ -24,7 +24,7 @@ test('should return true when the provided conditions are true', () => {
   expect(result).toBe(true);
 });
 
-test('should return false when the provided conditions are false', () => {
+it('should return false when the provided conditions are false', () => {
   const result = areValueLengthConditionsTrue(
     5,
     [

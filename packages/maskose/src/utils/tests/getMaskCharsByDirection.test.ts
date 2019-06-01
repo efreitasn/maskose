@@ -10,7 +10,7 @@ import {
 } from '../../mask';
 import mkMaskBoostRightToLeft from '../../boosts/mask/rightToLeft';
 
-test(`should return the provided mask's characters when its direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
+it(`should return the provided mask's characters when its direction is ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharBoostRepeat(4)(mkCharLetter()),
@@ -23,7 +23,7 @@ test(`should return the provided mask's characters when its direction is ${MASKO
   expect(result).toEqual(mask.chars);
 });
 
-test(`should return the provided mask's characters in a reversed order when its direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
+it(`should return the provided mask's characters in a reversed order when its direction is ${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT}`, () => {
   const mask = mkCreate([
     mkCharNum(),
     mkCharBoostRepeat(4)(mkCharLetter()),

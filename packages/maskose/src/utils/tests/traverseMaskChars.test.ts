@@ -7,7 +7,7 @@ import mkCharSpecific from '../../mask/chars/specific';
 import mkCharToBePut from '../../mask/chars/toBePut';
 
 describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
-  test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharBoostRepeat)', () => {
+  it('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharBoostRepeat)', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -32,7 +32,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1234');
   });
   
-  test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharGroup)', () => {
+  it('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharGroup)', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -61,7 +61,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1234H');
   });
   
-  test('should not stop at the first matched maskChar when stopOnFirstMaskCharMatch === false', () => {
+  it('should not stop at the first matched maskChar when stopOnFirstMaskCharMatch === false', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -86,7 +86,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1234B');
   });
   
-  test('should stop at the first matched valueToBeMaskedChar when stopOnFirstValueCharMatch === true', () => {
+  it('should stop at the first matched valueToBeMaskedChar when stopOnFirstValueCharMatch === true', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -116,7 +116,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1');
   });
   
-  test('should stop at the end of the valueToBeMaskedChars array if all valueToBeMaskedChars match and there are no stop* conditions', () => {
+  it('should stop at the end of the valueToBeMaskedChars array if all valueToBeMaskedChars match and there are no stop* conditions', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -146,7 +146,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1234HB');
   });
   
-  test('should stop at the last matched item of the valueToBeMaskedChars array if not all valueToBeMaskedChars match and there are no stop* conditions', () => {
+  it('should stop at the last matched item of the valueToBeMaskedChars array if not all valueToBeMaskedChars match and there are no stop* conditions', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -178,7 +178,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
 });
 
 describe(`when mode is ${TRAVERSE_MASK_CHARS_UNMASK_MODE}`, () => {
-  test('should return an object whose result prop is a string composed by the items in the valueChars array without toBePut-correspondent characters', () => {
+  it('should return an object whose result prop is a string composed by the items in the valueChars array without toBePut-correspondent characters', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_UNMASK_MODE,
