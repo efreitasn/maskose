@@ -1,7 +1,6 @@
 import { MaskoseMask } from '../../mask';
-import traverseMaskChars, {
-  defaultState as traverseMaskCharsDefaultState
-} from '../../utils/traverseMaskChars';
+import traverseMaskChars from '../../utils/traverseMaskChars';
+import { defaultState as traverseMaskCharsDefaultState } from '../../utils/traverseMaskChars/state';
 import getMaskCharsByMaskDirection from '../../utils/getMaskCharsByMaskDirection';
 import getValueCharsByMaskDirection from '../../utils/getValueCharsByMaskDirection';
 import isMaskEndless from '../../utils/isMaskEndless';
