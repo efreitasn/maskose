@@ -13,7 +13,7 @@ import {
   defaultState
 } from './state';
 import getArraySize from '../getArraySize';
-import getProp from '../getProp';
+import prop from '../prop';
 import { MaskoseMaskChar } from '../../mask/chars';
 import arrayByMaskDirection from '../arrayByMaskDirection';
 
@@ -76,7 +76,7 @@ export default function traverseMaskChars(
     (!maskChar && !valueChar) ||
     (!maskChar && !endless) ||
     (!valueChar && isUnmaskMode) ||
-    (!valueChar && (getProp<MaskoseMaskChar, 'type'>('type')(maskChar) !== MASKOSE_CHAR_TO_BE_PUT_TYPE)) ||
+    (!valueChar && (prop<MaskoseMaskChar, 'type'>('type')(maskChar) !== MASKOSE_CHAR_TO_BE_PUT_TYPE)) ||
     (!valueChar && nextMaskChar)
   ) {
     return state;
@@ -97,8 +97,8 @@ export default function traverseMaskChars(
   const maksCharConditionsAreTrue = areValueLengthConditionsTrue(
     getArraySize(valueCharsByDirection),
     isUnmaskMode ?
-      getProp<MaskoseMaskChar, 'maskedValueLengthConditions'>('maskedValueLengthConditions')(maskChar) :
-      getProp<MaskoseMaskChar, 'valueToBeMaskedLengthConditions'>('valueToBeMaskedLengthConditions')(maskChar)
+      prop<MaskoseMaskChar, 'maskedValueLengthConditions'>('maskedValueLengthConditions')(maskChar) :
+      prop<MaskoseMaskChar, 'valueToBeMaskedLengthConditions'>('valueToBeMaskedLengthConditions')(maskChar)
   );
 
   if (!maksCharConditionsAreTrue) {
@@ -108,8 +108,8 @@ export default function traverseMaskChars(
     });
   }
 
-  const maskCharType = getProp<MaskoseMaskChar, 'type'>('type')(maskChar);
-  const maskCharRepetions = getProp<MaskoseMaskChar, 'repetitions'>('repetitions')(maskChar);
+  const maskCharType = prop<MaskoseMaskChar, 'type'>('type')(maskChar);
+  const maskCharRepetions = prop<MaskoseMaskChar, 'repetitions'>('repetitions')(maskChar);
   const maskCharHasMoreIterations = doesMaskCharHaveMoreIterations(
     maskCharRepetions,
     currentMaskCharIteration
@@ -126,7 +126,7 @@ export default function traverseMaskChars(
       currentMaskCharIteration: 0,
       maskCharsByDirection: arrayByMaskDirection<MaskoseMaskChar>(
         direction,
-        getProp<MaskoseMaskCharGroup, 'chars'>('chars')((maskChar as MaskoseMaskCharGroup))
+        prop<MaskoseMaskCharGroup, 'chars'>('chars')((maskChar as MaskoseMaskCharGroup))
       )
     });
 
@@ -153,7 +153,7 @@ export default function traverseMaskChars(
     });
   }
 
-  const maskCharRegExp = getProp<Exclude<MaskoseMaskChar, MaskoseMaskCharGroup>, 'regExp'>('regExp')(
+  const maskCharRegExp = prop<Exclude<MaskoseMaskChar, MaskoseMaskCharGroup>, 'regExp'>('regExp')(
     (maskChar as Exclude<MaskoseMaskChar, MaskoseMaskCharGroup>)
   );
 
@@ -166,7 +166,7 @@ export default function traverseMaskChars(
         result :
         concatStrByMaskDirection(
           result,
-          getProp<MaskoseMaskCharToBePut, 'char'>('char')((maskChar as MaskoseMaskCharToBePut)),
+          prop<MaskoseMaskCharToBePut, 'char'>('char')((maskChar as MaskoseMaskCharToBePut)),
           direction
         ),
       maskCharsByDirectionIndex: maskCharHasMoreIterations ?

@@ -1,9 +1,9 @@
 import { MaskoseMask } from '../../mask';
-import getProp from '../getProp';
+import prop from '../prop';
 
 /**
  * Get the mask's direction
  */
-const getMaskDirection = getProp<MaskoseMask, 'direction'>('direction');
+const getMaskDirection = prop<MaskoseMask, 'direction'>('direction');
 
 export default getMaskDirection;

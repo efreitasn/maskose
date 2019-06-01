@@ -1,8 +1,8 @@
-import getProp from '../getProp';
+import prop from '../prop';
 
 /**
  * Get the length of the provided array
  */
-const getArraySize = getProp<any[], 'length'>('length');
+const getArraySize = prop<any[], 'length'>('length');
 
 export default getArraySize;

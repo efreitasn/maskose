@@ -1,9 +1,9 @@
-import getProp from '../getProp';
+import prop from '../prop';
 import { MaskoseMask } from '../../mask';
 
 /**
  * Get the provided mask's chars
  */
-const getMaskChars = getProp<MaskoseMask, 'chars'>('chars');
+const getMaskChars = prop<MaskoseMask, 'chars'>('chars');
 
 export default getMaskChars;

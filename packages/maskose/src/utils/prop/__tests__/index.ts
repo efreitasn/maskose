@@ -1,12 +1,12 @@
-import getProp from '..';
+import prop from '..';
 
 it('should return the value of the provided prop in the provided object', () => {
-  const prop = 'abc';
+  const propName = 'abc';
   const value = 120;
   const obj = {
-    [prop]: value
+    [propName]: value
   };
-  const result = getProp<typeof obj, typeof prop>(prop)(obj);
+  const result = prop<typeof obj, typeof propName>(propName)(obj);
 
   expect(result).toBe(value);
 });
