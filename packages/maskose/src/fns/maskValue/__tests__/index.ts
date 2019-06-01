@@ -29,6 +29,7 @@ it('should mask the provided value (BR cellphone number mask)', () => {
   expect(mkMaskValueWithMask('9912345678')).toBe('(99) 1234-5678');
   expect(mkMaskValueWithMask('991234')).toBe('(99) 1234');
   expect(mkMaskValueWithMask('99123456789')).toBe('(99) 12345-6789');
+  expect(mkMaskValueWithMask('99')).toBe('(99');
 });
 
 it('should mask the provided value (US currency mask)', () => {
