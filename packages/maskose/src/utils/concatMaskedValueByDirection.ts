@@ -1,4 +1,4 @@
-import { MaskoseMaskDirection, MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT } from '../../mask';
+import { MaskoseMaskDirection, MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT } from '../mask';
 
 export default function concatMaskedValueByDirection(
   maskedValue: string,

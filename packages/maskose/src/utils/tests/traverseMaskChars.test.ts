@@ -1,12 +1,12 @@
-import maskValueByTraverse, { defaultState } from '../maskValueByTraverse';
-import mkCharNum from '../../../mask/chars/num';
-import mkCharBoostRepeat from '../../../boosts/char/repeat';
-import mkCharLetter from '../../../mask/chars/letter';
-import mkCharGroup from '../../../mask/chars/group';
-import mkCharSpecific from '../../../mask/chars/specific';
+import traverseMaskChars, { defaultState } from '../traverseMaskChars';
+import mkCharBoostRepeat from '../../boosts/char/repeat';
+import mkCharNum from '../../mask/chars/num';
+import mkCharLetter from '../../mask/chars/letter';
+import mkCharGroup from '../../mask/chars/group';
+import mkCharSpecific from '../../mask/chars/specific';
 
 test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharBoostRepeat)', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',
@@ -30,7 +30,7 @@ test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch ==
 });
 
 test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharGroup)', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',
@@ -58,7 +58,7 @@ test('should stop at the first matched maskChar when stopOnFirstMaskCharMatch ==
 });
 
 test('should not stop at the first matched maskChar when stopOnFirstMaskCharMatch === false', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',
@@ -82,7 +82,7 @@ test('should not stop at the first matched maskChar when stopOnFirstMaskCharMatc
 });
 
 test('should stop at the first matched valueToBeMaskedChar when stopOnFirstValueToBeMaskedCharMatch === true', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',
@@ -111,7 +111,7 @@ test('should stop at the first matched valueToBeMaskedChar when stopOnFirstValue
 });
 
 test('should stop at the end of the valueToBeMaskedChars array if all valueToBeMaskedChars match and there are no stop* conditions', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',
@@ -140,7 +140,7 @@ test('should stop at the end of the valueToBeMaskedChars array if all valueToBeM
 });
 
 test('should stop at the last matched item of the valueToBeMaskedChars array if not all valueToBeMaskedChars match and there are no stop* conditions', () => {
-  const result = maskValueByTraverse({
+  const result = traverseMaskChars({
     ...defaultState,
     valueToBeMaskedCharsByMaskDirection: [
       '1',

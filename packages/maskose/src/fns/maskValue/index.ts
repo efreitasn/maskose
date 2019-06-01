@@ -1,7 +1,7 @@
 import { MaskoseMask } from '../../mask';
-import maskValueByTraverse, {
-  defaultState as maskValueByTraverseDefaultState
-} from './maskValueByTraverse';
+import traverseMaskChars, {
+  defaultState as traverseMaskCharsDefaultState
+} from '../../utils/traverseMaskChars';
 import getMaskCharsByDirection from '../../utils/getMaskCharsByDirection';
 import getValueCharsByMaskDirection from '../../utils/getValueCharsByMaskDirection';
 import isMaskEndless from '../../utils/isMaskEndless';
@@ -17,8 +17,8 @@ export default function mkMaskValue(mask: MaskoseMask): (value: string) => strin
     const maskCharsByDirection = getMaskCharsByDirection(mask);
     const valueToBeMaskedCharsByMaskDirection = getValueCharsByMaskDirection(direction, value);
 
-    const traverseResult = maskValueByTraverse({
-      ...maskValueByTraverseDefaultState,
+    const traverseResult = traverseMaskChars({
+      ...traverseMaskCharsDefaultState,
       maskCharsByDirection,
       valueToBeMaskedCharsByMaskDirection,
       direction,

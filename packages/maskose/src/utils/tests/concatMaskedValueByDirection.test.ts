@@ -1,7 +1,7 @@
 import {
   MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT,
   MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT
-} from '../../../mask';
+} from '../../mask';
 import concatMaskedValueByDirection from '../concatMaskedValueByDirection';
 
 test(`should concat the provided values correctly when direction is equal to ${MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT}`, () => {
