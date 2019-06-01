@@ -23,7 +23,7 @@ export type TraverseMaskCharsMode =
 interface TraverseMaskCharsState {
   readonly mode: TraverseMaskCharsMode;
   readonly currentMaskCharIteration: number;
-  readonly isInEndlessMode: boolean;
+  readonly neverChangeMaskCharsByDirectionIndex: boolean;
   readonly direction: MaskoseMaskDirection;
   readonly endless: boolean;
   readonly result: string;
@@ -47,7 +47,7 @@ interface TraverseMaskCharsState {
 export const defaultState: TraverseMaskCharsState = {
   mode: TRAVERSE_MASK_CHARS_MASK_MODE,
   currentMaskCharIteration: 0,
-  isInEndlessMode: false,
+  neverChangeMaskCharsByDirectionIndex: false,
   direction: MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT,
   endless: false,
   result: '',
@@ -91,7 +91,7 @@ export default function traverseMaskChars(
   const {
     mode,
     currentMaskCharIteration,
-    isInEndlessMode,
+    neverChangeMaskCharsByDirectionIndex,
     direction,
     endless,
     result,
@@ -156,7 +156,7 @@ export default function traverseMaskChars(
     return traverseMaskChars({
       ...state,
       maskCharsByDirectionIndex: maskCharsByDirectionIndex - 1,
-      isInEndlessMode: true
+      neverChangeMaskCharsByDirectionIndex: true
     });
   }
 
@@ -201,7 +201,7 @@ export default function traverseMaskChars(
       valueCharsDidntMatchNum: (isUnmaskMode && !match) ?
         valueCharsDidntMatchNum + 1 :
         valueCharsDidntMatchNum,
-      maskCharsMatchNum: (!isUnmaskMode || isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsMatchNum: (!isUnmaskMode || neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
         (isUnmaskMode && match) ?
           maskCharsMatchNum + 1:
@@ -217,7 +217,7 @@ export default function traverseMaskChars(
       ...state,
       stopOnFirstMaskCharMatch: false,
       stopOnFirstMaskCharDidntMatch: true,
-      isInEndlessMode: false,
+      neverChangeMaskCharsByDirectionIndex: false,
       endless: false,
       maskCharsByDirectionIndex: 0,
       currentMaskCharIteration: 0,
@@ -229,14 +229,14 @@ export default function traverseMaskChars(
     return traverseMaskChars({
       ...state,
       result: groupMaskCharsByDirectionTraverseResult.result,
-      maskCharsByDirectionIndex: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsByDirectionIndex: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsByDirectionIndex :
         maskCharsByDirectionIndex + 1,
       currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
       valueCharsByDirectionIndex: groupMaskCharsByDirectionTraverseResult.valueCharsByDirectionIndex,
       valueCharsMatchNum: groupMaskCharsByDirectionTraverseResult.valueCharsMatchNum,
       valueCharsDidntMatchNum: groupMaskCharsByDirectionTraverseResult.valueCharsDidntMatchNum,
-      maskCharsMatchNum: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
         (
           groupMaskCharsByDirectionTraverseResult.maskCharsDidntMatchNum === 0 ?
@@ -255,14 +255,14 @@ export default function traverseMaskChars(
     return traverseMaskChars({
       ...state,
       valueCharsByDirectionIndex: valueCharsByDirectionIndex + 1,
-      maskCharsByDirectionIndex: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsByDirectionIndex: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsByDirectionIndex :
         maskCharsByDirectionIndex + 1,
       currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
       result: match ?
         concatMaskedValueByDirection(result, valueChar, direction) :
         result,
-      maskCharsMatchNum: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
         (match ? maskCharsMatchNum + 1 : maskCharsMatchNum),
       maskCharsDidntMatchNum: match ?
@@ -279,14 +279,14 @@ export default function traverseMaskChars(
     return traverseMaskChars({
       ...state,
       valueCharsByDirectionIndex: valueCharsByDirectionIndex + 1,
-      maskCharsByDirectionIndex: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsByDirectionIndex: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsByDirectionIndex :
         maskCharsByDirectionIndex + 1,
       currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
       result: match ?
         concatMaskedValueByDirection(result, valueChar, direction) :
         result,
-      maskCharsMatchNum: (isInEndlessMode || maskCharHasMoreIterations) ?
+      maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
         maskCharsMatchNum :
         (match ? maskCharsMatchNum + 1 : maskCharsMatchNum),
       maskCharsDidntMatchNum: match ?
@@ -303,14 +303,14 @@ export default function traverseMaskChars(
   return traverseMaskChars({
     ...state,
     valueCharsByDirectionIndex: valueCharsByDirectionIndex + 1,
-    maskCharsByDirectionIndex: (isInEndlessMode || maskCharHasMoreIterations) ?
+    maskCharsByDirectionIndex: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
       maskCharsByDirectionIndex :
       maskCharsByDirectionIndex + 1,
     currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
     result: match ?
       concatMaskedValueByDirection(result, valueChar, direction) :
       result,
-    maskCharsMatchNum: (isInEndlessMode || maskCharHasMoreIterations) ?
+    maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
       maskCharsMatchNum :
       (match ? maskCharsMatchNum + 1 : maskCharsMatchNum),
     maskCharsDidntMatchNum: match ?
