@@ -4,6 +4,7 @@ export { default as mkBoostChar } from './fns/boostChar';
 export { default as mkBoostMask } from './fns/boostMask';
 export { default as mkMaskValue } from './fns/maskValue';
 export { default as mkUnmaskValue } from './fns/unmaskValue';
+export { default as mkRemoveToBePutChars } from './fns/removeToBePutChars';
 // Boosts
 export { default as mkCharBoostRepeat } from './boosts/char/repeat';
 export { default as mkMaskBoostEndless } from './boosts/mask/endless';
