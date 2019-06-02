@@ -1,0 +1,42 @@
+{
+  "name": "maskose-react",
+  "version": "0.0.0",
+  "description": "Official support for maskose in React.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "storybook": "start-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/efreitasn/maskose.git",
+    "directory": "packages/maskose-react"
+  },
+  "author": {
+    "email": "me@efreitasn.dev",
+    "name": "Emanuel Freitas",
+    "url": "https://efreitasn.dev"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/react": "^16.8.19",
+    "maskose": "0.0.0",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/cli": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@types/storybook__react": "^4.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
