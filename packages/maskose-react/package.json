@@ -6,6 +6,7 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
     "test": "../../node_modules/jest/bin/jest.js",
     "storybook": "start-storybook"
   },

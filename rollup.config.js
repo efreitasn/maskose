@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
+import resolve from 'rollup-plugin-node-resolve';
 
 export default {
   input: './src/index.ts',
@@ -16,17 +16,30 @@ export default {
       format: 'es'
     }
   ],
+  external: [
+    'react'
+  ],
   plugins: [
+    commonjs({
+      namedExports: {
+        'node_modules/react/index.js': [
+          'useMemo',
+          'useCallback'
+        ]
+      }
+    }),
     resolve({
       extensions: [
-        '.ts'
+        '.ts',
+        '.tsx'
       ]
     }),
-    commonjs(),
     babel({
       exclude: 'node_modules/**',
+      rootMode: 'upward',
       extensions: [
-        '.ts'
+        '.ts',
+        '.tsx'
       ]
     }),
     terser()
