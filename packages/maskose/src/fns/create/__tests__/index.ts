@@ -23,7 +23,7 @@ it('should match the object returned by mkCreate()', () => {
         unmasked: 2
       })
     ]),
-    mkCharToBePut('K'),
+    mkCharToBePut('-'),
     mkCharNum(),
     mkCharGroup([
       mkCharNum(),

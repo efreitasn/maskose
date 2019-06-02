@@ -2,9 +2,9 @@
 
 exports[`should match the object returned by mkCharToBePut() 1`] = `
 Object {
-  "char": "B",
+  "char": "(",
   "maskedValueLengthConditions": Array [],
-  "regExp": /B/,
+  "regExp": /\\\\\\(/,
   "repetitions": 1,
   "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
   "valueToBeMaskedLengthConditions": Array [],

@@ -58,9 +58,9 @@ Object {
       ],
     },
     Object {
-      "char": "K",
+      "char": "-",
       "maskedValueLengthConditions": Array [],
-      "regExp": /K/,
+      "regExp": /-/,
       "repetitions": 1,
       "type": "MASKOSE_CHAR_TO_BE_PUT_TYPE",
       "valueToBeMaskedLengthConditions": Array [],

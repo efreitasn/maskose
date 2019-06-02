@@ -10,6 +10,25 @@ export interface MaskoseMaskCharToBePut extends MaskoseMaskCharBase {
   readonly   regExp: RegExp;
 };
 
+const availableToBePutChars = [
+  '(',
+  ')',
+  '[',
+  ']',
+  '-',
+  '/',
+  '\\',
+  ',',
+  '.',
+  ' '
+];
+
+export const toBePutCharsRegExp = new RegExp(
+  availableToBePutChars
+    .map(escapeRegExpChar)
+    .join('|')
+);
+
 /**
  * A character that's not expected to be in the unmasked value when masking
  * and expected to be in the masked value when unmasking.
@@ -17,8 +36,11 @@ export interface MaskoseMaskCharToBePut extends MaskoseMaskCharBase {
 export default function mkCharToBePut(char: string): MaskoseMaskCharToBePut {
   const regExp = new RegExp(escapeRegExpChar(char));
 
-  if (char.length === 0 || char.length > 1) {
-    throw new Error('The provided character must have a size equal to 1');
+  if (
+    char.length !== 1 ||
+    !toBePutCharsRegExp.test(char)
+  ) {
+    throw new Error(`The provided character must be one of: ${availableToBePutChars.join(', ')}`);
   }
 
   return {

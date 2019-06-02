@@ -58,7 +58,7 @@ it('should return a falsy value if the provided mask is endless and has a tail e
     mkCharGroup([
       mkCharNum(),
       mkCharLetter(),
-      mkCharToBePut('A')
+      mkCharToBePut('-')
     ])
   ]);
   const maskBoosted = mkMaskBoostEndlessWithoutValidations()(mask);
@@ -72,7 +72,7 @@ it('should return a falsy value if the provided mask is endless and has a tail e
 it(`should return a falsy value if the provided mask is endless and has a tail equal to a group character that has a tail equal to a toBePutCharacter (${MASKOSE_MASK_DIRECTION_RIGHT_TO_LEFT})`, () => {
   const mask = mkCreate([
     mkCharGroup([
-      mkCharToBePut('B'),
+      mkCharToBePut('-'),
       mkCharNum(),
       mkCharLetter()
     ]),
