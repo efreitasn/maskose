@@ -6,7 +6,6 @@ import getMaskCharNextIteration from '../getMaskCharNextIteration';
 import { MASKOSE_CHAR_TO_BE_PUT_TYPE, MaskoseMaskCharToBePut } from '../../mask/chars/toBePut';
 import { MASKOSE_CHAR_GROUP_TYPE, MaskoseMaskCharGroup } from '../../mask/chars/group';
 import { MASKOSE_CHAR_LETTER_TYPE } from '../../mask/chars/letter';
-import { MASKOSE_CHAR_SPECIFIC_TYPE } from '../../mask/chars/specific';
 import isTraverseMaskCharsModeUnmask from '../isTraverseMaskCharsModeUnmask';
 import {
   TraverseMaskCharsState,
@@ -203,30 +202,6 @@ export default function traverseMaskChars(
   }
 
   if (maskCharType === MASKOSE_CHAR_LETTER_TYPE) {
-    const match = maskCharRegExp.test(valueChar);
-
-    return traverseMaskChars({
-      ...state,
-      valueCharsByDirectionIndex: valueCharsByDirectionIndex + 1,
-      maskCharsByDirectionIndex: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
-        maskCharsByDirectionIndex :
-        maskCharsByDirectionIndex + 1,
-      currentMaskCharIteration: getMaskCharNextIteration(maskCharRepetions, currentMaskCharIteration),
-      result: match ?
-        concatStrByMaskDirection(result, valueChar, direction) :
-        result,
-      maskCharsMatchNum: (neverChangeMaskCharsByDirectionIndex || maskCharHasMoreIterations) ?
-        maskCharsMatchNum :
-        (match ? maskCharsMatchNum + 1 : maskCharsMatchNum),
-      maskCharsDidntMatchNum: match ?
-        maskCharsDidntMatchNum :
-        (maskCharsDidntMatchNum + 1),
-      valueCharsMatchNum: match ? (valueCharsMatchNum + 1) : valueCharsMatchNum,
-      valueCharsDidntMatchNum: match ? valueCharsDidntMatchNum : (valueCharsDidntMatchNum + 1)
-    });
-  }
-
-  if (maskCharType === MASKOSE_CHAR_SPECIFIC_TYPE) {
     const match = maskCharRegExp.test(valueChar);
 
     return traverseMaskChars({

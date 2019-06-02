@@ -1,5 +1,4 @@
 import { MaskoseMaskCharLetter } from './letter';
-import { MaskoseMaskCharSpecific } from './specific';
 import { MaskoseMaskCharNum } from './num';
 import { MaskoseMaskCharToBePut } from './toBePut';
 import { MaskoseMaskCharGroup } from './group';
@@ -27,7 +26,6 @@ export interface MaskoseMaskCharBase {
 
 export type MaskoseMaskChar =
   | MaskoseMaskCharLetter
-  | MaskoseMaskCharSpecific
   | MaskoseMaskCharNum
   | MaskoseMaskCharToBePut
   | MaskoseMaskCharGroup

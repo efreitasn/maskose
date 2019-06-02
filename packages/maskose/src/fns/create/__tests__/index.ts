@@ -6,7 +6,6 @@ import mkCharNum from '../../../mask/chars/num';
 import mkCharLetter from '../../../mask/chars/letter';
 import mkCharGroup from '../../../mask/chars/group';
 import mkCharToBePut from '../../../mask/chars/toBePut';
-import mkCharSpecific from '../../../mask/chars/specific';
 
 it('should match the object returned by mkCreate()', () => {
   const result = mkCreate([
@@ -26,7 +25,6 @@ it('should match the object returned by mkCreate()', () => {
     ]),
     mkCharToBePut('K'),
     mkCharNum(),
-    mkCharSpecific('B'),
     mkCharGroup([
       mkCharNum(),
       mkCharLetter()

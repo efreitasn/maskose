@@ -73,14 +73,6 @@ Object {
       "valueToBeMaskedLengthConditions": Array [],
     },
     Object {
-      "char": "B",
-      "maskedValueLengthConditions": Array [],
-      "regExp": /B/,
-      "repetitions": 1,
-      "type": "MASKOSE_CHAR_SPECIFIC_TYPE",
-      "valueToBeMaskedLengthConditions": Array [],
-    },
-    Object {
       "chars": Array [
         Object {
           "maskedValueLengthConditions": Array [],

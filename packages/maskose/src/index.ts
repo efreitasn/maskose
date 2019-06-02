@@ -14,6 +14,5 @@ export { default as mkCharBoostValueLengthLessThan } from './boosts/char/valueLe
 // Mask characters
 export { default as mkCharLetter } from './mask/chars/letter';
 export { default as mkCharNum } from './mask/chars/num';
-export { default as mkCharSpecific } from './mask/chars/specific';
 export { default as mkCharToBePut } from './mask/chars/toBePut';
 export { default as mkCharGroup } from './mask/chars/group';

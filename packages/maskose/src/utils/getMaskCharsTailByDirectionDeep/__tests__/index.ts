@@ -4,7 +4,6 @@ import {
 import mkCharNum from '../../../mask/chars/num';
 import mkCharLetter from '../../../mask/chars/letter';
 import mkCharGroup from '../../../mask/chars/group';
-import mkCharSpecific from '../../../mask/chars/specific';
 import getMaskCharsTailByDirectionDeep from '..';
 
 it('should return the correct tail', () => {
@@ -15,7 +14,6 @@ it('should return the correct tail', () => {
     mkCharGroup([
       mkCharGroup([
         mkCharGroup([
-          mkCharSpecific('3'),
           mkCharLetter(),
           charNum
         ])

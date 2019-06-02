@@ -3,7 +3,6 @@ import mkCharBoostRepeat from '../../../boosts/char/repeat';
 import mkCharNum from '../../../mask/chars/num';
 import mkCharLetter from '../../../mask/chars/letter';
 import mkCharGroup from '../../../mask/chars/group';
-import mkCharSpecific from '../../../mask/chars/specific';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import {
   TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -46,7 +45,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
         '2',
         '3',
         '4',
-        'H',
+        'A',
         'B'
       ],
       stopOnFirstMaskCharMatch: true,
@@ -57,13 +56,13 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
           mkCharBoostRepeat(4)(
             mkCharNum()
           ),
-          mkCharSpecific('H')
+          mkCharLetter()
         ]),
         mkCharLetter()
       ]
     });
   
-    expect(result.result).toBe('1234H');
+    expect(result.result).toBe('1234A');
   });
   
   it('should not stop at the first matched maskChar when stopOnFirstMaskCharMatch === false', () => {
@@ -112,7 +111,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
           mkCharBoostRepeat(4)(
             mkCharNum()
           ),
-          mkCharSpecific('H')
+          mkCharLetter()
         ]),
         mkCharLetter()
       ]
@@ -142,7 +141,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
           mkCharBoostRepeat(4)(
             mkCharNum()
           ),
-          mkCharSpecific('H')
+          mkCharLetter()
         ]),
         mkCharLetter()
       ]
@@ -160,7 +159,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
         '2',
         '3',
         '4',
-        'H',
+        'A',
         'B'
       ],
       stopOnFirstMaskCharMatch: false,
@@ -172,13 +171,13 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
           mkCharBoostRepeat(4)(
             mkCharNum()
           ),
-          mkCharSpecific('H')
+          mkCharLetter()
         ]),
-        mkCharSpecific('O')
+        mkCharNum()
       ]
     });
   
-    expect(result.result).toBe('1234H');
+    expect(result.result).toBe('1234A');
   });
 });
 
