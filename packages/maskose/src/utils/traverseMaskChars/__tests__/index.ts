@@ -120,7 +120,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1');
   });
   
-  it('should stop at the end of the valueToBeMaskedChars array if all valueToBeMaskedChars match and there are no stop* conditions', () => {
+  it('should stop at the end of the valueChars array if all valueChars match and there are no stop* conditions', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
@@ -150,7 +150,7 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
     expect(result.result).toBe('1234HB');
   });
   
-  it('should stop at the last matched item of the valueToBeMaskedChars array if not all valueToBeMaskedChars match and there are no stop* conditions', () => {
+  it('should stop at the last matched item of the valueChars array if not all valueChars match and there are no stop* conditions', () => {
     const result = traverseMaskChars({
       ...defaultState,
       mode: TRAVERSE_MASK_CHARS_MASK_MODE,
