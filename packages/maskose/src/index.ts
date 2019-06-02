@@ -17,3 +17,5 @@ export { default as mkCharLetter } from './mask/chars/letter';
 export { default as mkCharNum } from './mask/chars/num';
 export { default as mkCharToBePut } from './mask/chars/toBePut';
 export { default as mkCharGroup } from './mask/chars/group';
+// Utils
+export { default as pipe } from './utils/pipe';
