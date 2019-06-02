@@ -54,6 +54,7 @@ export default function traverseMaskChars(
     direction,
     endless,
     result,
+    depth,
     maskCharsByDirection,
     maskCharsByDirectionIndex,
     valueCharsByDirection,
@@ -85,7 +86,8 @@ export default function traverseMaskChars(
     (!maskChar && !endless) ||
     (!valueChar && isUnmaskMode) ||
     (!valueChar && (prop<MaskoseMaskChar, 'type'>('type')(maskChar) !== MASKOSE_CHAR_TO_BE_PUT_TYPE)) ||
-    (!valueChar && nextMaskChar)
+    (!valueChar && nextMaskChar) ||
+    (!valueChar && depth > 0)
   ) {
     return state;
   }
@@ -132,6 +134,7 @@ export default function traverseMaskChars(
       endless: false,
       maskCharsByDirectionIndex: 0,
       currentMaskCharIteration: 0,
+      depth: depth + 1,
       maskCharsByDirection: arrayByMaskDirection<MaskoseMaskChar>(
         direction,
         prop<MaskoseMaskCharGroup, 'chars'>('chars')((maskChar as MaskoseMaskCharGroup))

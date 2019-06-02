@@ -19,6 +19,7 @@ export interface TraverseMaskCharsState {
   readonly direction: MaskoseMaskDirection;
   readonly endless: boolean;
   readonly result: string;
+  readonly depth: number;
   // Mask chars
   readonly maskCharsByDirection: MaskoseMaskChar[];
   readonly maskCharsByDirectionIndex: number;
@@ -43,6 +44,7 @@ export const defaultState: TraverseMaskCharsState = {
   direction: MASKOSE_MASK_DIRECTION_LEFT_TO_RIGHT,
   endless: false,
   result: '',
+  depth: 0,
   maskCharsByDirection: [],
   maskCharsByDirectionIndex: 0,
   valueCharsByDirection: [],
