@@ -5,7 +5,7 @@ Object {
   "maskedValueLengthConditions": Array [
     Object {
       "num": 5,
-      "type": "eq",
+      "type": "lt",
     },
   ],
   "regExp": /\\[0-9\\]/,
@@ -14,7 +14,7 @@ Object {
   "valueToBeMaskedLengthConditions": Array [
     Object {
       "num": 5,
-      "type": "eq",
+      "type": "lt",
     },
   ],
 }

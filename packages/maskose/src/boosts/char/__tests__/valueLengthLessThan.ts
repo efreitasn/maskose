@@ -1,4 +1,4 @@
-import mkCharBoostValueLengthLessThan from '../valueLengthEqualTo';
+import mkCharBoostValueLengthLessThan from '../valueLengthLessThan';
 import mkCharNum from '../../../mask/chars/num';
 
 it('should match the object returned by mkCharBoostValueLengthLessThan()', () => {
