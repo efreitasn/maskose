@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "test": "lerna exec 'jest --all'",
     "lint": "eslint **/*.ts"
   },
   "author": {
