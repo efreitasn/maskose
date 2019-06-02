@@ -4,11 +4,11 @@ import mkMaskBoostRightToLeft from '../../../boosts/mask/rightToLeft';
 import mkCharNum from '../../../mask/chars/num';
 import mkCharToBePut from '../../../mask/chars/toBePut';
 import mkCharBoostRepeat from '../../../boosts/char/repeat';
-import mkCharBoostValueLengthEqualTo from '../../../boosts/char/valueLengthEqualTo';
 import mkMaskValue from '..';
 import mkBoostMask from '../../boostMask';
 import mkCharGroup from '../../../mask/chars/group';
 import mkCharLetter from '../../../mask/chars/letter';
+import mkCharBoostValueLengthGreaterThan from '../../../boosts/char/valueLengthGreaterThan';
 
 it('should mask the provided value (BR cellphone number mask)', () => {
   const mask = mkCreate([
@@ -16,9 +16,9 @@ it('should mask the provided value (BR cellphone number mask)', () => {
     mkCharBoostRepeat(2)(mkCharNum()),
     mkCharToBePut(')'),
     mkCharToBePut(' '),
-    mkCharBoostValueLengthEqualTo({
-      masked: 15,
-      unmasked: 11
+    mkCharBoostValueLengthGreaterThan({
+      masked: 14,
+      unmasked: 10
     })(mkCharNum()),
     mkCharBoostRepeat(4)(mkCharNum()),
     mkCharToBePut('-'),
