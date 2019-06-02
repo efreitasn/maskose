@@ -6,7 +6,7 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "../../node_modules/jest/bin/jest.js",
     "storybook": "start-storybook"
   },
   "repository": {
@@ -39,9 +39,8 @@
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "jest": "^24.8.0",
+    "maskose": "0.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "ts-jest": "^24.0.2"
+    "react-dom": "^16.8.6"
   }
 }
