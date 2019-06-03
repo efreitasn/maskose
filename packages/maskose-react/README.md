@@ -19,6 +19,12 @@
       src="https://img.shields.io/travis/efreitasn/maskose.svg"
     >
   </a>
+  <a href="https://codecov.io/github/efreitasn/maskose">
+    <img
+      alt="Test coverage"
+      src="https://img.shields.io/codecov/c/github/efreitasn/maskose.svg?token=4579d5f9cd724e54a14bf0397fee308f"
+    >
+  </a>
   <a href="https://github.com/efreitasn/maskose/blob/master/LICENSE">
     <img
       alt="License"

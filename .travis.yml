@@ -11,5 +11,6 @@ script:
   - yarn build
 after_script:
 # Tests run after building because of the project being a monorepo
-  - yarn test
+  - yarn test --coverage
   - yarn type-check
+  - codecov -f coverage/*.json
