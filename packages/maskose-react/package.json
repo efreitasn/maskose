@@ -27,7 +27,8 @@
   "peerDependencies": {
     "@types/react": "^16.8.19",
     "maskose": "0.0.0",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
