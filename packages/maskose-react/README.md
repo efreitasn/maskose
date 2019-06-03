@@ -55,11 +55,11 @@ This packages requires `react@16.8` and `react-dom@16.8`. That's because it uses
 
 ## Installation
 ```bash
-yarn add maskose
+yarn add maskose maskose-react
 ```
 or with npm:
 ```bash
-npm install maskose
+npm install maskose maskose-react
 ```
 
 ## Components

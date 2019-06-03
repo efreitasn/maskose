@@ -19,6 +19,9 @@
     "debug-test": "node --inspect node_modules/.bin/jest --runInBand",
     "all-good": "yarn type-check && yarn test"
   },
+  "keywords": [
+    "mask"
+  ],
   "author": {
     "email": "me@efreitasn.dev",
     "name": "Emanuel Freitas",

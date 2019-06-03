@@ -24,6 +24,10 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "mask",
+    "react"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@types/react": "^16.8.19",
