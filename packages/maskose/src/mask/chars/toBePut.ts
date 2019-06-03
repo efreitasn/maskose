@@ -1,5 +1,6 @@
 import { MaskoseMaskCharBase } from '.';
 import escapeRegExpChar from '../../utils/escapeRegExpChar';
+import isAToBePutCharStr from '../../utils/isAToBePutCharStr';
 
 export const MASKOSE_CHAR_TO_BE_PUT_TYPE = 'MASKOSE_CHAR_TO_BE_PUT_TYPE';
 export const MASKOSE_CHAR_TO_BE_PUT_STR_ID = 'TO_BE_PUT';
@@ -10,7 +11,7 @@ export interface MaskoseMaskCharToBePut extends MaskoseMaskCharBase {
   readonly   regExp: RegExp;
 };
 
-const availableToBePutChars = [
+export const availableToBePutChars = [
   '(',
   ')',
   '[',
@@ -36,10 +37,7 @@ export const toBePutCharsRegExp = new RegExp(
 export default function mkCharToBePut(char: string): MaskoseMaskCharToBePut {
   const regExp = new RegExp(escapeRegExpChar(char));
 
-  if (
-    char.length !== 1 ||
-    !toBePutCharsRegExp.test(char)
-  ) {
+  if (!isAToBePutCharStr(char)) {
     throw new Error(`The provided character must be one of: ${availableToBePutChars.join(', ')}`);
   }
 
