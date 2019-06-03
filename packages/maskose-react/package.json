@@ -8,6 +8,7 @@
     "prebuild": "../../node_modules/rimraf/bin.js dist",
     "build": "../../node_modules/typescript/bin/tsc",
     "test": "../../node_modules/jest/bin/jest.js",
+    "type-check": "../../node_modules/typescript/bin/tsc -p tsconfig.check.json",
     "storybook": "start-storybook"
   },
   "repository": {

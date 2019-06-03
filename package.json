@@ -4,7 +4,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint **/*.ts",
-    "prepublishOnly": "yarn lint && yarn test && lerna run build"
+    "build": "lerna run build",
+    "type-check": "lerna run type-check",
+    "prepublishOnly": "yarn lint && yarn test && yarn build"
   },
   "author": {
     "email": "me@efreitasn.dev",

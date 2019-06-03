@@ -1,0 +1,15 @@
+language: node_js
+cache:
+  yarn: true
+branches:
+  only:
+    - master
+before_script:
+  - yarn lerna bootstrap
+  - yarn lint
+script:
+  - yarn build
+after_script:
+# Tests run after building because of the project being a monorepo
+  - yarn test
+  - yarn type-check
