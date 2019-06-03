@@ -1,6 +1,6 @@
 {
   "name": "maskose-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Official support for maskose in React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "maskose": "0.0.0",
+    "maskose": "^0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
