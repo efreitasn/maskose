@@ -10,13 +10,19 @@
   <a href="https://npmjs.com/package/maskose-react">
     <img
       alt="Version"
-      src="https://img.shields.io/npm/v/maskose-react.svg?color=%237075d6&style=popout"
+      src="https://img.shields.io/npm/v/maskose-react.svg"
+    >
+  </a>
+  <a href="https://travis-ci.org/efreitasn/maskose">
+    <img
+      alt="Build"
+      src="https://img.shields.io/travis/efreitasn/maskose.svg"
     >
   </a>
   <a href="https://github.com/efreitasn/maskose/blob/master/LICENSE">
     <img
       alt="License"
-      src="https://img.shields.io/npm/l/maskose-react.svg?color=%237075d6&style=popout"
+      src="https://img.shields.io/npm/l/maskose-react.svg"
     >
   </a>
 </div>

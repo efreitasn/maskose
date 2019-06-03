@@ -10,19 +10,25 @@
   <a href="https://npmjs.com/package/maskose">
     <img
       alt="Version"
-      src="https://img.shields.io/npm/v/maskose.svg?color=%237075d6&style=popout"
+      src="https://img.shields.io/npm/v/maskose.svg"
+    >
+  </a>
+  <a href="https://travis-ci.org/efreitasn/maskose">
+    <img
+      alt="Build"
+      src="https://img.shields.io/travis/efreitasn/maskose.svg"
     >
   </a>
   <a href="https://npmjs.com/package/maskose">
     <img
       alt="Size"
-      src="https://img.shields.io/bundlephobia/minzip/maskose.svg?color=%237075d&label=min%2Bgz&style=popout"
+      src="https://img.shields.io/bundlephobia/minzip/maskose.svg?label=min%2Bgz"
     >
   </a>
   <a href="https://github.com/efreitasn/maskose/blob/master/LICENSE">
     <img
       alt="License"
-      src="https://img.shields.io/npm/l/maskose.svg?color=%237075d6&style=popout"
+      src="https://img.shields.io/npm/l/maskose.svg"
     >
   </a>
 </div>
