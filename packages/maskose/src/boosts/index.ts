@@ -1,1 +1,4 @@
-export type MaskoseBoost<T> = (val: T) => T;
+import { MaskoseMask } from '../mask';
+import { MaskoseMaskChar } from '../mask/chars';
+
+export type MaskoseBoost<T extends (MaskoseMaskChar | MaskoseMask)> = (val: T) => T;
