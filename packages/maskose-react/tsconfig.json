@@ -6,8 +6,11 @@
     "rootDir": "./src",
     "declaration": true,
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "jsx": "react"
-  }
+  },
+  "exclude": [
+    "**/*stories*",
+    "**/__tests__/**"
+  ]
 }

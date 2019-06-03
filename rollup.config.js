@@ -17,7 +17,8 @@ export default {
     }
   ],
   external: [
-    'react'
+    'react',
+    'maskose'
   ],
   plugins: [
     commonjs({

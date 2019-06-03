@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "description": "Official support for maskose in React.",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
+    "prebuild": "../../node_modules/rimraf/bin.js dist",
+    "build": "../../node_modules/typescript/bin/tsc",
     "test": "../../node_modules/jest/bin/jest.js",
     "storybook": "start-storybook"
   },

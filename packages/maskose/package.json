@@ -11,9 +11,9 @@
     "directory": "packages/maskose"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "../../node_modules/rimraf/bin.js dist",
     "build": "../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
-    "postbuild": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "postbuild": "../../node_modules/dts-bundle-generator/bin/dts-bundle-generator.js -o dist/index.d.ts src/index.ts",
     "test": "../../node_modules/jest/bin/jest.js",
     "type-check": "../../node_modules/typescript/bin/tsc",
     "debug-test": "node --inspect node_modules/.bin/jest --runInBand",
@@ -27,9 +27,5 @@
   "files": [
     "dist"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "dts-bundle-generator": "^3.1.0",
-    "rimraf": "^2.6.3"
-  }
+  "license": "MIT"
 }
