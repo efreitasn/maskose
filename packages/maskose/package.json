@@ -1,6 +1,6 @@
 {
   "name": "maskose",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A composable way to make masks.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
