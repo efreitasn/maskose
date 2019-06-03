@@ -10,7 +10,7 @@ import {
   defaultState
 } from '../../traverseMaskChars/state';
 
-describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE} mode`, () => {
+describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE}`, () => {
   it('should stop at the first matched maskChar when stopOnFirstMaskCharMatch === true (mkCharBoostRepeat)', () => {
     const result = traverseMaskChars({
       ...defaultState,
