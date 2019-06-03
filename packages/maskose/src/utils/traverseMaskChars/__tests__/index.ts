@@ -179,6 +179,53 @@ describe(`when mode is ${TRAVERSE_MASK_CHARS_MASK_MODE}`, () => {
   
     expect(result.result).toBe('1234A');
   });
+  
+  it('should remove trailing toBePut mask chars from the result when the masking wasn\'t a success', () => {
+    const result = traverseMaskChars({
+      ...defaultState,
+      mode: TRAVERSE_MASK_CHARS_MASK_MODE,
+      valueCharsByDirection: [
+        '1',
+        '2',
+        '3',
+        '4',
+        '0'
+      ],
+      maskCharsByDirection: [
+        mkCharGroup([
+          mkCharBoostRepeat(4)(
+            mkCharNum(),
+          ),
+          mkCharToBePut('-'),
+          mkCharLetter()
+        ]),
+        mkCharNum()
+      ]
+    });
+  
+    expect(result.result).toBe('1234');
+  });
+  
+  it('should not remove trailing toBePut mask chars from the result when the masking was a success', () => {
+    const result = traverseMaskChars({
+      ...defaultState,
+      mode: TRAVERSE_MASK_CHARS_MASK_MODE,
+      valueCharsByDirection: [
+        '1',
+        '2',
+        '3',
+        '4'
+      ],
+      maskCharsByDirection: [
+        mkCharBoostRepeat(4)(
+          mkCharNum(),
+        ),
+        mkCharToBePut('-')
+      ]
+    });
+  
+    expect(result.result).toBe('1234-');
+  });
 });
 
 describe(`when mode is ${TRAVERSE_MASK_CHARS_UNMASK_MODE}`, () => {

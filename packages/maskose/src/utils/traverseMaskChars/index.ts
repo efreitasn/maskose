@@ -15,6 +15,8 @@ import getArraySize from '../getArraySize';
 import prop from '../prop';
 import { MaskoseMaskChar } from '../../mask/chars';
 import arrayByMaskDirection from '../arrayByMaskDirection';
+import removeTrailingToBePutMaskChars from '../removeTrailingToBePutMaskChars';
+import isMaskDirectionRightToLeft from '../isMaskDirectionRightToLeft';
 
 /**
  * Traverse the characters of a mask recursively.
@@ -69,9 +71,9 @@ export default function traverseMaskChars(
     stopOnFirstValueCharDidntMatch
   } = state;
 
+  const isDirectionRightToLeft = isMaskDirectionRightToLeft(direction);
   const isUnmaskMode = isTraverseMaskCharsModeUnmask(mode);
   const maskChar = maskCharsByDirection[maskCharsByDirectionIndex];
-  const nextMaskChar = maskCharsByDirection[maskCharsByDirectionIndex + 1];
   const valueChar = valueCharsByDirection[valueCharsByDirectionIndex];
 
   // Base cases
@@ -86,9 +88,31 @@ export default function traverseMaskChars(
     (!maskChar && !endless) ||
     (!valueChar && isUnmaskMode) ||
     (!valueChar && (prop<MaskoseMaskChar, 'type'>('type')(maskChar) !== MASKOSE_CHAR_TO_BE_PUT_TYPE)) ||
-    (!valueChar && nextMaskChar) ||
     (!valueChar && depth > 0)
   ) {
+    const reverseStr = (str: string) => Array.from(str).reverse().join('');
+    const wasASuccess = (
+      maskCharsDidntMatchNum === 0 &&
+      valueCharsDidntMatchNum === 0 &&
+      !valueChar &&
+      !maskChar
+    );
+
+    // If the condition below is true, then
+    // there might be some trailing toBePut
+    // mask chars in the result.
+    if (
+      !wasASuccess &&
+      !isUnmaskMode
+    ) {
+      return {
+        ...state,
+        result: isDirectionRightToLeft ?
+          reverseStr(removeTrailingToBePutMaskChars(reverseStr(result))) :
+          removeTrailingToBePutMaskChars(result)
+      };
+    }
+
     return state;
   }
 
