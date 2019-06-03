@@ -1,4 +1,4 @@
-<div align="center" style="margin-bottom: 5px">
+<div align="center">
   <img alt="maskose" src="https://raw.githubusercontent.com/efreitasn/maskose/master/maskose-logo.png">
   <br />
   <br />
