@@ -11,6 +11,7 @@
     "type-check": "../../node_modules/typescript/bin/tsc -p tsconfig.check.json",
     "storybook": "start-storybook"
   },
+  "homepage": "https://github.com/efreitasn/maskose/blob/master/packages/maskose-react/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/efreitasn/maskose.git",

@@ -101,4 +101,4 @@ function Form() {
 ```
 
 ## Docs
-If you're looking for the docs of the maskose lib, you can find the [here](https://github.com/efreitasn/maskose/tree/master/packages/maskose).
+If you're looking for the docs of the maskose lib, you can find them [here](https://github.com/efreitasn/maskose/tree/master/packages/maskose).
