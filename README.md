@@ -5,18 +5,24 @@
 </div>
 
 <div align="center">
-  <img
-    alt="Version"
-    src="https://img.shields.io/npm/v/maskose.svg?color=%237075d6&style=popout"
-  >
-  <img
-    alt="Size"
-    src="https://img.shields.io/bundlephobia/minzip/maskose.svg?color=%237075d&label=min%2Bgz&style=popout"
-  >
-  <img
-    alt="License"
-    src="https://img.shields.io/npm/l/maskose.svg?color=%237075d6&style=popout"
-  >
+  <a href="https://npmjs.com/package/maskose">
+    <img
+      alt="Version"
+      src="https://img.shields.io/npm/v/maskose.svg?color=%237075d6&style=popout"
+    >
+  </a>
+  <a href="https://npmjs.com/package/maskose">
+    <img
+      alt="Size"
+      src="https://img.shields.io/bundlephobia/minzip/maskose.svg?color=%237075d&label=min%2Bgz&style=popout"
+    >
+  </a>
+  <a href="https://github.com/efreitasn/maskose/blob/master/LICENSE">
+    <img
+      alt="License"
+      src="https://img.shields.io/npm/l/maskose.svg?color=%237075d6&style=popout"
+    >
+  </a>
 </div>
 </div>
 

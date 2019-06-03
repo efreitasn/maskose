@@ -7,14 +7,18 @@
 </div>
 
 <div align="center">
-  <img
-    alt="Version"
-    src="https://img.shields.io/npm/v/maskose-react.svg?color=%237075d6&style=popout"
-  >
-  <img
-    alt="License"
-    src="https://img.shields.io/npm/l/maskose-react.svg?color=%237075d6&style=popout"
-  >
+  <a href="https://npmjs.com/package/maskose-react">
+    <img
+      alt="Version"
+      src="https://img.shields.io/npm/v/maskose-react.svg?color=%237075d6&style=popout"
+    >
+  </a>
+  <a href="https://github.com/efreitasn/maskose/blob/master/LICENSE">
+    <img
+      alt="License"
+      src="https://img.shields.io/npm/l/maskose-react.svg?color=%237075d6&style=popout"
+    >
+  </a>
 </div>
 </div>
 
