@@ -1,120 +1,346 @@
-# Maskose
+<div align="center">
+  <img alt="maskose" src="https://raw.githubusercontent.com/efreitasn/maskose/master/maskose-logo.png">
+  <br />
+  <em>A composable way to make masks.</em>
+  <br />
+  <br />
+</div>
 
-## fns
+<div align="center">
+  <img
+    alt="Version"
+    src="https://img.shields.io/npm/v/maskose.svg?color=%237075d6&style=popout"
+  >
+  <img
+    alt="Size"
+    src="https://img.shields.io/bundlephobia/minzip/maskose.svg?color=%237075d&label=min%2Bgz&style=popout"
+  >
+  <img
+    alt="License"
+    src="https://img.shields.io/npm/l/maskose.svg?color=%237075d6&style=popout"
+  >
+</div>
+</div>
 
-### mkMask
-```javascript
-mkMask(...maskoseChars: MaskoseChar[]) => MaskoseMask
+---
+
+## Table of contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [API](#api)
+  - [Functions](#functions)
+    - [`mkCreate`](#mkcreate)
+    - [`mkMaskValue`](#mkmaskvalue)
+    - [`mkUnmaskValue`](#mkunmaskvalue)
+    - [`mkMatch`](#mkmatch)
+    - [`mkRemoveToBePutChars`](#mkremovetobeputchars)
+    - [`mkBoostChar`](#mkboostchar)
+    - [`mkBoostMask`](#mkboostmask)
+  - [Mask characters](#mask-characters)
+    - [`mkCharNum`](#mkcharnum)
+    - [`mkCharLetter`](#mkcharletter)
+    - [`mkCharToBePut`](#mkchartobeput)
+    - [`mkCharGroup`](#mkchargroup)
+  - [Boosts](#boosts)
+    - [`mkMaskBoostEndless`](#mkmaskboostendless)
+    - [`mkMaskBoostRightToLeft`](#mkmaskboostrighttoleft)
+    - [`mkCharBoostRepeat`](#mkcharboostrepeat)
+    - [`mkCharBoostValueLengthEqualTo`](#mkcharboostvaluelengthequalto)
+    - [`mkCharBoostValueLengthGreaterThan`](#mkcharboostvaluelengthgreaterthan)
+    - [`mkCharBoostValueLengthLessThan`](#mkcharboostvaluelengthlessthan)
+- [Examples](#examples)
+  - [US currency mask](#us-currency-mask)
+  - [BR cellphone number mask](#br-cellphone-number-mask)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+```bash
+yarn add maskose
 ```
-Create a mask. It resembles the pipe function in functional programming. The provided [characters](#mask-characters) are added from left to right to the mask.
+or with npm:
+```bash
+npm install maskose
+```
 
-### mkMaskValue
-```javascript
-mkMaskValue(
-  options: {
-    mask: MaskoseMask,
-    rightToLeft?: boolean
+## API
+
+### Functions
+
+#### `mkCreate`
+```typescript
+mkCreate(chars: MaskoseMaskChar[]): MaskoseMask
+```
+Creates a left-to-right non-endless mask with the provided characters.
+
+#### `mkMaskValue`
+```typescript
+mkMaskValue(mask: MaskoseMask): (value: string) => string
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Masks the provided value using the provided mask. If a character in the provided value doesn't match its correspondent mask character, the masking stops and the portion of the value masked until this point is returned.
+
+#### `mkUnmaskValue`
+```typescript
+mkUnmaskValue(mask: MaskoseMask): (value: string) => string
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Unmasks the provided value using the provided mask. If a character in the provided value doesn't match its correspondent mask character, the unmasking stops and the portion of the value unmasked until this point is returned.
+
+#### `mkMatch`
+```typescript
+mkMatch(mask: MaskoseMask): (value: string) => string
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Checks whether the provided value matches the provided mask. To be a successful check, the provided value has to be already masked.
+
+#### `mkRemoveToBePutChars`
+```typescript
+mkRemoveToBePutChars(value: string)
+```
+Removes all characters that are considered to-be-put characters from the provided value.
+
+> **Note**: The difference between `mkRemoveToBePutChars` and `mkUnmaskValue` is that both of them remove to-be-put characters, but only the later also checks if those characters are in the places specified when creating the provided mask. In other words, `mkUnmaskValue` is a reversed version of `mkMaskValue`, while `mkRemoveToBePutChars` just removes every character that is considered a to-be-put, regardless of whether they're in the 'right places'.
+
+#### `mkBoostChar`
+```typescript
+mkBoostChar(char: MaskoseMaskChar):
+  (charBoosts: MaskoseBoost<MaskoseMaskChar>[]) => MaskoseMaskChar
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Adds a list of boosts to a mask character.
+
+#### `mkBoostMask`
+```typescript
+mkBoostMask(mask: MaskoseMask):
+  (charBoosts: MaskoseBoost<MaskoseMask>[]) => MaskoseMask
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Adds a list of boosts to a mask.
+
+### Mask characters
+```typescript
+type MaskoseMaskChar =
+  | MaskoseMaskCharNum
+  | MaskoseMaskCharLetter
+  | MaskoseMaskCharToBePut
+  | MaskoseMaskCharGroup
+```
+
+#### `mkCharNum`
+```typescript
+mkCharNum(): MaskoseMaskCharNum
+```
+Represents a character in the range 0 to 9.
+
+#### `mkCharLetter`
+```typescript
+mkCharLetter(
+  options?: {
+    caseSensitive?: boolean
   }
-) => (value: string) => string
+): MaskoseMaskCharLetter
 ```
-Mask a value. The rightToLeft option is generally used when it's a [currency mask](#currency-mask).
+Represents a character in the range A to Z. If `options.caseSensitive` is not specified, it default to `false`.
 
-## Mask characters
-Mask characters are divided into two groups: primitives and non-primitives. A primitive mask character is the smallest part of a mask, while a non-primitive is a wrapper that resolves to one or more primitive characters.
-
-### Primitives
-#### mkCharNum
-```javascript
-mkCharNum(): MaskoseCharNum
+#### `mkCharToBePut`
+```typescript
+mkCharToBePut(
+  char: '(' | ')' | '[' | ']' | '-' | '/' | '\\' | ',' | '.' | ' '
+): MaskoseMaskCharToBePut
 ```
-A character that matches in the range 0 to 9.
+Represents a character that's not expected to be in the value that will be masked, but expected to be in the value that will be unmasked. This is the type of character that will be put in the value when masking. A good example of a character like this is the dash (-) in a phone number mask.
 
-#### mkCharLetter
-```javascript
-mkCharLetter(): MaskoseCharLetter
+#### `mkCharGroup`
+```typescript
+mkCharGroup(chars: MaskoseMaskChar[]): MaskoseMaskCharGroup
 ```
-A character that matches in the range a to z (case insensitive).
+Represents a group of characters. It's mostly used to boost more than one character at once.
 
-#### mkCharToBePut
-```javascript
-mkCharToBePut(char: string): MaskoseCharToBePut
+### Boosts
+```typescript
+type MaskoseBoost<T extends (
+  | MaskoseMaskChar
+  | MaskoseMask
+)> = (val: T) => T;
 ```
-A character that's not expected to be in the value to be masked. When making a phone number mask, the dash character (-) would be such a
-character. It's used when [formatting a value](#us-phone-number-mask).
+> **Note**: despite the fact that `MaskoseBoost` seems like the type signature of the identity function, it represents the fact that a boost is a function that will always return an object of the same type of the received one. What a boost does is creating a shallow copy of the provided object, altering one or more of the copy's props and returning the copy.
 
-#### mkCharSpecific
-```javascript
-mkCharSpecific(char: string): MaskoseCharSpecific
+#### `mkMaskBoostEndless`
+```typescript
+mkMaskBoostEndless(): MaskoseBoost<MaskoseMask>
 ```
-A character that matches only the provided character.
+> **Note**: this is a nullary function that returns an unary function.
 
-### Non-primitives
-#### mkCharRepeat
-```javascript
-mkCharRepeat(n: number, primitive: PrimitiveMaskoseChar): MaskoseCharRepeat
+Makes the provided mask an endless mask. An endless mask is a mask that will match any character that comes after its chars list's tail only if this character matches its chars list's tail. See the [examples](#Examples) section below to see when this might be useful.
+
+#### `mkMaskBoostRightToLeft`
+```typescript
+mkMaskBoostRightToLeft(): MaskoseBoost<MaskoseMask>
 ```
-A character that will resolve to `n` primitives of the same type.
+> **Note**: this is a nullary function that returns an unary function.
 
-#### mkCharPredicateFn
-```javascript
-mkCharPredicateFn(
-  fn: (arg: {
-    value: string
-  } => boolean),
-  primitive: PrimitiveMaskoseChar
-): MaskoseCharPredicateFn
+Makes the provided mask a mask whose characters will be read from right to left. Besides changing the order in which the provided mask's characters are read, it also changes the order in which the characters of the masked or unmasked value are read. This boost is mostly used when dealing with number-formating masks, e.g. a currency mask. See the [examples](#Examples) section below to see when this might be useful.
+
+#### `mkCharBoostRepeat`
+```typescript
+mkCharBoostRepeat(
+  num: number
+): MaskoseBoost<MaskoseMaskChar>
 ```
-A character that will only resolve to a primitive if its `fn` returns `true`. Otherwise, the primitive will be omitted from the mask.
+> **Note**: this is an unary function that returns another unary function.
 
-## Recipes
+Makes the provided mask character be repeated `num` times. See the [examples](#Examples) section below to see when this might be useful.
 
-### Currency mask
-A currency mask is the perfect use case for the rightToLeft option in the mkMaskValue function.
-```javascript
-const mask = mkMask(
-  mkCharRepeat(2, mkCharNum())),
+#### `mkCharBoostValueLengthEqualTo`
+```typescript
+mkCharBoostValueLengthEqualTo(
+  values: {
+    masked: number;
+    unmasked: number;
+  }
+): MaskoseBoost<MaskoseMaskChar>
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Makes the provided mask character only present in a mask if the value to be masked is equal to `values.unmasked` or the value to be unmasked is equal to `value.masked`. Which one of these checks will be made depends on the type of value that a function expects. For example, `mkMaskValue` will check the `values.unmasked` value, while `mkUnmaskValue` will check the `values.masked` value.
+
+#### `mkCharBoostValueLengthGreaterThan`
+```typescript
+mkCharBoostValueLengthGreaterThan(
+  values: {
+    masked: number;
+    unmasked: number;
+  }
+): MaskoseBoost<MaskoseMaskChar>
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Makes the provided mask character only present in a mask if the value to be masked is greater than `values.unmasked` or the value to be unmasked is greater than `value.masked`. Which one of these checks will be made depends on the type of value that a function expects. For example, `mkMaskValue` will check the `values.unmasked` value, while `mkUnmaskValue` will check the `values.masked` value.
+
+#### `mkCharBoostValueLengthLessThan`
+```typescript
+mkCharBoostValueLengthLessThan(
+  values: {
+    masked: number;
+    unmasked: number;
+  }
+): MaskoseBoost<MaskoseMaskChar>
+```
+> **Note**: this is an unary function that returns another unary function.
+
+Makes the provided mask character only present in a mask if the value to be masked is less than `values.unmasked` or the value to be unmasked is less than `value.masked`. Which one of these checks will be made depends on the type of value that a function expects. For example, `mkMaskValue` will check the `values.unmasked` value, while `mkUnmaskValue` will check the `values.masked` value.
+
+## Examples
+
+### US currency mask
+```typescript
+const mask = mkCreate([
+  mkCharGroup([
+    mkCharBoostRepeat(3)(mkCharNum()),
+    mkCharToBePut(',')
+  ]),
+  mkCharBoostRepeat(3)(mkCharNum()),
   mkCharToBePut('.'),
-  mkCharRepeat(3, mkCharNum())),
-  mkCharToBePut(','),
-  mkCharRepeat(2, mkCharNum()))
-);
-const formatWithMask = mkMaskValue(
-  {
-    mask,
-    rightToLeft: true
-  }
-);
+  mkCharBoostRepeat(2)(mkCharNum())
+]);
 
-const value = '1234567';
-const result = formatWithMask(value);
+const maskBoosted = mkBoostMask(mask)([
+  mkMaskBoostEndless(),
+  mkMaskBoostRightToLeft()
+]);
 
-console.log(result); // '12.345,67';
+const mkMaskValueWithMask = mkMaskValue(maskBoosted);
+const mkUnmaskValueWithMask = mkUnmaskValue(maskBoosted);
+const mkMatchWithMask = mkMatch(maskBoosted);
 
-const value2 = '1234';
-const result = formatWithMask(value);
+// Masking
+console.log(mkMaskValueWithMask('12345'));
+'123.45'
 
-console.log(result); // '12,34';
+console.log(mkMaskValueWithMask('123456789'));
+'1,234,567.89'
+
+console.log(mkMaskValueWithMask('ABCDE56789'));
+'567.89'
+
+// Unmasking
+console.log(mkUnmaskValueWithMask('5,678.30'));
+'567830'
+
+console.log(mkUnmaskValueWithMask('ABCDEFG'));
+''
+
+console.log(mkUnmaskValueWithMask('1.230,500.10'));
+'23050010'
+
+// Matching
+console.log(mkMatchWithMask('5,678.30'));
+true
+
+console.log(mkMatchWithMask('980.351,9345.10'));
+false
+
+console.log(mkMatchWithMask('1,900,800,300.50'));
+true
 ```
 
-### US phone number mask
-```javascript
-const mask = mkMask(
+### BR cellphone number mask
+```typescript
+const mask = mkCreate([
   mkCharToBePut('('),
-  mkCharRepeat(3, mkCharNum())),
+  mkCharBoostRepeat(2)(mkCharNum()),
   mkCharToBePut(')'),
   mkCharToBePut(' '),
-  mkCharRepeat(3, mkCharNum())),
+  mkCharBoostValueLengthGreaterThan({
+    masked: 14,
+    unmasked: 10
+  })(mkCharNum()),
+  mkCharBoostRepeat(4)(mkCharNum()),
   mkCharToBePut('-'),
-  mkCharRepeat(4, mkCharNum()))
-);
-const formatWithMask = mkMaskValue(
-  {
-    mask
-  }
-);
+  mkCharBoostRepeat(4)(mkCharNum())
+]);
 
-const value = '0123456789';
-const result = formatWithMask(value);
+const mkMaskValueWithMask = mkMaskValue(mask);
+const mkUnmaskValueWithMask = mkUnmaskValue(mask);
+const mkMatchWithMask = mkMatch(mask);
 
-console.log(result); // '(012) 345-6789';
+// Masking
+console.log(mkMaskValueWithMask('9912345678'));
+'(99) 1234-5678'
+
+console.log(mkMaskValueWithMask('99123456789'));
+'(99) 12345-6789'
+
+console.log(mkMaskValueWithMask('991234'));
+'(99) 1234'
+
+// Unmasking
+console.log(mkUnmaskValueWithMask('(11) 9876-5432'));
+'1198765432'
+
+console.log(mkUnmaskValueWithMask('(11) 98765-4321'));
+'11987654321'
+
+console.log(mkUnmaskValueWithMask('(1B) 98765-4321'));
+'1'
+
+// Matching
+console.log(mkMatchWithMask('(11) 9876-5432'));
+true
+
+console.log(mkMatchWithMask('(11) 98765-4321'));
+true
+
+console.log(mkMatchWithMask('(1B) 98765-4321'));
+false
 ```
