@@ -15,11 +15,11 @@
   },
   "homepage": "https://github.com/efreitasn/maskose/blob/master/packages/maskose/README.md",
   "scripts": {
-    "prebuild": "../../node_modules/rimraf/bin.js dist",
-    "build": "../../node_modules/rollup/bin/rollup -c ../../rollup.config.js",
-    "postbuild": "../../node_modules/dts-bundle-generator/bin/dts-bundle-generator.js -o dist/index.d.ts src/index.ts",
-    "test": "../../node_modules/jest/bin/jest.js",
-    "type-check": "../../node_modules/typescript/bin/tsc",
+    "prebuild": "../../node_modules/.bin/rimraf dist",
+    "build": "../../node_modules/.bin/rollup -c ../../rollup.config.js",
+    "postbuild": "../../node_modules/.bin/dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "test": "../../node_modules/.bin/jest",
+    "type-check": "../../node_modules/.bin/tsc",
     "debug-test": "node --inspect node_modules/.bin/jest --runInBand",
     "all-good": "yarn type-check && yarn test"
   },

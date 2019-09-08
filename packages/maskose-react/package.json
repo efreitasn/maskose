@@ -5,10 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prebuild": "../../node_modules/rimraf/bin.js dist",
-    "build": "../../node_modules/typescript/bin/tsc",
-    "test": "../../node_modules/jest/bin/jest.js",
-    "type-check": "../../node_modules/typescript/bin/tsc -p tsconfig.check.json",
+    "prebuild": "../../node_modules/.bin/rimraf dist",
+    "build": "../../node_modules/.bin/tsc",
+    "test": "../../node_modules/.bin/jest",
+    "type-check": "../../node_modules/.bin/tsc -p tsconfig.check.json",
     "storybook": "start-storybook"
   },
   "homepage": "https://github.com/efreitasn/maskose/blob/master/packages/maskose-react/README.md",
