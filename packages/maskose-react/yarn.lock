@@ -1579,8 +1579,8 @@ acorn-dynamic-import@^4.0.0:
   resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"
 
 acorn@^6.0.5:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
 
 address@1.0.3:
   version "1.0.3"
@@ -4746,9 +4746,9 @@ markdown-to-jsx@^6.9.1:
     prop-types "^15.6.2"
     unquote "^1.1.0"
 
-maskose@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/maskose/-/maskose-0.0.4.tgz#604caf22839add6a3687b9f7776cba7ec736d52b"
+maskose@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/maskose/-/maskose-0.0.5.tgz#ceb6b1e052f2a172ce85d02a305a6f6178f77a3b"
 
 md5.js@^1.3.4:
   version "1.3.5"
